@@ -1,0 +1,62 @@
+{
+  "input_rows": 1014,
+  "flag_counts": {
+    "usable_for_relevance": 805,
+    "usable_for_location": 805,
+    "usable_for_edit_type": 805,
+    "usable_for_generation": 784,
+    "strict_citation_field_match": 151,
+    "case_text_available": 706
+  },
+  "usable_for_location_by_guide": {
+    "99cd2ce32cf8": 93,
+    "154b01c3289a": 83,
+    "1900da194ee4": 74,
+    "e19a063de5b3": 70,
+    "4026b1621d4a": 56,
+    "96d370a07ab1": 54,
+    "1b1f8de345be": 42,
+    "7a059e452dbd": 32,
+    "415c8994e0ed": 30,
+    "e12c697e461c": 29,
+    "d5256ad78e38": 28,
+    "684d373b17e9": 22,
+    "22935893a6e6": 21,
+    "ed0ed05ac958": 20,
+    "0a61f8f7ceb0": 18,
+    "b8a991ab1181": 15,
+    "cfca8cb0bbc6": 15,
+    "2fbc08fc30bd": 13,
+    "e751e8063f8b": 11,
+    "41c295afbaa0": 8,
+    "7ff3d5fc46dd": 8,
+    "0bd62693ae9f": 7,
+    "54e38e09f96e": 7,
+    "acdaf72cea98": 7,
+    "dbfbd08a4477": 6,
+    "0faa41c7c031": 5,
+    "7b2999efc3b7": 5,
+    "a94e3bc7e2bf": 5,
+    "1d874b186d3e": 3,
+    "726c25db1ffb": 3,
+    "f1175c0d1e5c": 3,
+    "1e58f64bfb7a": 2,
+    "6d86f7b0f9c7": 2,
+    "762f0abff297": 2,
+    "8ad6b528df3f": 2,
+    "e8704f851a2b": 2,
+    "d24a9ac722de": 1,
+    "ee9a61e98635": 1
+  },
+  "usable_for_relevance_by_citation_change": {
+    "added": 784,
+    "removed": 21
+  },
+  "usable_for_relevance_by_importance": {
+    "1": 112,
+    "3": 556,
+    "4": 122,
+    "2": 7,
+    "": 8
+  }
+}

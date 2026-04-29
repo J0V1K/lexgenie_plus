@@ -1,0 +1,18 @@
+{
+  "citation_diff_rows": 1014,
+  "with_diff_pair": 1014,
+  "missing_diff_pair": 0,
+  "linked_rows": 805,
+  "unlinked_rows_existing_pair": 209,
+  "paragraph_rows": 1489,
+  "link_status_counts": {
+    "linked_paragraphs": 805,
+    "no_paragraph_link": 209
+  },
+  "match_strategy_counts": {
+    "citation_field_name_match": 412,
+    "paragraph_text_name_match": 792,
+    "citation_field_case_key": 151,
+    "paragraph_text_app_match": 2
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "input_unique_itemids": 602,
+  "status_counts": {
+    "ok": 495,
+    "http_500": 107
+  },
+  "ok_total_text_chars": 42468019,
+  "ok_median_text_chars": 60243,
+  "ok_min_text_chars": 748,
+  "ok_max_text_chars": 1009965,
+  "errors": [
+    {
+      "hudoc_itemid": "001-107897",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-110731",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-114834",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-160331",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-172476",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-173599",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-179871",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-196919",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-203493",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-212847",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-216702",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-223678",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-223873",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224045",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224048",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224194",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224238",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224737",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224797",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224805",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-224817",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225070",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225293",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225306",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225308",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225384",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225464",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225515",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225557",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225597",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225618",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-225966",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-226021",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-226091",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-226488",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-226548",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-226595",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-227660",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228103",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228105",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228129",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228331",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228334",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228345",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228346",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228733",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228739",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-228974",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-229120",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    },
+    {
+      "hudoc_itemid": "001-229253",
+      "status": "http_500",
+      "error": "HTTPError 500"
+    }
+  ]
+}

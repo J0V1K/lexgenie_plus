@@ -1,0 +1,2190 @@
+{
+  "comparison": {
+    "reference_pairs": 102,
+    "local_pairs": 103,
+    "shared_pairs": 101,
+    "exact_match_pairs": 65,
+    "changed_pairs": 36,
+    "reference_only_pairs": 1,
+    "local_only_pairs": 2,
+    "published_only_rows_across_shared_pairs": 63,
+    "cleaned_only_rows_across_shared_pairs": 49,
+    "reference_only_pair_examples": [
+      [
+        "154b01c3289a",
+        "20250126230921__Admissibility_guide_ENG.pdf",
+        "20250604184157__Admissibility_guide_ENG.pdf"
+      ]
+    ],
+    "local_only_pair_examples": [
+      [
+        "154b01c3289a",
+        "20250126230921__Admissibility_guide_ENG.pdf",
+        "20250413114857__Admissibility_guide_ENG.pdf"
+      ],
+      [
+        "154b01c3289a",
+        "20250413114857__Admissibility_guide_ENG.pdf",
+        "20250604184157__Admissibility_guide_ENG.pdf"
+      ]
+    ],
+    "changed_pair_examples": [
+      {
+        "guide_id": "0a61f8f7ceb0",
+        "from_snapshot": "20240613074526__guide_lgbti_rights_eng.pdf",
+        "to_snapshot": "20250612193940__guide_lgbti_rights_eng.pdf",
+        "reference_added": [
+          "A.K. v. Russia, no. 49014/16, 7 May 2024",
+          "Bazhenov and Semkin v. Russia*, nos. 8825/22 and 19130/22, 4 February 2025",
+          "Hanovs v. Latvia, no. 40861/22, 18 July 2024",
+          "Karter v. Ukraine, no. 18179/17, 11 April 2024",
+          "Klimova and Others v. Russia*, no. 33421/16 and 6 others, 4 February 2025",
+          "Minasyan and Others v. Armenia*, no. 59180/15, 7 January 2025",
+          "R.F. and Others v. Germany, no. 46808/16, 12 November 2024",
+          "Savinovskikh and Others v. Russia, no. 16206/19, 9 July 2024",
+          "Side by Side International Film Festival and Others v. Russia, no. 32678/18 and 2 others, 17 December",
+          "W.W. v. Poland, no. 31842/20, 11 July 2024",
+          "Yevstifeyev and Others v. Russia, no. 226/18 and 3 others, 3 December 2024"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "A.K. v. Russia, no. 49014/16, 7 May 2024",
+          "Bazhenov and Semkin v. Russia*, nos. 8825/22 and 19130/22, 4 February 2025",
+          "Hanovs v. Latvia, no. 40861/22, 18 July 2024",
+          "Karter v. Ukraine, no. 18179/17, 11 April 2024",
+          "Klimova and Others v. Russia*, no. 33421/16 and 6 others, 4 February 2025",
+          "Minasyan and Others v. Armenia*, no. 59180/15, 7 January 2025",
+          "R.F. and Others v. Germany, no. 46808/16, 12 November 2024",
+          "Savinovskikh and Others v. Russia, no. 16206/19, 9 July 2024",
+          "Side by Side International Film Festival and Others v. Russia, no. 32678/18 and 2 others, 17 December 2024",
+          "W.W. v. Poland, no. 31842/20, 11 July 2024",
+          "Yevstifeyev and Others v. Russia, no. 226/18 and 3 others, 3 December 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Side by Side International Film Festival and Others v. Russia, no. 32678/18 and 2 others, 17 December"
+        ],
+        "cleaned_only": [
+          "Side by Side International Film Festival and Others v. Russia, no. 32678/18 and 2 others, 17 December 2024"
+        ]
+      },
+      {
+        "guide_id": "0bd62693ae9f",
+        "from_snapshot": "20240807014915__guide_art_3_protocol_1_eng.pdf",
+        "to_snapshot": "20241030214015__guide_art_3_protocol_1_eng.pdf",
+        "reference_added": [
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22, 16 April",
+          "Kokëdhima v. Albania, no. 55159/16, 11 June 2024",
+          "Ždanoka v. Latvia (no. 2),* no. 42221/18, 25 July 2024"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22, 16 April 2024",
+          "Kokëdhima v. Albania, no. 55159/16, 11 June 2024",
+          "Ždanoka v. Latvia (no. 2),* no. 42221/18, 25 July 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22, 16 April"
+        ],
+        "cleaned_only": [
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22, 16 April 2024"
+        ]
+      },
+      {
+        "guide_id": "0bd62693ae9f",
+        "from_snapshot": "20241030214015__guide_art_3_protocol_1_eng.pdf",
+        "to_snapshot": "20251220163343__guide_art_3_protocol_1_eng.pdf",
+        "reference_added": [
+          "Bradshaw and Others v. the United Kingdom, no. 15653/22, 22 July 2025*",
+          "Costa i Rosselló and Others v. Spain (dec.), nos. 29780/20, 33702/20 and 48537/20, 11 February 2025",
+          "Golikov and Others v. Russia [Committee], no. 44131/18 and 12 others, 27 June 2024",
+          "Shlosberg v. Russia, no. 32648/22, 3 September 2024",
+          "Tomenko v. Ukraine, no. 79340/16, 10 July 2025*"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Bradshaw and Others v. the United Kingdom, no. 15653/22, 22 July 2025",
+          "Costa i Rosselló and Others v. Spain (dec.), nos. 29780/20, 33702/20 and 48537/20, 11 February 2025",
+          "Golikov and Others v. Russia [Committee], no. 44131/18 and 12 others, 27 June 2024",
+          "Shlosberg v. Russia, no. 32648/22, 3 September 2024",
+          "Tomenko v. Ukraine, no. 79340/16, 10 July 2025"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Bradshaw and Others v. the United Kingdom, no. 15653/22, 22 July 2025*",
+          "Tomenko v. Ukraine, no. 79340/16, 10 July 2025*"
+        ],
+        "cleaned_only": [
+          "Bradshaw and Others v. the United Kingdom, no. 15653/22, 22 July 2025",
+          "Tomenko v. Ukraine, no. 79340/16, 10 July 2025"
+        ]
+      },
+      {
+        "guide_id": "154b01c3289a",
+        "from_snapshot": "20230627221844__Admissibility_guide_ENG.pdf",
+        "to_snapshot": "20231027002911__Admissibility_guide_ENG.pdf",
+        "reference_added": [
+          "Gherardi Martiri v. San Marino, no. 35511/20, §§ 83-84, 15 December 2022",
+          "H.F. and Others v. France [GC], nos. 24384/19 and 44234/20, 14 September 2022",
+          "Hoppen and trade union of AB Amber Grid employees v. Lithuania, no. 976/20, § 153, 17 January",
+          "Kaganovskyy v. Ukraine, no. 2809/18, 15 September 2022",
+          "Khural and Zeynalov v. Azerbaijan (no. 2), no. 383/12, 19 January 2023",
+          "Makarashvili and Others v. Georgia, nos. 23158/20 and 2 others, 1 September 2022",
+          "Orhan v. Türkiye (dec.), no. 38358/22, 6 December 2022",
+          "P.C. v. Ireland, no. 26922/19, 1 September 2022",
+          "Sorbalo v. Moldova (dec.), no. 1210/10, 31 January 2023",
+          "Ukraine and the Netherlands v. Russia [GC] (dec.), nos. 8019/16, 43800/14 and 28525/20,"
+        ],
+        "reference_removed": [
+          "Ciobanu v. Romania (dec.), no. 52414/99, 16 December 2003",
+          "Cooperativa Agricola Slobozia-Hanesei v. Moldova, no. 39745/02, 3 April 2007",
+          "Dudek v. Germany (dec.), nos. 12977/09 and 4 others, 23 November 2010",
+          "Flisar v. Slovenia, no. 3127/09, 29 September 2011",
+          "Fomin v. Moldova, no. 36755/06, 11 October 2011",
+          "G.J. v. Luxembourg, no. 21156/93, 26 October 2000",
+          "Kaya and Polat v. Turkey (dec.), nos. 2794/05 and 40345/05, 21 October 2008",
+          "Selami and Others v. the former Yugoslav Republic of Macedonia, no. 67259/14, 9 February 2017",
+          "Strazimiri v. Albania, no. 34602/16, 21 January 2020"
+        ],
+        "local_added": [
+          "Gherardi Martiri v. San Marino, no. 35511/20, §§ 83-84, 15 December 2022",
+          "H.F. and Others v. France [GC], nos. 24384/19 and 44234/20, 14 September 2022",
+          "Hoppen and trade union of AB Amber Grid employees v. Lithuania, no. 976/20, § 153, 17 January 2023",
+          "Kaganovskyy v. Ukraine, no. 2809/18, 15 September 2022",
+          "Khural and Zeynalov v. Azerbaijan (no. 2), no. 383/12, 19 January 2023",
+          "Makarashvili and Others v. Georgia, nos. 23158/20 and 2 others, 1 September 2022",
+          "Orhan v. Türkiye (dec.), no. 38358/22, 6 December 2022",
+          "P.C. v. Ireland, no. 26922/19, 1 September 2022",
+          "Sorbalo v. Moldova (dec.), no. 1210/10, 31 January 2023",
+          "Ukraine and the Netherlands v. Russia [GC] (dec.), nos. 8019/16, 43800/14 and 28525/20, 30 November 2022"
+        ],
+        "local_removed": [
+          "Ciobanu v. Romania (dec.), no. 52414/99, 16 December 2003",
+          "Cooperativa Agricola Slobozia-Hanesei v. Moldova, no. 39745/02, 3 April 2007",
+          "Dudek v. Germany (dec.), nos. 12977/09 and 4 others, 23 November 2010",
+          "Flisar v. Slovenia, no. 3127/09, 29 September 2011",
+          "Fomin v. Moldova, no. 36755/06, 11 October 2011",
+          "G.J. v. Luxembourg, no. 21156/93, 26 October 2000",
+          "Kaya and Polat v. Turkey (dec.), nos. 2794/05 and 40345/05, 21 October 2008",
+          "Selami and Others v. the former Yugoslav Republic of Macedonia, no. 67259/14, 9 February 2017",
+          "Strazimiri v. Albania, no. 34602/16, 21 January 2020"
+        ],
+        "published_only": [
+          "Hoppen and trade union of AB Amber Grid employees v. Lithuania, no. 976/20, § 153, 17 January",
+          "Ukraine and the Netherlands v. Russia [GC] (dec.), nos. 8019/16, 43800/14 and 28525/20,"
+        ],
+        "cleaned_only": [
+          "Hoppen and trade union of AB Amber Grid employees v. Lithuania, no. 976/20, § 153, 17 January 2023",
+          "Ukraine and the Netherlands v. Russia [GC] (dec.), nos. 8019/16, 43800/14 and 28525/20, 30 November 2022"
+        ]
+      },
+      {
+        "guide_id": "154b01c3289a",
+        "from_snapshot": "20231212091045__Admissibility_guide_ENG.pdf",
+        "to_snapshot": "20250126230921__Admissibility_guide_ENG.pdf",
+        "reference_added": [
+          "Asgarova and Veselova v. Armenia (dec.), no. 24382/15, 12 September 2023",
+          "Blazheski v. North Macedonia (dec.), no. 38692/16, 4 July 2023",
+          "Boronenkov v. Ukraine (dec.), no. 9987/14, 2 April 2024",
+          "Boškoćević v. Serbia, no. 37364/10, 5 March 2024",
+          "Carême v. France [GC] (dec.), no. 7189/21, 9 April 2024",
+          "Gernelle and S.A. Société d’Exploitation de l’Hebdomadaire Le Point v. France (dec.), no. 18536/18,",
+          "Ghazaryan and Bayramyan v. Azerbaijan, 2023, no. 33050/18, 5 October 2023",
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22,",
+          "Hasanov and Others v. Azerbaijan (dec.), no. 2059/16 and 3 others, 12 September 2023",
+          "Leroy and Others v. France, nos. 32439/19 and 2 others, 18 April 2024",
+          "M.C. v. Türkiye, no. 31592/18, 4 June 2024",
+          "Mamić v. Croatia (dec.), no. 21714/22 and 2 others, 9 July 2024",
+          "Mehmet Zeki Doğan v. Türkiye (no. 2), no. 3324/19, 13 February 2024",
+          "Narbutas v. Lithuania, no. 14139/21, 19 December 2023",
+          "O.J. and J.O. v. Georgia and Russia, nos. 42126/15 and 42127/15, 19 December 2023",
+          "Petrović v. Serbia (dec.), nos. 56551/11 and 10 others, 18 October 2011",
+          "Tamazount and Others v. France, nos. 17131/19 and 4 others, 4 April 2024",
+          "Varyan v. Armenia, no. 48998/14, 4 June 2024",
+          "Vegotex International S.A. v. Belgium [GC], no. 49812/09, 3 November 2022",
+          "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], no. 53600/20, 9 April 2024",
+          "Victoria Cassar (dec.), no. 14179/21, 18 June 2024",
+          "Y.T. v. Bulgaria (revision), no. 41701/16, 4 July 2024"
+        ],
+        "reference_removed": [
+          "Communauté genevoise d’action syndicale (CGAS) v. Switzerland,* no. 21881/20, 15 March 2022"
+        ],
+        "local_added": [
+          "Asgarova and Veselova v. Armenia (dec.), no. 24382/15, 12 September 2023",
+          "Blazheski v. North Macedonia (dec.), no. 38692/16, 4 July 2023",
+          "Boronenkov v. Ukraine (dec.), no. 9987/14, 2 April 2024",
+          "Boškoćević v. Serbia, no. 37364/10, 5 March 2024",
+          "Carême v. France [GC] (dec.), no. 7189/21, 9 April 2024",
+          "Gernelle and S.A. Société d'Exploitation de l'Hebdomadaire Le Point v. France (dec.), no. 18536/18, §§ 50-54, 9 April 2024",
+          "Ghazaryan and Bayramyan v. Azerbaijan, 2023, no. 33050/18, 5 October 2023",
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22, 16 April 2024",
+          "Hasanov and Others v. Azerbaijan (dec.), no. 2059/16 and 3 others, 12 September 2023",
+          "Leroy and Others v. France, nos. 32439/19 and 2 others, 18 April 2024",
+          "M.C. v. Türkiye, no. 31592/18, 4 June 2024",
+          "Mamić v. Croatia (dec.), no. 21714/22 and 2 others, 9 July 2024",
+          "Mehmet Zeki Doğan v. Türkiye (no. 2), no. 3324/19, 13 February 2024",
+          "Narbutas v. Lithuania, no. 14139/21, 19 December 2023",
+          "O.J. and J.O. v. Georgia and Russia, nos. 42126/15 and 42127/15, 19 December 2023",
+          "Petrović v. Serbia (dec.), nos. 56551/11 and 10 others, 18 October 2011",
+          "Tamazount and Others v. France, nos. 17131/19 and 4 others, 4 April 2024",
+          "Varyan v. Armenia, no. 48998/14, 4 June 2024",
+          "Vegotex International S.A. v. Belgium [GC], no. 49812/09, 3 November 2022",
+          "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], no. 53600/20, 9 April 2024",
+          "Victoria Cassar (dec.), no. 14179/21, 18 June 2024",
+          "Y.T. v. Bulgaria (revision), no. 41701/16, 4 July 2024"
+        ],
+        "local_removed": [
+          "Communauté genevoise d'action syndicale (CGAS) v. Switzerland,* no. 21881/20, 15 March 2022"
+        ],
+        "published_only": [
+          "Communauté genevoise d’action syndicale (CGAS) v. Switzerland,* no. 21881/20, 15 March 2022",
+          "Gernelle and S.A. Société d’Exploitation de l’Hebdomadaire Le Point v. France (dec.), no. 18536/18,",
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22,"
+        ],
+        "cleaned_only": [
+          "Communauté genevoise d'action syndicale (CGAS) v. Switzerland,* no. 21881/20, 15 March 2022",
+          "Gernelle and S.A. Société d'Exploitation de l'Hebdomadaire Le Point v. France (dec.), no. 18536/18, §§ 50-54, 9 April 2024",
+          "Guðmundur Gunnarsson and Magnús Davíð Norðdahl v. Iceland, nos. 24159/22 and 25751/22, 16 April 2024"
+        ]
+      },
+      {
+        "guide_id": "154b01c3289a",
+        "from_snapshot": "20250604184157__Admissibility_guide_ENG.pdf",
+        "to_snapshot": "20251202174715__Admissibility_guide_ENG.pdf",
+        "reference_added": [
+          "Bogdan Shevchuk v. Ukraine, no. 55737/16, 24 April 2025",
+          "Cangı and Others v. Türkiye (no. 2), no. 65087/19, 8 July 2025",
+          "Cioffi v. Italy, no. 17710/15, 5 June 2025",
+          "Darko Špehar v. Croatia and Danijel Gojković v. Croatia (dec.), nos. 7535/21 and 58894/21, 8 July",
+          "Garand and Others v. France, no. 2474/21, 6 March 2025",
+          "Girginova v. Bulgaria, no. 4326/18, 4 March 2025",
+          "Gündüz v. Türkiye (dec.), no. 3473/19, 29 April 2025",
+          "Jewish Community of Thessaloniki v. Greece, no. 13959/20, 6 May 2025",
+          "K.M. v. North Macedonia, no. 59144/16, 4 March 2025",
+          "Kotnik and Jukič v. Slovenia (dec.), nos. 56605/19 and 25424/23, 11 February 2025",
+          "Kári Orrason and Others v. Iceland, nos. 29791/21 and 2 others, 27 May 2025",
+          "Lembergs v. Latvia (dec.), no. 3613/19, 6 May 2025",
+          "Mamaladze v. Georgia (dec.), 5855/23, 17 June 2025",
+          "Mansouri v. Italy (dec.) [GC], no. 63386/16, 29 April 2025",
+          "Masse v. France (dec.), no 47506/20, 25 March 2025",
+          "Milashina and Others v. Russia, no. 75000/17, 4 March 2025",
+          "Paic v. Sweden and Wernersson v. Sweden (dec.), nos. 12908/23 and 24544/23, 20 May 2025",
+          "Seksimp Group SRL v. the Republic of Moldova, no. 30085/13, 15 May 2025",
+          "Selahattin Demirtaş v. Türkiye (no. 4), no. 13609/20, 8 July 2025",
+          "Semenya v. Switzerland [GC], no. 10934/21, 10 July 2025",
+          "Taşdemir v. Türkiye (dec.), no. 79549/16, 25 March 2025",
+          "Wulffaert and Wulffaert Beheer NV v. Belgium, no. 76634/16, 10 July 2025"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Bogdan Shevchuk v. Ukraine, no. 55737/16, 24 April 2025",
+          "Cangı and Others v. Türkiye (no. 2), no. 65087/19, 8 July 2025",
+          "Cioffi v. Italy, no. 17710/15, 5 June 2025",
+          "Darko Špehar v. Croatia and Danijel Gojković v. Croatia (dec.), nos. 7535/21 and 58894/21, 8 July 2025",
+          "Farhad Mehdiyev c. Azerbaïdjan, no 36057/18, 18 March 2025",
+          "Garand and Others v. France, no. 2474/21, 6 March 2025",
+          "Girginova v. Bulgaria, no. 4326/18, 4 March 2025",
+          "Gündüz v. Türkiye (dec.), no. 3473/19, 29 April 2025",
+          "Jewish Community of Thessaloniki v. Greece, no. 13959/20, 6 May 2025",
+          "K.M. v. North Macedonia, no. 59144/16, 4 March 2025",
+          "Kotnik and Jukič v. Slovenia (dec.), nos. 56605/19 and 25424/23, 11 February 2025",
+          "Kári Orrason and Others v. Iceland, nos. 29791/21 and 2 others, 27 May 2025",
+          "Lembergs v. Latvia (dec.), no. 3613/19, 6 May 2025",
+          "Mamaladze v. Georgia (dec.), 5855/23, 17 June 2025",
+          "Mansouri v. Italy (dec.) [GC], no. 63386/16, 29 April 2025",
+          "Masse v. France (dec.), no 47506/20, 25 March 2025",
+          "Milashina and Others v. Russia, no. 75000/17, 4 March 2025",
+          "Paic v. Sweden and Wernersson v. Sweden (dec.), nos. 12908/23 and 24544/23, 20 May 2025",
+          "Seksimp Group SRL v. the Republic of Moldova, no. 30085/13, 15 May 2025",
+          "Selahattin Demirtaş v. Türkiye (no. 4), no. 13609/20, 8 July 2025",
+          "Semenya v. Switzerland [GC], no. 10934/21, 10 July 2025",
+          "Taşdemir v. Türkiye (dec.), no. 79549/16, 25 March 2025",
+          "Wulffaert and Wulffaert Beheer NV v. Belgium, no. 76634/16, 10 July 2025"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Darko Špehar v. Croatia and Danijel Gojković v. Croatia (dec.), nos. 7535/21 and 58894/21, 8 July"
+        ],
+        "cleaned_only": [
+          "Darko Špehar v. Croatia and Danijel Gojković v. Croatia (dec.), nos. 7535/21 and 58894/21, 8 July 2025",
+          "Farhad Mehdiyev c. Azerbaïdjan, no 36057/18, 18 March 2025"
+        ]
+      },
+      {
+        "guide_id": "1900da194ee4",
+        "from_snapshot": "20230912000014__guide_art_10_eng.pdf",
+        "to_snapshot": "20240930062921__guide_art_10_eng.pdf",
+        "reference_added": [
+          "Allée v. France, no. 20725/20, 18 January 2024",
+          "Altın v. Turkey (dec.), no. 39822/98, 6 April 2000",
+          "Ana Ioniţă v. Romania, no. 30655/09, 21 March 2017",
+          "Azadliq and Zayidov v. Azerbaijan, no. 20755/08, 30 June 2022",
+          "Balenović v. Croatia (dec.), no. 28369/07, 30 September 2010;",
+          "Bathellier v. France (dec.), no. 49001/07, 12 October 2010",
+          "Biancardi v. Italy, no. 77419/16, 25 November 2021",
+          "Bild GmbH & Co. KG v. Germany, no. 9602/18, 31 October 2023",
+          "Catalan v. Romania, no. 13003/04, 9 January 2018",
+          "Dede c. Türkiye, no. 48340/20, 20 February 2024",
+          "Drozd v. Poland, no. 15158/19, 6 April 2023",
+          "Eigirdas and VĮ “Demokratijos plėtros fondas” v. Lithuania, nos. 84048/17 and 84051/17,",
+          "Fragoso Dacosta v. Spain, no. 27926/21, 8 June 2023",
+          "Gapoņenko v. Latvia (dec.), no. 30237/18, 23 May 2023",
+          "Gaspari v. Armenia (no. 2), no. 67783/13, 11 July 2023",
+          "Glukhin v. Russia, no. 1519/20, 4 July 2023",
+          "Gollnisch v. France (dec.), no. 48135/08, 7 June 2011",
+          "Guz v. Poland, no. 965/12, 15 October 2020",
+          "Hurbain v. Belgium [GC], no. 57292/16, 4 July 2023",
+          "Jhangiryan v. Armenia (dec.), no. 8696/09, 5 February 2013",
+          "Karaca v. Türkiye, no. 25285/15, 20 June 2023",
+          "Kern v. German (dec.), no. 26870/04, 29 May 2007",
+          "Kunitsyna v. Russia, no. 9406/05, 13 December 2016",
+          "Makraduli v. the former Yugoslav Republic of Macedonia, nos. 64659/11 and 24133/13, 19 July 2018",
+          "Manole v. the Republic of Moldova, no. 26360/19, 18 July 2023",
+          "Margari v. Greece, no. 36705/16, 20 June 2023",
+          "Marunić v. Croatia, no. 51706/11, 28 March 2017",
+          "Mesić v. Croatia (no. 2), no. 45066/17, 30 May 2023",
+          "Mestan v. Bulgaria, no. 24108/15, 2 May 2023",
+          "Miroslava Todorova v. Bulgaria, no. 40072/13, 19 October 2021",
+          "Mitov and Others v. Bulgaria (dec.), no. 80857/17, 28 February 2023",
+          "Otto v. Germany (dec.), no. 27574/02, 24 November 2005",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06, 28957/06, 28959/06 and 28964/06,",
+          "Peev v. Bulgaria, no. 64209/01, 26 July 2007",
+          "Petersen v. Germany (dec.), no. 39793/98, 22 November 2001",
+          "Radio Broadcasting Company B92 AD v. Serbia, no. 67369/16, 5 September 2023",
+          "Ramadan v. France (dec.), no. 23443/23, 9 January 2024",
+          "Rogalski v. Poland, no. 5420/16, 23 March 2023",
+          "Rujak v. Croatia (dec.), no. 57942/10, 2 October 2012",
+          "SIC - Sociedade Independente de Comunicação v. Portugal, no. 29856/13, 27 July 2021",
+          "Sanchez v. France [GC], no. 45581/15, 15 May 2023",
+          "Skwirut v. Poland (dec.), no. 11002/07, 4 November 2014",
+          "Staniszewski v. Poland, no. 20422/15, 14 October 2021",
+          "Sàrl Gator v. Monaco, no. 18287/18, 11 May 2023",
+          "Udovychenko v. Ukraine, no. 46396/14, 23 March 2023",
+          "Zhablyanov v. Bulgaria, no. 36658/18, 27 June 2023"
+        ],
+        "reference_removed": [
+          "Altintaş v. Turkey, no. 50495/08, 10 March 2020",
+          "Bartnik v. Poland (dec.) [committee], no. 53628/10, 11 March 2014",
+          "Clavel v. Switzerland, no. 11854/85, Commission decision of 15 October 1987, Decisions and",
+          "Craxi v. Italy (no. 1), no. 34896/97, 5 December 2002",
+          "Grebneva and Alisimchik v. Russia, no. 8918/05, 22 November 2011",
+          "Grupo Interpres SA v. Spain, no. 32849/96, Commission decision of 7 April 1997, Decisions and"
+        ],
+        "local_added": [
+          "Allée v. France, no. 20725/20, 18 January 2024",
+          "Altın v. Turkey (dec.), no. 39822/98, 6 April 2000",
+          "Ana Ioniţă v. Romania, no. 30655/09, 21 March 2017",
+          "Azadliq and Zayidov v. Azerbaijan, no. 20755/08, 30 June 2022",
+          "Balenović v. Croatia (dec.), no. 28369/07, 30 September 2010;",
+          "Bathellier v. France (dec.), no. 49001/07, 12 October 2010",
+          "Biancardi v. Italy, no. 77419/16, 25 November 2021",
+          "Bild GmbH & Co. KG v. Germany, no. 9602/18, 31 October 2023",
+          "Catalan v. Romania, no. 13003/04, 9 January 2018",
+          "Dede c. Türkiye, no. 48340/20, 20 February 2024",
+          "Drozd v. Poland, no. 15158/19, 6 April 2023",
+          "Eigirdas and VĮ \"Demokratijos plėtros fondas\" v. Lithuania, nos. 84048/17 and 84051/17, 12 September 2023",
+          "Fragoso Dacosta v. Spain, no. 27926/21, 8 June 2023",
+          "Gapoņenko v. Latvia (dec.), no. 30237/18, 23 May 2023",
+          "Gaspari v. Armenia (no. 2), no. 67783/13, 11 July 2023",
+          "Glukhin v. Russia, no. 1519/20, 4 July 2023",
+          "Gollnisch v. France (dec.), no. 48135/08, 7 June 2011",
+          "Guz v. Poland, no. 965/12, 15 October 2020",
+          "Hurbain v. Belgium [GC], no. 57292/16, 4 July 2023",
+          "Jhangiryan v. Armenia (dec.), no. 8696/09, 5 February 2013",
+          "Karaca v. Türkiye, no. 25285/15, 20 June 2023",
+          "Kern v. German (dec.), no. 26870/04, 29 May 2007",
+          "Kunitsyna v. Russia, no. 9406/05, 13 December 2016",
+          "Makraduli v. the former Yugoslav Republic of Macedonia, nos. 64659/11 and 24133/13, 19 July 2018",
+          "Manole v. the Republic of Moldova, no. 26360/19, 18 July 2023",
+          "Margari v. Greece, no. 36705/16, 20 June 2023",
+          "Marunić v. Croatia, no. 51706/11, 28 March 2017",
+          "Mesić v. Croatia (no. 2), no. 45066/17, 30 May 2023",
+          "Mestan v. Bulgaria, no. 24108/15, 2 May 2023",
+          "Miroslava Todorova v. Bulgaria, no. 40072/13, 19 October 2021",
+          "Mitov and Others v. Bulgaria (dec.), no. 80857/17, 28 February 2023",
+          "Otto v. Germany (dec.), no. 27574/02, 24 November 2005",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06, 28957/06, 28959/06 and 28964/06, 12 September 2011",
+          "Peev v. Bulgaria, no. 64209/01, 26 July 2007",
+          "Petersen v. Germany (dec.), no. 39793/98, 22 November 2001",
+          "Radio Broadcasting Company B92 AD v. Serbia, no. 67369/16, 5 September 2023",
+          "Ramadan v. France (dec.), no. 23443/23, 9 January 2024",
+          "Rogalski v. Poland, no. 5420/16, 23 March 2023",
+          "Rujak v. Croatia (dec.), no. 57942/10, 2 October 2012",
+          "SIC - Sociedade Independente de Comunicação v. Portugal, no. 29856/13, 27 July 2021",
+          "Sanchez v. France [GC], no. 45581/15, 15 May 2023",
+          "Skwirut v. Poland (dec.), no. 11002/07, 4 November 2014",
+          "Staniszewski v. Poland, no. 20422/15, 14 October 2021",
+          "Sàrl Gator v. Monaco, no. 18287/18, 11 May 2023",
+          "Udovychenko v. Ukraine, no. 46396/14, 23 March 2023",
+          "Zhablyanov v. Bulgaria, no. 36658/18, 27 June 2023"
+        ],
+        "local_removed": [
+          "Altintaş v. Turkey, no. 50495/08, 10 March 2020",
+          "Bartnik v. Poland (dec.) [committee], no. 53628/10, 11 March 2014",
+          "Clavel v. Switzerland, no. 11854/85, Commission decision of 15 October 1987, Decisions and Reports 54",
+          "Craxi v. Italy (no. 1), no. 34896/97, 5 December 2002",
+          "Grebneva and Alisimchik v. Russia, no. 8918/05, 22 November 2011",
+          "Grupo Interpres SA v. Spain, no. 32849/96, Commission decision of 7 April 1997, Decisions and Reports 89"
+        ],
+        "published_only": [
+          "Clavel v. Switzerland, no. 11854/85, Commission decision of 15 October 1987, Decisions and",
+          "Eigirdas and VĮ “Demokratijos plėtros fondas” v. Lithuania, nos. 84048/17 and 84051/17,",
+          "Grupo Interpres SA v. Spain, no. 32849/96, Commission decision of 7 April 1997, Decisions and",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06, 28957/06, 28959/06 and 28964/06,"
+        ],
+        "cleaned_only": [
+          "Clavel v. Switzerland, no. 11854/85, Commission decision of 15 October 1987, Decisions and Reports 54",
+          "Eigirdas and VĮ \"Demokratijos plėtros fondas\" v. Lithuania, nos. 84048/17 and 84051/17, 12 September 2023",
+          "Grupo Interpres SA v. Spain, no. 32849/96, Commission decision of 7 April 1997, Decisions and Reports 89",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06, 28957/06, 28959/06 and 28964/06, 12 September 2011"
+        ]
+      },
+      {
+        "guide_id": "1900da194ee4",
+        "from_snapshot": "20240930062921__guide_art_10_eng.pdf",
+        "to_snapshot": "20250115221400__guide_art_10_eng.pdf",
+        "reference_added": [
+          "Almeida Arroja v. Portugal, no. 47238/19, 19 March 2024",
+          "Bielau v. Austria, no. 20007/22, 27 August 2024",
+          "Cox v. Turkey, no. 2933/03, 20 May 2010",
+          "Hrachya Harutyunyan v. Armenia, no. 15028/16, 27 August 2024",
+          "Kirkorov v. Lithuania (dec.), no. 12174/22, 19 March 2024",
+          "Lutgen v. Luxembourg, no. 36681/23, 16 May 2024",
+          "Marin Kostov v. Bulgaria, no. 13801/07, 24 July 2012",
+          "Mura v. Poland (dec.), no. 42442/08, 9 May 2016",
+          "Mária Somogyi v. Hungary, no. 15076/17, 16 May 2024",
+          "Müdür Duman v. Turkey, no. 15450/03, 6 octobre 2015",
+          "National Youth Council of Moldova v. the Republic of Moldova, no. 15379/13, 25 June 2024",
+          "Petropavlovskis v. Latvia, no. 44230/06, ECHR 2015",
+          "RFE/RL Inc. and Others v. Azerbaijan, nos. 56138/18 and 3 others, 13 June 2024",
+          "Ringier Axel Springer Slovakia, a.s. v. Slovakia (no. 4), no. 26826/16, 23 September 2021",
+          "Savelyev v. Russia (dec.), no. 42982/08, 21 May 2019",
+          "Sieć Obywatelska Watchdog Polska v. Poland, no. 10103/20, 21 March 2024",
+          "Suprun and Others v. Russia, nos. 58029/12 and 4 others, 18 June 2024"
+        ],
+        "reference_removed": [
+          "Leander v. Sweden, 26 March 1987, Series A no. 116",
+          "Loersch and Nouvelle Association du Courrier v. Switzerland, nos. 23868/94 and 23869/94,",
+          "Loiseau v. France (dec.), no. 46809/99, ECHR 2003 XII (extracts)",
+          "Marinova and Others v. Bulgaria, nos. 33502/07, 30599/10 and 2 Others, 12 July 2016",
+          "Nurminen and Others v. Finland, no. 27881/95, Commission decision of 26 February 1997",
+          "Roche v. the United Kingdom [GC], no. 32555/96, ECHR 2005-X",
+          "Rodina v. Latvia, nos. 48534/10 and 19532/15, 14 May 2020",
+          "Sdružení Jihočeské Matky v. the Czech Republic (dec.), no. 19101/03, 10 July 2006",
+          "Tele 1 Privatfernsehgesellschaft mbH v. Austria, no. 32240/96, 21 September 2000",
+          "Viorel Burzo v. Romania, nos. 75109/01 and 12639/02, 30 June 2009"
+        ],
+        "local_added": [
+          "Almeida Arroja v. Portugal, no. 47238/19, 19 March 2024",
+          "Bielau v. Austria, no. 20007/22, 27 August 2024",
+          "Cox v. Turkey, no. 2933/03, 20 May 2010",
+          "Hrachya Harutyunyan v. Armenia, no. 15028/16, 27 August 2024",
+          "Kirkorov v. Lithuania (dec.), no. 12174/22, 19 March 2024",
+          "Lutgen v. Luxembourg, no. 36681/23, 16 May 2024",
+          "Marin Kostov v. Bulgaria, no. 13801/07, 24 July 2012",
+          "Mura v. Poland (dec.), no. 42442/08, 9 May 2016",
+          "Mária Somogyi v. Hungary, no. 15076/17, 16 May 2024",
+          "Müdür Duman v. Turkey, no. 15450/03, 6 octobre 2015",
+          "National Youth Council of Moldova v. the Republic of Moldova, no. 15379/13, 25 June 2024",
+          "Petropavlovskis v. Latvia, no. 44230/06, ECHR 2015",
+          "RFE/RL Inc. and Others v. Azerbaijan, nos. 56138/18 and 3 others, 13 June 2024",
+          "Ringier Axel Springer Slovakia, a.s. v. Slovakia (no. 4), no. 26826/16, 23 September 2021",
+          "Savelyev v. Russia (dec.), no. 42982/08, 21 May 2019",
+          "Sieć Obywatelska Watchdog Polska v. Poland, no. 10103/20, 21 March 2024",
+          "Suprun and Others v. Russia, nos. 58029/12 and 4 others, 18 June 2024"
+        ],
+        "local_removed": [
+          "Leander v. Sweden, 26 March 1987, Series A no. 116",
+          "Loersch and Nouvelle Association du Courrier v. Switzerland, nos. 23868/94 and 23869/94, Commission decision of 24 February 1995, Decisions and Reports 80",
+          "Loiseau v. France (dec.), no. 46809/99, ECHR 2003 XII (extracts)",
+          "Marinova and Others v. Bulgaria, nos. 33502/07, 30599/10 and 2 Others, 12 July 2016",
+          "Nurminen and Others v. Finland, no. 27881/95, Commission decision of 26 February 1997",
+          "Roche v. the United Kingdom [GC], no. 32555/96, ECHR 2005-X",
+          "Rodina v. Latvia, nos. 48534/10 and 19532/15, 14 May 2020",
+          "Sdružení Jihočeské Matky v. the Czech Republic (dec.), no. 19101/03, 10 July 2006",
+          "Tele 1 Privatfernsehgesellschaft mbH v. Austria, no. 32240/96, 21 September 2000",
+          "Viorel Burzo v. Romania, nos. 75109/01 and 12639/02, 30 June 2009"
+        ],
+        "published_only": [
+          "Loersch and Nouvelle Association du Courrier v. Switzerland, nos. 23868/94 and 23869/94,"
+        ],
+        "cleaned_only": [
+          "Loersch and Nouvelle Association du Courrier v. Switzerland, nos. 23868/94 and 23869/94, Commission decision of 24 February 1995, Decisions and Reports 80"
+        ]
+      },
+      {
+        "guide_id": "1900da194ee4",
+        "from_snapshot": "20250115221400__guide_art_10_eng.pdf",
+        "to_snapshot": "20250918162301__guide_art_10_eng.pdf",
+        "reference_added": [
+          "Aghajanyan v. Armenia, no. 41675/12, 8 October 2024",
+          "Alexandru Pătraşcu v. Romania, no. 1847/21, 7 January 2025",
+          "Appleby and Others v. the United Kingdom, no. 44306/98, 6 May 2003",
+          "Boronyák v. Hungary, no. 4110/20; 20 June 2024",
+          "Borzykh v. Ukraine (dec.), no. 11575/24, 19 November 2024",
+          "Costa i Rosselló and Others v. Spain (dec.), nos. 29780/20 and 3 other applications, 11 February 2025",
+          "Gaši and Others v. Serbia, no. 24738/19, 6 September 2022",
+          "Kobaliya and Others v. Russia, nos. 39446/16 and 106 others, 22 October 2024",
+          "Objective Television and Radio Broadcasting Company and Others v. Azerbaijan, no. 257/12,",
+          "P. v. Poland, no. 56310/15, 13 February 2025",
+          "Side by Side International Film Festival and Others v. Russia, nos. 32678/18 and 2 others,"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Aghajanyan v. Armenia, no. 41675/12, 8 October 2024",
+          "Alexandru Pătraşcu v. Romania, no. 1847/21, 7 January 2025",
+          "Appleby and Others v. the United Kingdom, no. 44306/98, 6 May 2003",
+          "Boronyák v. Hungary, no. 4110/20; 20 June 2024",
+          "Borzykh v. Ukraine (dec.), no. 11575/24, 19 November 2024",
+          "Costa i Rosselló and Others v. Spain (dec.), nos. 29780/20 and 3 other applications, 11 February 2025",
+          "Gaši and Others v. Serbia, no. 24738/19, 6 September 2022",
+          "Kobaliya and Others v. Russia, nos. 39446/16 and 106 others, 22 October 2024",
+          "Objective Television and Radio Broadcasting Company and Others v. Azerbaijan, no. 257/12, 18 February 2025",
+          "P. v. Poland, no. 56310/15, 13 February 2025",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06 and 3 others, 12 September 2011",
+          "Side by Side International Film Festival and Others v. Russia, nos. 32678/18 and 2 others, 17 December 2024"
+        ],
+        "local_removed": [
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06, 28957/06, 28959/06 and 28964/06, 12 September 2011"
+        ],
+        "published_only": [
+          "Objective Television and Radio Broadcasting Company and Others v. Azerbaijan, no. 257/12,",
+          "Side by Side International Film Festival and Others v. Russia, nos. 32678/18 and 2 others,"
+        ],
+        "cleaned_only": [
+          "Objective Television and Radio Broadcasting Company and Others v. Azerbaijan, no. 257/12, 18 February 2025",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06 and 3 others, 12 September 2011",
+          "Palomo Sánchez and Others v. Spain [GC], nos. 28955/06, 28957/06, 28959/06 and 28964/06, 12 September 2011",
+          "Side by Side International Film Festival and Others v. Russia, nos. 32678/18 and 2 others, 17 December 2024"
+        ]
+      },
+      {
+        "guide_id": "1b1f8de345be",
+        "from_snapshot": "20230923134648__guide_art_1_protocol_1_eng.pdf",
+        "to_snapshot": "20240217094618__guide_art_1_protocol_1_eng.pdf",
+        "reference_added": [
+          "Alif Ahmadov and Others v. Azerbaijan, no. 22619/14, 4 May 2023",
+          "Bagirova and Others v. Azerbaijan, nos. 37706/17 and 5 others, 31 August 2023",
+          "Kubát and Others v. the Czech Republic, nos. 61721/19, 5496/20, 21318/20, 33522/20, 43039/20,",
+          "Petrescu and Others v. Romania (dec.), no. 31390/18 and 9 others, 7 March 2023",
+          "S.C. Zorina International S.R.L. v. Romania, no. 15553/15, 27 June 2023",
+          "UAB AmberCore DC and UAB Arcus Novus v. Lithuania, no. 56774/18, 13 June 2023",
+          "Zaghini v. San Marino, no. 3405/21, 11 May 2023"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Alif Ahmadov and Others v. Azerbaijan, no. 22619/14, 4 May 2023",
+          "Bagirova and Others v. Azerbaijan, nos. 37706/17 and 5 others, 31 August 2023",
+          "Kubát and Others v. the Czech Republic, nos. 61721/19, 5496/20, 21318/20, 33522/20, 43039/20, 55448/20, 22 June 2023.",
+          "Petrescu and Others v. Romania (dec.), no. 31390/18 and 9 others, 7 March 2023",
+          "S.C. Zorina International S.R.L. v. Romania, no. 15553/15, 27 June 2023",
+          "UAB AmberCore DC and UAB Arcus Novus v. Lithuania, no. 56774/18, 13 June 2023",
+          "Zaghini v. San Marino, no. 3405/21, 11 May 2023"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Kubát and Others v. the Czech Republic, nos. 61721/19, 5496/20, 21318/20, 33522/20, 43039/20,"
+        ],
+        "cleaned_only": [
+          "Kubát and Others v. the Czech Republic, nos. 61721/19, 5496/20, 21318/20, 33522/20, 43039/20, 55448/20, 22 June 2023."
+        ]
+      },
+      {
+        "guide_id": "1b1f8de345be",
+        "from_snapshot": "20240217094618__guide_art_1_protocol_1_eng.pdf",
+        "to_snapshot": "20240828212851__guide_art_1_protocol_1_eng.pdf",
+        "reference_added": [
+          "Andrzej Ruciński v. Poland, no. 22716/12, 5 October 2023",
+          "BCR Banca pentru locuințe S.A. v. Romania, (dec.), no. 4558/20, 11 January 2024",
+          "Bernotas v. Lithuania, no. 59065/21, 30 January 2024",
+          "Brazauskienė v. Lithuania (dec.), no. 71200/17, 18 January 2024",
+          "Eólica de S. Julião, Lda v. Portugal (dec.), no. 33545/14, 8 February 2024",
+          "Gyulumyan and Others v. Armenia (dec.) no.25240/20, 7 December 2023",
+          "Jarre v. France, no. 14157/18, 15 February 2024",
+          "Locascia and Others v. Italy, no. 35648/10, 19 October 2023",
+          "Naskov and Others v. North Macedonia, nos. 31620/15 and 2 others, 12 December 2023",
+          "Salento Energy S.r.l. and Nuovo Sole S.r.l. v. Italy (dec.), nos. 20445/15 and 59246/17, 1 February",
+          "Sàrl Couttolenc Frères v. France, no. 24300/20, 5 October 2023",
+          "Waldner v. France, no. 26604/16, 7 December 2023",
+          "Wiegandová v. the Czech Republic, no. 51391/19, 11 January 2024",
+          "v. Romania, nos. 46201/16 and 47379/18, 28 November 2023"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Andrzej Ruciński v. Poland, no. 22716/12, 5 October 2023",
+          "Associations of Communally-owned Forestry Proprietors Porceni Pleșa and Piciorul Bătrân Banciu v. Romania, nos. 46201/16 and 47379/18, 28 November 2023",
+          "BCR Banca pentru locuințe S.A. v. Romania, (dec.), no. 4558/20, 11 January 2024",
+          "Bernotas v. Lithuania, no. 59065/21, 30 January 2024",
+          "Brazauskienė v. Lithuania (dec.), no. 71200/17, 18 January 2024",
+          "Eólica de S. Julião, Lda v. Portugal (dec.), no. 33545/14, 8 February 2024",
+          "Gyulumyan and Others v. Armenia (dec.) no.25240/20, 7 December 2023",
+          "Jarre v. France, no. 14157/18, 15 February 2024",
+          "Locascia and Others v. Italy, no. 35648/10, 19 October 2023",
+          "Naskov and Others v. North Macedonia, nos. 31620/15 and 2 others, 12 December 2023",
+          "National & Provincial Building Society, Leeds Permanent Building Society and Yorkshire Building",
+          "Salento Energy S.r.l. and Nuovo Sole S.r.l. v. Italy (dec.), nos. 20445/15 and 59246/17, 1 February 2024",
+          "Sàrl Couttolenc Frères v. France, no. 24300/20, 5 October 2023",
+          "Waldner v. France, no. 26604/16, 7 December 2023",
+          "Wiegandová v. the Czech Republic, no. 51391/19, 11 January 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Salento Energy S.r.l. and Nuovo Sole S.r.l. v. Italy (dec.), nos. 20445/15 and 59246/17, 1 February",
+          "v. Romania, nos. 46201/16 and 47379/18, 28 November 2023"
+        ],
+        "cleaned_only": [
+          "Associations of Communally-owned Forestry Proprietors Porceni Pleșa and Piciorul Bătrân Banciu v. Romania, nos. 46201/16 and 47379/18, 28 November 2023",
+          "National & Provincial Building Society, Leeds Permanent Building Society and Yorkshire Building",
+          "Salento Energy S.r.l. and Nuovo Sole S.r.l. v. Italy (dec.), nos. 20445/15 and 59246/17, 1 February 2024"
+        ]
+      },
+      {
+        "guide_id": "1b1f8de345be",
+        "from_snapshot": "20240828212851__guide_art_1_protocol_1_eng.pdf",
+        "to_snapshot": "20250612193940__guide_art_1_protocol_1_eng.pdf",
+        "reference_added": [
+          "Alperin v. Ukraine, no. 41028/20, 10 October 2024",
+          "Amerisoc Center S.R.L. v. Luxembourg, no. 50527/20, 17 October 2024",
+          "Drozdyk and Mikula v. Ukraine, nos. 27849/15 and 33358/15, 24 October 2024",
+          "Energyworks Cartagena S.L. v. Spain (dec.), no. 75088/17, 26 mars 2024",
+          "Episcopo and Bassani v. Italy, nos. 47284/16 and 84604/17, 19 December 2024",
+          "Immoreks Makedonija Doo Skopje v. North Macedonia (dec.), no. 25311/17, 24 September 2024",
+          "Ioannides v. Cyprus, no. 32879/18, 16 January 2025",
+          "Mandev and Others v. Bulgaria, nos. 57002/11 and 4 others, 21 May 2024",
+          "Melandri v. San Marino, no. 25189/21, 12 September 2024",
+          "Panfile v. Romania (dec.), no. 13902/11, 20 March 2012",
+          "Rustamkhanli v. Azerbaijan, no. 24460/16, 4 July 2024",
+          "Tamazount and others v. France, nos. 17131/19 and 4 others, 4 April 2024",
+          "The J. Paul Getty Trust and Others v. Italy, no. 35271/19, 2 May 2024",
+          "UAB Profarma and UAB Bona Diagnosis v. Lithuania, nos. 46264/22 and 50184/22, 7 January 2025",
+          "Văleanu and Others v. Romania, nos. 59012/17 and 29 others, 8 November 2022",
+          "Yaylalı v. Serbia, no. 15887/15, 17 September 2024",
+          "Çatak and Others v. Türkiye, no. 33189/21, 3 December 2024"
+        ],
+        "reference_removed": [
+          "Panfile v. Romania (dec.), 13902/11, 20 March 2012",
+          "Văleanu and Others v. Romania, 59012/17 and 29 others, 8 November 2022"
+        ],
+        "local_added": [
+          "Alperin v. Ukraine, no. 41028/20, 10 October 2024",
+          "Amerisoc Center S.R.L. v. Luxembourg, no. 50527/20, 17 October 2024",
+          "Drozdyk and Mikula v. Ukraine, nos. 27849/15 and 33358/15, 24 October 2024",
+          "Energyworks Cartagena S.L. v. Spain (dec.), no. 75088/17, 26 mars 2024",
+          "Episcopo and Bassani v. Italy, nos. 47284/16 and 84604/17, 19 December 2024",
+          "Immoreks Makedonija Doo Skopje v. North Macedonia (dec.), no. 25311/17, 24 September 2024",
+          "Ioannides v. Cyprus, no. 32879/18, 16 January 2025",
+          "Kubát and Others v. the Czech Republic, nos. 61721/19 and 5 others, 22 June 2023.",
+          "Mandev and Others v. Bulgaria, nos. 57002/11 and 4 others, 21 May 2024",
+          "Melandri v. San Marino, no. 25189/21, 12 September 2024",
+          "Rustamkhanli v. Azerbaijan, no. 24460/16, 4 July 2024",
+          "Tamazount and others v. France, nos. 17131/19 and 4 others, 4 April 2024",
+          "The J. Paul Getty Trust and Others v. Italy, no. 35271/19, 2 May 2024",
+          "UAB Profarma and UAB Bona Diagnosis v. Lithuania, nos. 46264/22 and 50184/22, 7 January 2025",
+          "Yaylalı v. Serbia, no. 15887/15, 17 September 2024",
+          "Çatak and Others v. Türkiye, no. 33189/21, 3 December 2024"
+        ],
+        "local_removed": [
+          "Kubát and Others v. the Czech Republic, nos. 61721/19, 5496/20, 21318/20, 33522/20, 43039/20, 55448/20, 22 June 2023."
+        ],
+        "published_only": [
+          "Panfile v. Romania (dec.), 13902/11, 20 March 2012",
+          "Panfile v. Romania (dec.), no. 13902/11, 20 March 2012",
+          "Văleanu and Others v. Romania, 59012/17 and 29 others, 8 November 2022",
+          "Văleanu and Others v. Romania, nos. 59012/17 and 29 others, 8 November 2022"
+        ],
+        "cleaned_only": [
+          "Kubát and Others v. the Czech Republic, nos. 61721/19 and 5 others, 22 June 2023.",
+          "Kubát and Others v. the Czech Republic, nos. 61721/19, 5496/20, 21318/20, 33522/20, 43039/20, 55448/20, 22 June 2023."
+        ]
+      },
+      {
+        "guide_id": "1b1f8de345be",
+        "from_snapshot": "20250612193940__guide_art_1_protocol_1_eng.pdf",
+        "to_snapshot": "20260104030038__guide_art_1_protocol_1_eng.pdf",
+        "reference_added": [
+          "Aksüngür and Others v. Serbia, nos. 69080/13 and 4 others, 24 June 2025",
+          "Arjocu v. Romania (dec.), no. 56630/22, 6 May 2025",
+          "Bilyavska v. Ukraine, no. 84568/17, 27 March 2025",
+          "Păcurar v. Romania, no. 17985/18, 24 June 2025",
+          "Radelić v. Croatia, no. 12432/22, 13 May 2025",
+          "Radobuljac v. Croatia (no. 2), no. 38785/18, 17 June 2025",
+          "Seksimp Group SRL v. the Republic of Moldova, no. 30085/13, 15 May 2025",
+          "Ukraine and the Netherlands v. Russia [GC], nos. 8019/16 and 3 others, 9 July 2025"
+        ],
+        "reference_removed": [
+          "R.Sz. v. Hungary, no. 41838/11, 2 July 2013"
+        ],
+        "local_added": [
+          "Aksüngür and Others v. Serbia, nos. 69080/13 and 4 others, 24 June 2025",
+          "Arjocu v. Romania (dec.), no. 56630/22, 6 May 2025",
+          "Bilyavska v. Ukraine, no. 84568/17, 27 March 2025",
+          "Păcurar v. Romania, no. 17985/18, 24 June 2025",
+          "Radelić v. Croatia, no. 12432/22, 13 May 2025",
+          "Radobuljac v. Croatia (no. 2), no. 38785/18, 17 June 2025",
+          "Seksimp Group SRL v. the Republic of Moldova, no. 30085/13, 15 May 2025",
+          "Ukraine and the Netherlands v. Russia [GC], nos. 8019/16 and 3 others, 9 July 2025"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "R.Sz. v. Hungary, no. 41838/11, 2 July 2013"
+        ],
+        "cleaned_only": []
+      },
+      {
+        "guide_id": "1e58f64bfb7a",
+        "from_snapshot": "20231206112748__guide_art_12_eng.pdf",
+        "to_snapshot": "20250906135625__guide_art_12_eng.pdf",
+        "reference_added": [
+          "X v. Federal Republic of Germany, no. 6167/73, Commission decision of 18 December 1974,"
+        ],
+        "reference_removed": [
+          "X v. Federal Republic of Germany, no. 2300/64, Commission decision of 10 February 1967, Collection"
+        ],
+        "local_added": [
+          "X v. Federal Republic of Germany, no. 6167/73, Commission decision of 18 December 1974, Collection of decisions 1, p. 65"
+        ],
+        "local_removed": [
+          "X v. Federal Republic of Germany, no. 2300/64, Commission decision of 10 February 1967, Collection of decisions 22, pp. 73-84"
+        ],
+        "published_only": [
+          "X v. Federal Republic of Germany, no. 2300/64, Commission decision of 10 February 1967, Collection",
+          "X v. Federal Republic of Germany, no. 6167/73, Commission decision of 18 December 1974,"
+        ],
+        "cleaned_only": [
+          "X v. Federal Republic of Germany, no. 2300/64, Commission decision of 10 February 1967, Collection of decisions 22, pp. 73-84",
+          "X v. Federal Republic of Germany, no. 6167/73, Commission decision of 18 December 1974, Collection of decisions 1, p. 65"
+        ]
+      },
+      {
+        "guide_id": "2fbc08fc30bd",
+        "from_snapshot": "20230923081110__guide_art_9_eng.pdf",
+        "to_snapshot": "20240329075624__guide_art_9_eng.pdf",
+        "reference_added": [
+          "Jehovah’s Witnesses v. Finland, no. 31172/19, 9 May 2023",
+          "Ossewaarde v. Russia, no. 27227/17, 7 March 2023"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Jehovah's Witnesses v. Finland, no. 31172/19, 9 May 2023",
+          "Ossewaarde v. Russia, no. 27227/17, 7 March 2023"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Jehovah’s Witnesses v. Finland, no. 31172/19, 9 May 2023"
+        ],
+        "cleaned_only": [
+          "Jehovah's Witnesses v. Finland, no. 31172/19, 9 May 2023"
+        ]
+      },
+      {
+        "guide_id": "2fbc08fc30bd",
+        "from_snapshot": "20240329075624__guide_art_9_eng.pdf",
+        "to_snapshot": "20240913070507__guide_art_9_eng.pdf",
+        "reference_added": [
+          "Executief van de Moslims van België and Others v. Belgium*, nos. 16760/22 and 8 others,",
+          "Georgian Muslim Relations and Others v. Georgia, no. 24225/19, 30 November 2023",
+          "Hamzayan v. Armenia*, no. 43082/14, § 51, 6 February 2024",
+          "Sardar Babayev v. Azerbaijan , nos. 34015/17 and 26896/18, 1 February 2024"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Executief van de Moslims van België and Others v. Belgium*, nos. 16760/22 and 8 others, 13 February 2024",
+          "Georgian Muslim Relations and Others v. Georgia, no. 24225/19, 30 November 2023",
+          "Hamzayan v. Armenia*, no. 43082/14, § 51, 6 February 2024",
+          "Sardar Babayev v. Azerbaijan, nos. 34015/17 and 26896/18, 1 February 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Executief van de Moslims van België and Others v. Belgium*, nos. 16760/22 and 8 others,",
+          "Sardar Babayev v. Azerbaijan , nos. 34015/17 and 26896/18, 1 February 2024"
+        ],
+        "cleaned_only": [
+          "Executief van de Moslims van België and Others v. Belgium*, nos. 16760/22 and 8 others, 13 February 2024",
+          "Sardar Babayev v. Azerbaijan, nos. 34015/17 and 26896/18, 1 February 2024"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "reference_added": [
+          "Alppi v. Finland (dec.), no. 15736/22, 28 November 2023",
+          "Bavčar v. Slovenia, no. 17053/20, 7 September 2023",
+          "Bogdan v. Ukraine, no. 3016/16, 8 February 2024",
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+          "Chkhartishvili v. Georgia, no. 31349/20, 11 May 2023",
+          "Cupiał v. Poland, no. 67414/11, 9 March 2023",
+          "Deliktaş v. Türkiye, no. 25852/18, 12 December 2023",
+          "Erik Adamčo v. Slovakia, no. 19990/20, 1 June 2023",
+          "European Air Transport Leipzig GmbH v. Belgium, nos. 1269/13 and others, 11 July 2023",
+          "Figurka v. Ukraine,* no. 28232/22, 16 November 2023",
+          "Georgiou v. Greece, no. 57378/18, 14 March 2023",
+          "Grosam v. the Czech Republic [GC], no. 19750/13, 1 June 2023",
+          "Hamdani v. Switzerland, no. 10644/17, 28 March 2023",
+          "Irodotou v. Cyprus, no. 16783/20, 23 May 2023",
+          "Jakutavičius v. Lithuania,* no. 42180/19, 13 February 2024",
+          "Lalik v. Poland, no. 47834/19, 11 May 2023",
+          "Leka v. Albania,* no. 60569/09, 5 March 2024",
+          "Mehmet Zeki Doğan v. Türkiye (no. 2), no. 3324/19, 13 February 2024",
+          "Nadir Yıldırım and Others v. Türkiye,* no. 39712/16, 28 November 2023",
+          "Okropiridze v. Georgia, nos. 43627/16 and 71667/16, 7 September 2023",
+          "Orhan Şahin v. Türkiye,* no. 48309/17, 12 March 2024",
+          "Panju v. Belgium (no. 2), no. 49072/21, 23 May 2023",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+          "Repeşco and Repeşcu v. the Republic of Moldova, no. 39272/15, 3 October 2023",
+          "Rigolio v. Italy, no. 20148/09, 9 March 2023",
+          "Roccella v. Italy, no. 44764/16, 15 June 2023",
+          "Rousounidou v. Cyprus (dec.), no. 38744/21, 12 December 2023",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑",
+          "Snijders v. the Netherlands,* no. 56440/15, 6 February 2024",
+          "Sperisen v. Switzerland, no. 22060/20, 13 June 2023",
+          "Strassenmeyer v. Germany, no. 57818/18, 2 May 2023",
+          "Tadić v. Croatia, no. 25551/18, 28 November 2023",
+          "Tuleya v. Poland, nos. 21181/19 and 51751/20, 6 July 2023",
+          "U.Y. v. Türkiye, no. 58073/17, 10 October 2023",
+          "Ugulava v. Georgia (No. 2),* no. 22431/20, 1 February 2024",
+          "Yüksel Yalçınkaya v. Türkiye [GC], no. 15669/20, 26 September 2023",
+          "Škoberne v. Slovenia,* no. 19920/20, 15 February 2024"
+        ],
+        "reference_removed": [
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140"
+        ],
+        "local_added": [
+          "Alppi v. Finland (dec.), no. 15736/22, 28 November 2023",
+          "Bavčar v. Slovenia, no. 17053/20, 7 September 2023",
+          "Bogdan v. Ukraine, no. 3016/16, 8 February 2024",
+          "Chkhartishvili v. Georgia, no. 31349/20, 11 May 2023",
+          "Cupiał v. Poland, no. 67414/11, 9 March 2023",
+          "Deliktaş v. Türkiye, no. 25852/18, 12 December 2023",
+          "Erik Adamčo v. Slovakia, no. 19990/20, 1 June 2023",
+          "European Air Transport Leipzig GmbH v. Belgium, nos. 1269/13 and others, 11 July 2023",
+          "Figurka v. Ukraine,* no. 28232/22, 16 November 2023",
+          "Georgiou v. Greece, no. 57378/18, 14 March 2023",
+          "Grosam v. the Czech Republic [GC], no. 19750/13, 1 June 2023",
+          "Hamdani v. Switzerland, no. 10644/17, 28 March 2023",
+          "Irodotou v. Cyprus, no. 16783/20, 23 May 2023",
+          "Jakutavičius v. Lithuania,* no. 42180/19, 13 February 2024",
+          "Lalik v. Poland, no. 47834/19, 11 May 2023",
+          "Leka v. Albania,* no. 60569/09, 5 March 2024",
+          "Mehmet Zeki Doğan v. Türkiye (no. 2), no. 3324/19, 13 February 2024",
+          "Nadir Yıldırım and Others v. Türkiye,* no. 39712/16, 28 November 2023",
+          "Okropiridze v. Georgia, nos. 43627/16 and 71667/16, 7 September 2023",
+          "Orhan Şahin v. Türkiye,* no. 48309/17, 12 March 2024",
+          "Panju v. Belgium (no. 2), no. 49072/21, 23 May 2023",
+          "Repeşco and Repeşcu v. the Republic of Moldova, no. 39272/15, 3 October 2023",
+          "Rigolio v. Italy, no. 20148/09, 9 March 2023",
+          "Roccella v. Italy, no. 44764/16, 15 June 2023",
+          "Rousounidou v. Cyprus (dec.), no. 38744/21, 12 December 2023",
+          "Snijders v. the Netherlands,* no. 56440/15, 6 February 2024",
+          "Sperisen v. Switzerland, no. 22060/20, 13 June 2023",
+          "Strassenmeyer v. Germany, no. 57818/18, 2 May 2023",
+          "Tadić v. Croatia, no. 25551/18, 28 November 2023",
+          "Tuleya v. Poland, nos. 21181/19 and 51751/20, 6 July 2023",
+          "U.Y. v. Türkiye, no. 58073/17, 10 October 2023",
+          "Ugulava v. Georgia (No. 2),* no. 22431/20, 1 February 2024",
+          "Yüksel Yalçınkaya v. Türkiye [GC], no. 15669/20, 26 September 2023",
+          "Škoberne v. Slovenia,* no. 19920/20, 15 February 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑"
+        ],
+        "cleaned_only": []
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "reference_added": [
+          "Bosev v. Bulgaria, no. 62199/19, 4 June 2024",
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+          "Gravier v. France,* no. 49904/21, 4 July 2024",
+          "Khachapuridze and Khachidze v. Georgia,* nos. 59464/21 and 13079/22, 29 August 2024",
+          "L.T. v. Ukraine, no. 13459/15, 6 June 2024",
+          "Nealon and Hallam v. the United Kingdom [GC], nos. 32483/19 and 35049/19, 11 June 2024",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+          "Rytikov v. Ukraine, no. 52855/19, 23 May 2024",
+          "Saakashvili v. Georgia, nos. 6232/20 and 22394/20, 23 May 2024",
+          "Sacharuk v. Lithuania, no. 39300/18, 23 April 2024",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+          "Tsulukidze and Rusulashvili v. G eorgia,* nos. 44681/21 and 17256/22, 29 August 2024"
+        ],
+        "reference_removed": [
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑"
+        ],
+        "local_added": [
+          "Bosev v. Bulgaria, no. 62199/19, 4 June 2024",
+          "Gravier v. France,* no. 49904/21, 4 July 2024",
+          "Khachapuridze and Khachidze v. Georgia,* nos. 59464/21 and 13079/22, 29 August 2024",
+          "L.T. v. Ukraine, no. 13459/15, 6 June 2024",
+          "Nealon and Hallam v. the United Kingdom [GC], nos. 32483/19 and 35049/19, 11 June 2024",
+          "Rytikov v. Ukraine, no. 52855/19, 23 May 2024",
+          "Saakashvili v. Georgia, nos. 6232/20 and 22394/20, 23 May 2024",
+          "Sacharuk v. Lithuania, no. 39300/18, 23 April 2024",
+          "Tsulukidze and Rusulashvili v. G eorgia,* nos. 44681/21 and 17256/22, 29 August 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+          "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+          "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+          "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑"
+        ],
+        "cleaned_only": []
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "from_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20250612193940__guide_art_6_criminal_eng.pdf",
+        "reference_added": [
+          "C.O. v. Germany, no. 16678/22, 17 September 2024",
+          "Cavca v. the Republic of Moldova, no. 21766/22, 9 January 2025",
+          "Cosovan v. the Republic of Moldova (no. 2), no. 36013/13, 8 October 2024",
+          "Espírito Santo Silva Salgado v. Portugal, no. 30970/19, 3 December 2024",
+          "Ezeoke v. the United Kingdom*, no. 61280/21, 25 February 2025",
+          "Gaydashevskyy v. Ukraine, no. 11553/21, 6 February 2025",
+          "Gomes Costa v. Portugal*, no. 34916/16, 25 February 2025",
+          "Kezerashvili v. Georgia, no. 11027/22, 5 December 2024",
+          "Machalický v. the Czech Republic, no. 42760/16, 10 October 2024",
+          "Miron v. Romania, no. 37324/16, 5 November 2024",
+          "Severin v. Romania, no. 20440/18, 8 October 2024",
+          "Union des Mutuelles d’Assurances Monceau v. France (dec.), no. 20224/18, 1 October 2024",
+          "Vasile Pruteanu and Others v. Romania, no. 9308/18, 14 January 2025",
+          "Zahariev v. North Macedonia, no. 26760/22, 5 November 2024",
+          "Zakrzweski v. Poland, no. 63277/19, 14 November 2024"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "C.O. v. Germany, no. 16678/22, 17 September 2024",
+          "Cavca v. the Republic of Moldova, no. 21766/22, 9 January 2025",
+          "Cosovan v. the Republic of Moldova (no. 2), no. 36013/13, 8 October 2024",
+          "Espírito Santo Silva Salgado v. Portugal, no. 30970/19, 3 December 2024",
+          "Ezeoke v. the United Kingdom*, no. 61280/21, 25 February 2025",
+          "Gaydashevskyy v. Ukraine, no. 11553/21, 6 February 2025",
+          "Gomes Costa v. Portugal*, no. 34916/16, 25 February 2025",
+          "Kezerashvili v. Georgia, no. 11027/22, 5 December 2024",
+          "Machalický v. the Czech Republic, no. 42760/16, 10 October 2024",
+          "Miron v. Romania, no. 37324/16, 5 November 2024",
+          "Severin v. Romania, no. 20440/18, 8 October 2024",
+          "Union des Mutuelles d'Assurances Monceau v. France (dec.), no. 20224/18, 1 October 2024",
+          "Vasile Pruteanu and Others v. Romania, no. 9308/18, 14 January 2025",
+          "Zahariev v. North Macedonia, no. 26760/22, 5 November 2024",
+          "Zakrzweski v. Poland, no. 63277/19, 14 November 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Union des Mutuelles d’Assurances Monceau v. France (dec.), no. 20224/18, 1 October 2024"
+        ],
+        "cleaned_only": [
+          "Union des Mutuelles d'Assurances Monceau v. France (dec.), no. 20224/18, 1 October 2024"
+        ]
+      },
+      {
+        "guide_id": "415c8994e0ed",
+        "from_snapshot": "20250122170132__guide_art_2_eng.pdf",
+        "to_snapshot": "20250619203315__guide_art_2_eng.pdf",
+        "reference_added": [
+          "A.P. v. Austria, no. 1718/21, 26 November 2024",
+          "Bagirova v. Azerbaijan, no. 9375/20, 10 October 2024",
+          "Cannavacciuolo and Others v Italy, no. 39742/14 and 3 others, 30 January 2025",
+          "Ceyhan v. Türkiye, no 5576/19, 3 December 2024",
+          "Ghaoui v. France, no 41208/21, 16 January 2025",
+          "Svrtan v. Croatia, no. 57507/19, 3 December 2024"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "A.P. v. Austria, no. 1718/21, 26 November 2024",
+          "Bagirova v. Azerbaijan, no. 9375/20, 10 October 2024",
+          "Cannavacciuolo and Others v Italy, no. 39742/14 and 3 others, 30 January 2025",
+          "Ceyhan v. Türkiye, no 5576/19, 3 December 2024",
+          "Fraisse and Others v France, nos 22525/21 and 47626/21, 27 February 2025",
+          "Ghaoui v. France, no 41208/21, 16 January 2025",
+          "Svrtan v. Croatia, no. 57507/19, 3 December 2024"
+        ],
+        "local_removed": [],
+        "published_only": [],
+        "cleaned_only": [
+          "Fraisse and Others v France, nos 22525/21 and 47626/21, 27 February 2025"
+        ]
+      },
+      {
+        "guide_id": "415c8994e0ed",
+        "from_snapshot": "20250619203315__guide_art_2_eng.pdf",
+        "to_snapshot": "20251215180904__guide_art_2_eng.pdf",
+        "reference_added": [
+          "Almukhlas and Al-Maliki v. Greece, no. 22776/18, 25 March 2025",
+          "Fraisse and Others v. France, nos 22525/21 and 47626/21, 27 February 2025",
+          "Hasani v. Sweden, no. 35950/20, 6 March 2025",
+          "Kalkan v. Denmark, no. 51781/22, 27 May 2025",
+          "N.D. v. Switzerland, no. 56114/18, 3 April 2025",
+          "Ukraine and the Netherlands v. Russia [GC], nos. 8019/16 and 3 others, 9 July 2025"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Almukhlas and Al-Maliki v. Greece, no. 22776/18, 25 March 2025",
+          "Hasani v. Sweden, no. 35950/20, 6 March 2025",
+          "Kalkan v. Denmark, no. 51781/22, 27 May 2025",
+          "N.D. v. Switzerland, no. 56114/18, 3 April 2025",
+          "Ukraine and the Netherlands v. Russia [GC], nos. 8019/16 and 3 others, 9 July 2025"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Fraisse and Others v. France, nos 22525/21 and 47626/21, 27 February 2025"
+        ],
+        "cleaned_only": []
+      },
+      {
+        "guide_id": "684d373b17e9",
+        "from_snapshot": "20240930063355__guide_art_11_eng.pdf",
+        "to_snapshot": "20251210133318__guide_art_11_eng.pdf",
+        "reference_added": [
+          "Almaz and Others v. Türkiye (dec.), nos. 55789/19 and 3 others, 19 November 2024",
+          "Bodson and Others v. Belgium, nos. 35834/22 and 15 others, 16 January 2025",
+          "Bogay and Others v. Ukraine, no. 38283/18, 3 April 2025",
+          "Central Unitaria de Traballadores/as v. Spain, no. 49363/20, 17 October 2024",
+          "Ercan and Others v. Türkiye (dec.), 50763/22, 4 February 2025",
+          "Harutyunyan and Others v. Armenia (dec.), no. 45401/15, 1 April 2025",
+          "Hellgren v. Finland, no. 52977/19, 17 December 2024",
+          "Kaya v. Türkiye (dec.), no. 51194/19, 19 November 2024",
+          "Matchavariani v. Georgia, no. 46852/21, 20 May 2025",
+          "Mzhavanadze and Rukhadze v. Georgia, nos. 29760/21 and 33931/21, 15 July 2025",
+          "Rodina and Borisova v. Latvia, nos. 2623/16 and 2299/16, 10 July 2025*",
+          "Russ v. Germany, no. 44241/20, 20 May 2025",
+          "Sagir and Others v. Greece, no. 34724/18, 24 June 2025*",
+          "Selishcheva and Others v. Russia, nos. 39056/22 and 9 others, 27 May 2025"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Almaz and Others v. Türkiye (dec.), nos. 55789/19 and 3 others, 19 November 2024",
+          "Bodson and Others v. Belgium, nos. 35834/22 and 15 others, 16 January 2025",
+          "Bogay and Others v. Ukraine, no. 38283/18, 3 April 2025",
+          "Central Unitaria de Traballadores/as v. Spain, no. 49363/20, 17 October 2024",
+          "Ercan and Others v. Türkiye (dec.), 50763/22, 4 February 2025",
+          "Harutyunyan and Others v. Armenia (dec.), no. 45401/15, 1 April 2025",
+          "Hellgren v. Finland, no. 52977/19, 17 December 2024",
+          "Kaya v. Türkiye (dec.), no. 51194/19, 19 November 2024",
+          "Matchavariani v. Georgia, no. 46852/21, 20 May 2025",
+          "Mzhavanadze and Rukhadze v. Georgia, nos. 29760/21 and 33931/21, 15 July 2025",
+          "Rodina and Borisova v. Latvia, nos. 2623/16 and 2299/16, 10 July 2025",
+          "Russ v. Germany, no. 44241/20, 20 May 2025",
+          "Sagir and Others v. Greece, no. 34724/18, 24 June 2025",
+          "Selishcheva and Others v. Russia, nos. 39056/22 and 9 others, 27 May 2025"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Rodina and Borisova v. Latvia, nos. 2623/16 and 2299/16, 10 July 2025*",
+          "Sagir and Others v. Greece, no. 34724/18, 24 June 2025*"
+        ],
+        "cleaned_only": [
+          "Rodina and Borisova v. Latvia, nos. 2623/16 and 2299/16, 10 July 2025",
+          "Sagir and Others v. Greece, no. 34724/18, 24 June 2025"
+        ]
+      },
+      {
+        "guide_id": "7a059e452dbd",
+        "from_snapshot": "20231114174510__guide_art_1_eng.pdf",
+        "to_snapshot": "20241219144949__guide_art_1_eng.pdf",
+        "reference_added": [
+          "Abu Zubaydah v. Lithuania, no. 46454/11, 31 May 2018",
+          "Al-Hawsawi v. Lithuania, no. 6383/17, 16 January 2024",
+          "Aliyev v. Armenia (dec.), no. 25589/16, 12 September 2023",
+          "Allahverdiyev v. Armenia (dec.), no. 25576/16, 12 September 2023",
+          "Arlewin v. Sweden, no. 22302/10, 1 March 2016",
+          "Big Brother Watch and Others v. the United Kingdom [GC], nos. 58170/13 and 2 others, 25 May 2021",
+          "Couso Permuy v. Spain, no. 2327/20, 25 July 2024",
+          "Dimaksyan v. Armenia, no. 29906/14, 17 October 2023",
+          "Duarte Agostinho and Others v. Portugal and 32 others (dec.) [GC], no. 39371/20, 9 April 2024",
+          "Eriomenco v. Republic of Moldova and Russia, no. 42224/11, 9 May 2017",
+          "Friedrich and Others v. Poland, nos. 25344/20 and 17 others, 20 June 2024",
+          "Gurbanov v. Armenia, no. 7432/17, 5 October 2023",
+          "Hakobyan v. Azerbaijan (dec.), nos. 74566/16 and 74573/16, 12 September 2023",
+          "Hamzayan v. Armenia, no. 43082/14, 6 February 2024",
+          "Hovhannisyan and Karapetyan v. Armenia, no. 67351/13, 17 October 2023",
+          "Israilov v. Russia, nos. 21882/09 and 6189/10, 24 October 2023",
+          "Lypovchenko and Halabudenco v. Republic of Moldova and Russia, nos. 40926/16 and 73942/17,",
+          "Matkava and Others v. Russia, no. 3963/18, 19 December 2023",
+          "O.J. and J.O. v. Georgia and Russia, nos. 42126/15 and 42127/15, 19 December 2023",
+          "Ohanyan v. Azerbaijan (dec.), no. 74508/16, 12 September 2023",
+          "The J. Paul Getty Trust and Others v. Italy, no. 35271/19, 2 May 2024",
+          "Varyan v. Armenia, no. 48998/14, 4 June 2024",
+          "Wieder and Guarnieri v. the United Kingdom, nos. 64371/16 and 64407/16, 12 September 2023"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "Abu Zubaydah v. Lithuania, no. 46454/11, 31 May 2018",
+          "Al-Hawsawi v. Lithuania, no. 6383/17, 16 January 2024",
+          "Aliyev v. Armenia (dec.), no. 25589/16, 12 September 2023",
+          "Allahverdiyev v. Armenia (dec.), no. 25576/16, 12 September 2023",
+          "Arlewin v. Sweden, no. 22302/10, 1 March 2016",
+          "Big Brother Watch and Others v. the United Kingdom [GC], nos. 58170/13 and 2 others, 25 May 2021",
+          "Couso Permuy v. Spain, no. 2327/20, 25 July 2024",
+          "Dimaksyan v. Armenia, no. 29906/14, 17 October 2023",
+          "Duarte Agostinho and Others v. Portugal and 32 others (dec.) [GC], no. 39371/20, 9 April 2024",
+          "Eriomenco v. Republic of Moldova and Russia, no. 42224/11, 9 May 2017",
+          "Friedrich and Others v. Poland, nos. 25344/20 and 17 others, 20 June 2024",
+          "Gurbanov v. Armenia, no. 7432/17, 5 October 2023",
+          "Hakobyan v. Azerbaijan (dec.), nos. 74566/16 and 74573/16, 12 September 2023",
+          "Hamzayan v. Armenia, no. 43082/14, 6 February 2024",
+          "Hovhannisyan and Karapetyan v. Armenia, no. 67351/13, 17 October 2023",
+          "Israilov v. Russia, nos. 21882/09 and 6189/10, 24 October 2023",
+          "Lypovchenko and Halabudenco v. Republic of Moldova and Russia, nos. 40926/16 and 73942/17, 20 February 2024",
+          "Matkava and Others v. Russia, no. 3963/18, 19 December 2023",
+          "O.J. and J.O. v. Georgia and Russia, nos. 42126/15 and 42127/15, 19 December 2023",
+          "Ohanyan v. Azerbaijan (dec.), no. 74508/16, 12 September 2023",
+          "The J. Paul Getty Trust and Others v. Italy, no. 35271/19, 2 May 2024",
+          "Varyan v. Armenia, no. 48998/14, 4 June 2024",
+          "Wieder and Guarnieri v. the United Kingdom, nos. 64371/16 and 64407/16, 12 September 2023"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Lypovchenko and Halabudenco v. Republic of Moldova and Russia, nos. 40926/16 and 73942/17,"
+        ],
+        "cleaned_only": [
+          "Lypovchenko and Halabudenco v. Republic of Moldova and Russia, nos. 40926/16 and 73942/17, 20 February 2024"
+        ]
+      },
+      {
+        "guide_id": "8ad6b528df3f",
+        "from_snapshot": "20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_snapshot": "20250601155424__guide_rights_of_the_child_eng.pdf",
+        "reference_added": [
+          "Salay v. Slovakia*, no. 29359/22, 27 February 2025",
+          "X and Others v. Slovenia, nos. 27746/22 and 28291/22, 19 December 2024",
+          "linguistic case”) (merits), 23 July 1968, Series A no. 6"
+        ],
+        "reference_removed": [
+          "Belgium”(“Belgian linguistic case”) (merits), 23 July 1968, Series A no. 6"
+        ],
+        "local_added": [
+          "Salay v. Slovakia*, no. 29359/22, 27 February 2025",
+          "X and Others v. Slovenia, nos. 27746/22 and 28291/22, 19 December 2024"
+        ],
+        "local_removed": [],
+        "published_only": [
+          "Belgium”(“Belgian linguistic case”) (merits), 23 July 1968, Series A no. 6",
+          "linguistic case”) (merits), 23 July 1968, Series A no. 6"
+        ],
+        "cleaned_only": []
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "from_snapshot": "20230923050459__guide_art_8_eng.pdf",
+        "to_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "reference_added": [
+          "A and B v. France, 8 June 2023",
+          "A.H. and Others v. Germany, no. 7246/20, 4 April 2023",
+          "Alif Ahmadov and Others v. Azerbaijan, no. 22619/14, 4 May 2023",
+          "B.F. and Others v. Switzerland, no. 13258/18, 4 July 2023",
+          "C v. Italy*, no. 47196/21, 31 August 2023",
+          "Calvi and C.G. v. Italy, no. 46412/21, 6 July 2023",
+          "D.H. and Others v. North Macedonia, no. 44033/17, 18 July 2023",
+          "Ghadamian v. Switzerland, no. 21768/19, 9 May 2023",
+          "Glukhin v. Russia, no. 11519/20, 4 July 2023",
+          "Jírová and Others v. the Czech Republic, no. 66015/17, 13 April 2023",
+          "L.B. v. Hungary [GC], no. 36345/16, 9 March 2023",
+          "Margari v. Greece, no. 36705/16, 20 June 2023",
+          "Mayboroda v. Ukraine, no. 14709/07, 13 April 2023",
+          "Negru v. the Republic of Moldova, no. 7336/11, 27 June 2023",
+          "Nepomnyashchiy and Others v. Russia, nos. 39954/09 and 3465/17, 30 May 2023",
+          "O.H. and G.H. v. Germany, nos. 53568/18 54741/18, 4 April 2023",
+          "Semenya v. Switzerland*, no. 10934/21, 11 July 2023",
+          "Simonova v. Bulgaria, no. 30782/16, 11 April 2023",
+          "Sârbu v. Romania, no. 34467/15, 28 March 2023",
+          "UAB Kesko Senukai Lithuania v. Lithuania, no. 19162/19, 4 April 2023",
+          "X and others v. Ireland, nos. 23851/20 and 24360/20, 22 June 2023"
+        ],
+        "reference_removed": [],
+        "local_added": [
+          "A and B v. France, 8 June 2023",
+          "A.H. and Others v. Germany, no. 7246/20, 4 April 2023",
+          "Advisory opinion on the procedural status and rights of a biological parent in proceedings for the adoption of an adult [GC], request no. P16-2022-001, Supreme Court of Finland, 13 April 2023",
+          "Alif Ahmadov and Others v. Azerbaijan, no. 22619/14, 4 May 2023",
+          "B.F. and Others v. Switzerland, no. 13258/18, 4 July 2023",
+          "C v. Italy*, no. 47196/21, 31 August 2023",
+          "Calvi and C.G. v. Italy, no. 46412/21, 6 July 2023",
+          "D.H. and Others v. North Macedonia, no. 44033/17, 18 July 2023",
+          "Ghadamian v. Switzerland, no. 21768/19, 9 May 2023",
+          "Glukhin v. Russia, no. 11519/20, 4 July 2023",
+          "Jírová and Others v. the Czech Republic, no. 66015/17, 13 April 2023",
+          "L.B. v. Hungary [GC], no. 36345/16, 9 March 2023",
+          "Margari v. Greece, no. 36705/16, 20 June 2023",
+          "Mayboroda v. Ukraine, no. 14709/07, 13 April 2023",
+          "Negru v. the Republic of Moldova, no. 7336/11, 27 June 2023",
+          "Nepomnyashchiy and Others v. Russia, nos. 39954/09 and 3465/17, 30 May 2023",
+          "O.H. and G.H. v. Germany, nos. 53568/18 54741/18, 4 April 2023",
+          "Semenya v. Switzerland*, no. 10934/21, 11 July 2023",
+          "Simonova v. Bulgaria, no. 30782/16, 11 April 2023",
+          "Sârbu v. Romania, no. 34467/15, 28 March 2023",
+          "UAB Kesko Senukai Lithuania v. Lithuania, no. 19162/19, 4 April 2023",
+          "X and others v. Ireland, nos. 23851/20 and 24360/20, 22 June 2023"
+        ],
+        "local_removed": [],
+        "published_only": [],
+        "cleaned_only": [
+          "Advisory opinion on the procedural status and rights of a biological parent in proceedings for the adoption of an adult [GC], request no. P16-2022-001, Supreme Court of Finland, 13 April 2023"
+        ]
+      }
+    ]
+  },
+  "reference_summary": {
+    "rows": 1028,
+    "guides": 38,
+    "added": 925,
+    "removed": 103,
+    "suspicious_rows": 44,
+    "suspicious_reason_counts": {
+      "no_app_number": 31,
+      "lowercase_start": 3,
+      "starts_with_v": 2,
+      "spacing_artifact": 12
+    },
+    "suspicious_examples": [
+      {
+        "guide_id": "154b01c3289a",
+        "guide_title": "Article 34/35",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "removed",
+        "citation": "Van Oosterwijck v. Belgium, 6 November 1980, Series A no. 40",
+        "from_snapshot": "20231027002911__Admissibility_guide_ENG.pdf",
+        "to_snapshot": "20231212091045__Admissibility_guide_ENG.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20231027002911/https://www.echr.coe.int/documents/d/echr/Admissibility_guide_ENG",
+        "to_wayback_url": "https://web.archive.org/web/20231212091045/https://www.echr.coe.int/documents/d/echr/Admissibility_guide_ENG",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/154b01c3289a/20231027002911__Admissibility_guide_ENG.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/154b01c3289a/20231212091045__Admissibility_guide_ENG.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "1900da194ee4",
+        "guide_title": "Article 10",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "removed",
+        "citation": "Leander v. Sweden, 26 March 1987, Series A no. 116",
+        "from_snapshot": "20240930062921__guide_art_10_eng.pdf",
+        "to_snapshot": "20250115221400__guide_art_10_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930062921/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_10_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250115221400/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_10_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/1900da194ee4/20240930062921__guide_art_10_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/1900da194ee4/20250115221400__guide_art_10_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "1b1f8de345be",
+        "guide_title": "Article 1 Protocol 1",
+        "from_version": "31 August 2023",
+        "to_version": "29 February 2024",
+        "change": "added",
+        "citation": "v. Romania, nos. 46201/16 and 47379/18, 28 November 2023",
+        "from_snapshot": "20240217094618__guide_art_1_protocol_1_eng.pdf",
+        "to_snapshot": "20240828212851__guide_art_1_protocol_1_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240217094618/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_1_protocol_1_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240828212851/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_1_protocol_1_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/1b1f8de345be/20240217094618__guide_art_1_protocol_1_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/1b1f8de345be/20240828212851__guide_art_1_protocol_1_eng.pdf",
+        "reasons": [
+          "lowercase_start",
+          "starts_with_v"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2023",
+        "to_version": "29 February 2024",
+        "change": "added",
+        "citation": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235812/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2023",
+        "to_version": "29 February 2024",
+        "change": "added",
+        "citation": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235812/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2023",
+        "to_version": "29 February 2024",
+        "change": "added",
+        "citation": "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235812/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2023",
+        "to_version": "29 February 2024",
+        "change": "removed",
+        "citation": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235812/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2023",
+        "to_version": "29 February 2024",
+        "change": "removed",
+        "citation": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235812/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2023",
+        "to_version": "29 February 2024",
+        "change": "removed",
+        "citation": "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+        "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235812/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20230911235812__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Tsulukidze and Rusulashvili v. G eorgia,* nos. 44681/21 and 17256/22, 29 August 2024",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "removed",
+        "citation": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "removed",
+        "citation": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "removed",
+        "citation": "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "added",
+        "citation": "Sharma v. the United Kingdom (dec.), 1 July 2025",
+        "from_snapshot": "20250612193940__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20260217143525__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250612193940/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20260217143525/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20250612193940__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20260217143525__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "8ad6b528df3f",
+        "guide_title": "Rights of the child",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "added",
+        "citation": "X and Others v. Slovenia, nos. 27746/22 and 28291/22, 19 December 2024",
+        "from_snapshot": "20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_snapshot": "20250601155424__guide_rights_of_the_child_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20241205111155/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250601155424/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20250601155424__guide_rights_of_the_child_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "8ad6b528df3f",
+        "guide_title": "Rights of the child",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "added",
+        "citation": "linguistic case”) (merits), 23 July 1968, Series A no. 6",
+        "from_snapshot": "20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_snapshot": "20250601155424__guide_rights_of_the_child_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20241205111155/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250601155424/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20250601155424__guide_rights_of_the_child_eng.pdf",
+        "reasons": [
+          "lowercase_start",
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "8ad6b528df3f",
+        "guide_title": "Rights of the child",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "removed",
+        "citation": "Belgium”(“Belgian linguistic case”) (merits), 23 July 1968, Series A no. 6",
+        "from_snapshot": "20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_snapshot": "20250601155424__guide_rights_of_the_child_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20241205111155/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250601155424/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20250601155424__guide_rights_of_the_child_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "96d370a07ab1",
+        "guide_title": "Article 6 Civil",
+        "from_version": "29 February 2024",
+        "to_version": "28 February 2025",
+        "change": "added",
+        "citation": "X and Others v. Slovenia, nos. 27746/22 and 28291/22, 19 December 2024",
+        "from_snapshot": "20240930062548__guide_art_6_civil_eng.pdf",
+        "to_snapshot": "20250626081847__guide_art_6_civil_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930062548/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250626081847/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20240930062548__guide_art_6_civil_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20250626081847__guide_art_6_civil_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "96d370a07ab1",
+        "guide_title": "Article 6 Civil",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "added",
+        "citation": "A and B v. Malta, no. 4986/24, 24 June 2025",
+        "from_snapshot": "20250626081847__guide_art_6_civil_eng.pdf",
+        "to_snapshot": "20260217135653__guide_art_6_civil_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250626081847/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "to_wayback_url": "https://web.archive.org/web/20260217135653/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20250626081847__guide_art_6_civil_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20260217135653__guide_art_6_civil_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "96d370a07ab1",
+        "guide_title": "Article 6 Civil",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "removed",
+        "citation": "Debled v. Belgium, 22 September 1994, Series A no. 292-B",
+        "from_snapshot": "20250626081847__guide_art_6_civil_eng.pdf",
+        "to_snapshot": "20260217135653__guide_art_6_civil_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250626081847/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "to_wayback_url": "https://web.archive.org/web/20260217135653/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20250626081847__guide_art_6_civil_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20260217135653__guide_art_6_civil_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "A and B v. France, 8 June 2023",
+        "from_snapshot": "20230923050459__guide_art_8_eng.pdf",
+        "to_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923050459/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240217085228/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20230923050459__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240217085228__guide_art_8_eng.pdf",
+        "reasons": [
+          "spacing_artifact",
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "X and others v. Ireland, nos. 23851/20 and 24360/20, 22 June 2023",
+        "from_snapshot": "20230923050459__guide_art_8_eng.pdf",
+        "to_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923050459/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240217085228/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20230923050459__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240217085228__guide_art_8_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      }
+    ]
+  },
+  "local_summary": {
+    "rows": 1014,
+    "guides": 38,
+    "added": 920,
+    "removed": 94,
+    "suspicious_rows": 25,
+    "suspicious_reason_counts": {
+      "no_app_number": 14,
+      "spacing_artifact": 12
+    },
+    "suspicious_examples": [
+      {
+        "guide_id": "154b01c3289a",
+        "guide_title": "Article 34/35",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "removed",
+        "citation": "Van Oosterwijck v. Belgium, 6 November 1980, Series A no. 40",
+        "from_snapshot": "20231027002911__Admissibility_guide_ENG.pdf",
+        "to_snapshot": "20231212091045__Admissibility_guide_ENG.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20231027002911/https://www.echr.coe.int/documents/d/echr/Admissibility_guide_ENG",
+        "to_wayback_url": "https://web.archive.org/web/20231212091045/https://www.echr.coe.int/documents/d/echr/Admissibility_guide_ENG",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/154b01c3289a/20231027002911__Admissibility_guide_ENG.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/154b01c3289a/20231212091045__Admissibility_guide_ENG.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "1900da194ee4",
+        "guide_title": "Article 10",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "removed",
+        "citation": "Leander v. Sweden, 26 March 1987, Series A no. 116",
+        "from_snapshot": "20240930062921__guide_art_10_eng.pdf",
+        "to_snapshot": "20250115221400__guide_art_10_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930062921/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_10_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250115221400/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_10_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/1900da194ee4/20240930062921__guide_art_10_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/1900da194ee4/20250115221400__guide_art_10_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "29 February 2024",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Tsulukidze and Rusulashvili v. G eorgia,* nos. 44681/21 and 17256/22, 29 August 2024",
+        "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240409165839/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930062643/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240409165839__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20240930062643__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "4026b1621d4a",
+        "guide_title": "Article 6 Criminal",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "added",
+        "citation": "Sharma v. the United Kingdom (dec.), 1 July 2025",
+        "from_snapshot": "20250612193940__guide_art_6_criminal_eng.pdf",
+        "to_snapshot": "20260217143525__guide_art_6_criminal_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250612193940/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "to_wayback_url": "https://web.archive.org/web/20260217143525/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_criminal_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20250612193940__guide_art_6_criminal_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/4026b1621d4a/20260217143525__guide_art_6_criminal_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "8ad6b528df3f",
+        "guide_title": "Rights of the child",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "added",
+        "citation": "X and Others v. Slovenia, nos. 27746/22 and 28291/22, 19 December 2024",
+        "from_snapshot": "20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_snapshot": "20250601155424__guide_rights_of_the_child_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20241205111155/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250601155424/https://ks.echr.coe.int/documents/d/echr-ks/guide_rights_of_the_child_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20241205111155__guide_rights_of_the_child_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/8ad6b528df3f/20250601155424__guide_rights_of_the_child_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "96d370a07ab1",
+        "guide_title": "Article 6 Civil",
+        "from_version": "29 February 2024",
+        "to_version": "28 February 2025",
+        "change": "added",
+        "citation": "X and Others v. Slovenia, nos. 27746/22 and 28291/22, 19 December 2024",
+        "from_snapshot": "20240930062548__guide_art_6_civil_eng.pdf",
+        "to_snapshot": "20250626081847__guide_art_6_civil_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930062548/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250626081847/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20240930062548__guide_art_6_civil_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20250626081847__guide_art_6_civil_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "96d370a07ab1",
+        "guide_title": "Article 6 Civil",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "added",
+        "citation": "A and B v. Malta, no. 4986/24, 24 June 2025",
+        "from_snapshot": "20250626081847__guide_art_6_civil_eng.pdf",
+        "to_snapshot": "20260217135653__guide_art_6_civil_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250626081847/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "to_wayback_url": "https://web.archive.org/web/20260217135653/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20250626081847__guide_art_6_civil_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20260217135653__guide_art_6_civil_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "96d370a07ab1",
+        "guide_title": "Article 6 Civil",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "removed",
+        "citation": "Debled v. Belgium, 22 September 1994, Series A no. 292-B",
+        "from_snapshot": "20250626081847__guide_art_6_civil_eng.pdf",
+        "to_snapshot": "20260217135653__guide_art_6_civil_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250626081847/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "to_wayback_url": "https://web.archive.org/web/20260217135653/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_6_civil_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20250626081847__guide_art_6_civil_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/96d370a07ab1/20260217135653__guide_art_6_civil_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "A and B v. France, 8 June 2023",
+        "from_snapshot": "20230923050459__guide_art_8_eng.pdf",
+        "to_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923050459/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240217085228/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20230923050459__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240217085228__guide_art_8_eng.pdf",
+        "reasons": [
+          "spacing_artifact",
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "Advisory opinion on the procedural status and rights of a biological parent in proceedings for the adoption of an adult [GC], request no. P16-2022-001, Supreme Court of Finland, 13 April 2023",
+        "from_snapshot": "20230923050459__guide_art_8_eng.pdf",
+        "to_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923050459/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240217085228/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20230923050459__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240217085228__guide_art_8_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "X and others v. Ireland, nos. 23851/20 and 24360/20, 22 June 2023",
+        "from_snapshot": "20230923050459__guide_art_8_eng.pdf",
+        "to_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923050459/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240217085228/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20230923050459__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240217085228__guide_art_8_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "31 August 2023",
+        "to_version": "9 April 2024",
+        "change": "added",
+        "citation": "A and Others v. Italy, no. 17791/22, 7 September 2023",
+        "from_snapshot": "20240217085228__guide_art_8_eng.pdf",
+        "to_snapshot": "20240618070506__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240217085228/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240618070506/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240217085228__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20240618070506__guide_art_8_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "99cd2ce32cf8",
+        "guide_title": "Article 8",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "added",
+        "citation": "L and Others v. France, nos. 46949/21, 24989/22 and 39759/22, 24 April 2025",
+        "from_snapshot": "20250523211813__guide_art_8_eng.pdf",
+        "to_snapshot": "20251219191704__guide_art_8_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250523211813/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "to_wayback_url": "https://web.archive.org/web/20251219191704/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_8_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20250523211813__guide_art_8_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/99cd2ce32cf8/20251219191704__guide_art_8_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "acdaf72cea98",
+        "guide_title": "Article 3",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "removed",
+        "citation": "A and B v. Croatia, no. 7144/15, 20 June 2019",
+        "from_snapshot": "20230911235803__guide_art_3_eng.pdf",
+        "to_snapshot": "20240223121333__guide_art_3_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235803/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_3_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240223121333/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_3_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/acdaf72cea98/20230911235803__guide_art_3_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/acdaf72cea98/20240223121333__guide_art_3_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "acdaf72cea98",
+        "guide_title": "Article 3",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "removed",
+        "citation": "Raninen v. Finland, 16 December 1997, Reports of Judgments and Decisions 1997-VIII",
+        "from_snapshot": "20230911235803__guide_art_3_eng.pdf",
+        "to_snapshot": "20240223121333__guide_art_3_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230911235803/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_3_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240223121333/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_3_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/acdaf72cea98/20230911235803__guide_art_3_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/acdaf72cea98/20240223121333__guide_art_3_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "acdaf72cea98",
+        "guide_title": "Article 3",
+        "from_version": "28 February 2025",
+        "to_version": "31 August 2025",
+        "change": "added",
+        "citation": "L and Others v. France, no. 46949/21 and two others, 24 April 2025",
+        "from_snapshot": "20250622064045__guide_art_3_eng.pdf",
+        "to_snapshot": "20251224191756__guide_art_3_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20250622064045/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_3_eng",
+        "to_wayback_url": "https://web.archive.org/web/20251224191756/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_3_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/acdaf72cea98/20250622064045__guide_art_3_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/acdaf72cea98/20251224191756__guide_art_3_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "cfca8cb0bbc6",
+        "guide_title": "Social rights",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "X and others v. Ireland,* nos. 23851/20 and 24360/20, 22 June 2023",
+        "from_snapshot": "20230923175935__guide_social_rights_eng.pdf",
+        "to_snapshot": "20231127144526__guide_social_rights_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923175935/https://ks.echr.coe.int/documents/d/echr-ks/guide_social_rights_eng",
+        "to_wayback_url": "https://web.archive.org/web/20231127144526/https://ks.echr.coe.int/documents/d/echr-ks/guide_social_rights_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/cfca8cb0bbc6/20230923175935__guide_social_rights_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/cfca8cb0bbc6/20231127144526__guide_social_rights_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "d5256ad78e38",
+        "guide_title": "Data protection",
+        "from_version": "31 August 2023",
+        "to_version": "29 February 2024",
+        "change": "removed",
+        "citation": "N. Š. v. Croatia, 10 September 2020",
+        "from_snapshot": "20240331212544__guide_data_protection_eng.pdf",
+        "to_snapshot": "20240613075829__guide_data_protection_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240331212544/https://ks.echr.coe.int/documents/d/echr-ks/guide_data_protection_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240613075829/https://ks.echr.coe.int/documents/d/echr-ks/guide_data_protection_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/d5256ad78e38/20240331212544__guide_data_protection_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/d5256ad78e38/20240613075829__guide_data_protection_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "e12c697e461c",
+        "guide_title": "Article 14",
+        "from_version": "28 February 2023",
+        "to_version": "31 August 2023",
+        "change": "added",
+        "citation": "X and others v. Ireland*, nos. 23851/20 and 24360/20, 22 June 2023",
+        "from_snapshot": "20230923093716__guide_art_14_art_1_protocol_12_eng.pdf",
+        "to_snapshot": "20240330045513__guide_art_14_art_1_protocol_12_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20230923093716/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_14_art_1_protocol_12_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240330045513/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_14_art_1_protocol_12_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/e12c697e461c/20230923093716__guide_art_14_art_1_protocol_12_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/e12c697e461c/20240330045513__guide_art_14_art_1_protocol_12_eng.pdf",
+        "reasons": [
+          "spacing_artifact"
+        ]
+      },
+      {
+        "guide_id": "ed0ed05ac958",
+        "guide_title": "Article 46",
+        "from_version": "31 August 2023",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Ukraine v. Russia (Re Crimea) [GC], 25 June 2024",
+        "from_snapshot": "20240216163759__guide_art_46_eng.pdf",
+        "to_snapshot": "20240930065341__guide_art_46_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240216163759/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930065341/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240216163759__guide_art_46_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240930065341__guide_art_46_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "ed0ed05ac958",
+        "guide_title": "Article 46",
+        "from_version": "31 August 2023",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "V.I. v. Moldova, 26 March 2024",
+        "from_snapshot": "20240216163759__guide_art_46_eng.pdf",
+        "to_snapshot": "20240930065341__guide_art_46_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240216163759/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930065341/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240216163759__guide_art_46_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240930065341__guide_art_46_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "ed0ed05ac958",
+        "guide_title": "Article 46",
+        "from_version": "31 August 2023",
+        "to_version": "31 August 2024",
+        "change": "added",
+        "citation": "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], 9 April 2024",
+        "from_snapshot": "20240216163759__guide_art_46_eng.pdf",
+        "to_snapshot": "20240930065341__guide_art_46_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240216163759/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "to_wayback_url": "https://web.archive.org/web/20240930065341/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240216163759__guide_art_46_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240930065341__guide_art_46_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "ed0ed05ac958",
+        "guide_title": "Article 46",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "removed",
+        "citation": "Ukraine v. Russia (Re Crimea) [GC], 25 June 2024",
+        "from_snapshot": "20240930065341__guide_art_46_eng.pdf",
+        "to_snapshot": "20250918162301__guide_art_46_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930065341/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250918162301/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240930065341__guide_art_46_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20250918162301__guide_art_46_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "ed0ed05ac958",
+        "guide_title": "Article 46",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "removed",
+        "citation": "V.I. v. Moldova, 26 March 2024",
+        "from_snapshot": "20240930065341__guide_art_46_eng.pdf",
+        "to_snapshot": "20250918162301__guide_art_46_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930065341/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250918162301/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240930065341__guide_art_46_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20250918162301__guide_art_46_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      },
+      {
+        "guide_id": "ed0ed05ac958",
+        "guide_title": "Article 46",
+        "from_version": "31 August 2024",
+        "to_version": "28 February 2025",
+        "change": "removed",
+        "citation": "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], 9 April 2024",
+        "from_snapshot": "20240930065341__guide_art_46_eng.pdf",
+        "to_snapshot": "20250918162301__guide_art_46_eng.pdf",
+        "from_wayback_url": "https://web.archive.org/web/20240930065341/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "to_wayback_url": "https://web.archive.org/web/20250918162301/https://ks.echr.coe.int/documents/d/echr-ks/guide_art_46_eng",
+        "from_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20240930065341__guide_art_46_eng.pdf",
+        "to_hf_url": "https://huggingface.co/datasets/lexgenie/echr-guide-citation-diffs/resolve/main/pdfs/ed0ed05ac958/20250918162301__guide_art_46_eng.pdf",
+        "reasons": [
+          "no_app_number"
+        ]
+      }
+    ]
+  },
+  "reference_similar_noapp_pairs": [
+    {
+      "guide_id": "4026b1621d4a",
+      "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+      "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+      "added": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+      "removed": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+      "score": 0.987
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+      "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+      "added": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+      "removed": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+      "score": 0.985
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_snapshot": "20230911235812__guide_art_6_criminal_eng.pdf",
+      "to_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+      "added": "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑",
+      "removed": "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+      "score": 0.981
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+      "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+      "added": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996‑I",
+      "removed": "Botten v. Norway, 19 February 1996, Reports of Judgments and Decisions 1996 I",
+      "score": 0.987
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+      "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+      "added": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B",
+      "removed": "Pelladoah v. the Netherlands, 22 September 1994, Series A no. 297-B ‑",
+      "score": 0.985
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_snapshot": "20240409165839__guide_art_6_criminal_eng.pdf",
+      "to_snapshot": "20240930062643__guide_art_6_criminal_eng.pdf",
+      "added": "Schenk v. Switzerland, 12 July 1988, Series A no. 140",
+      "removed": "Schenk v. Switzerland, 12 July 1988, Series A no. 140 ‑",
+      "score": 0.981
+    },
+    {
+      "guide_id": "e751e8063f8b",
+      "from_snapshot": "20230923165352__guide_environment_eng.pdf",
+      "to_snapshot": "20240409195909__guide_environment_eng.pdf",
+      "added": "Pine Valley Developments Ltd and Others v. Ireland, 29 November 1991, Series A no. 222",
+      "removed": "Pine Valley Developments Ltd and Others v. Irlande, 29 November 1991, Series A no. 222",
+      "score": 0.988
+    },
+    {
+      "guide_id": "e751e8063f8b",
+      "from_snapshot": "20240409195909__guide_environment_eng.pdf",
+      "to_snapshot": "20250604023920__guide_environment_eng.pdf",
+      "added": "Steel and Others v. United Kingdom, 23 September 1998, Reports of Judgments and Decisions 1998-VII",
+      "removed": "Steel and Others v. United Kingdom, 23 September 1998, Reports of Judgments and Decisions",
+      "score": 0.952
+    }
+  ],
+  "local_similar_noapp_pairs": []
+}

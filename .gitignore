@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Large source data — obtain from HuggingFace or Wayback Machine (see README)
+wayback/
+anas-diff-dataset/
+papers/
+
+# Large derived artifacts — regenerate with scripts (see README)
+outputs/case_catalog/audit/hudoc_query_cache.json
+outputs/case_catalog/cases_catalog.json
+outputs/case_catalog/case_appearances.csv
+outputs/case_catalog/audit/cases_catalog_raw.json
+outputs/case_linked_guide_diffs/case_linked_guide_diffs.json
+outputs/case_linked_guide_diffs/case_linked_guide_diff_paragraphs.json
+outputs/prototype/filtered_case_linked_rows.json
+outputs/prototype/dev_audit_sample.json
+
+# Full judgment texts fetched from HUDOC — regenerate with fetch_linked_case_texts.py
+outputs/case_texts/docx/
+outputs/case_texts/text/

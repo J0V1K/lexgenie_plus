@@ -1,0 +1,40 @@
+{
+  "input_rows": 7846,
+  "reused_matched_rows": 7754,
+  "queried_rows": 92,
+  "rows_with_application_number": 82,
+  "rows_without_application_number": 10,
+  "matched_rows": 7759,
+  "unmatched_rows": 87,
+  "match_method_counts": {
+    "exact_application_set": 6816,
+    "exact_name_and_year": 498,
+    "application_subset_name_year": 222,
+    "legacy_identifier_exact_name_and_year": 218,
+    "request_identifier_exact_name_and_year": 5
+  },
+  "unmatched_reason_counts": {
+    "ambiguous_application_match": 51,
+    "no_candidate_after_year_filter": 31,
+    "no_exact_name_match": 3,
+    "no_official_case_document": 2
+  },
+  "doctype_counts": {
+    "HEJUD": 5630,
+    "HEDEC": 1386,
+    "HFDEC": 455,
+    "CLIN": 195,
+    "HFJUD": 44,
+    "HECOM": 18,
+    "HEREP": 15,
+    "HFREP": 7,
+    "ADVPRO16OPENG": 5,
+    "HFCOM": 4
+  },
+  "importance_counts": {
+    "3": 3714,
+    "4": 2045,
+    "1": 1165,
+    "2": 835
+  }
+}

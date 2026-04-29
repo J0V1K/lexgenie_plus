@@ -1,0 +1,25 @@
+Unique linked itemids to process: 602
+  [50/602] last=001-211572 status=ok ok=41 errors=9
+  [100/602] last=001-224194 status=http_500 ok=84 errors=16
+  [150/602] last=001-225597 status=http_500 ok=120 errors=30
+  [200/602] last=001-228018 status=ok ok=162 errors=38
+  [250/602] last=001-229396 status=ok ok=200 errors=50
+  [300/602] last=001-231337 status=ok ok=241 errors=59
+  [350/602] last=001-234091 status=http_500 ok=283 errors=67
+  [400/602] last=001-236141 status=ok ok=325 errors=75
+  [450/602] last=001-238582 status=http_500 ok=366 errors=84
+  [500/602] last=001-242710 status=http_500 ok=403 errors=97
+  [550/602] last=001-244024 status=ok ok=448 errors=102
+  [600/602] last=002-14493 status=ok ok=493 errors=107
+  [602/602] last=003-7623141-11823148 status=ok ok=495 errors=107
+{
+  "input_unique_itemids": 602,
+  "status_counts": {
+    "ok": 495,
+    "http_500": 107
+  },
+  "ok_total_text_chars": 42468019,
+  "ok_median_text_chars": 60243,
+  "ok_min_text_chars": 748,
+  "ok_max_text_chars": 1009965
+}
