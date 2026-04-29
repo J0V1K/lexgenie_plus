@@ -8,7 +8,7 @@ Research pipeline for automatically detecting when new European Court of Human R
 
 ## Problem
 
-The ECHR Knowledge Sharing Platform (ECHR-KS) publishes ~30 doctrinal guides that summarize case law by Convention article. These guides are updated weekly as new judgments are handed down. Currently, editors must manually monitor new case law, decide which cases are doctrinally significant, locate the relevant guide section, and rewrite it.
+The ECHR Knowledge Sharing Platform (ECHR-KS) publishes ~30 doctrinal guides that summarize case law by Convention article. These guides are updated as new judgments are handed down. Currently, editors must manually monitor new case law, decide which cases are doctrinally significant, locate the relevant guide section, and rewrite it.
 
 This project builds a pipeline that does this automatically:
 
@@ -20,7 +20,7 @@ This project builds a pipeline that does this automatically:
 
 ## Key Insight
 
-ECHR-KS's editorial decisions are a ground-truth signal. When editors add a case to a guide, that choice reflects a deliberate judgment that the case matters doctrinally. Weekly versioned guide PDFs scraped from the Wayback Machine provide a temporal supervision signal no prior work has exploited.
+ECHR-KS's editorial decisions are a ground-truth signal. When editors add a case to a guide, that choice reflects a deliberate judgment that the case matters doctrinally. Timestamp versioned guide PDFs scraped from the Wayback Machine provide a temporal supervision signal no prior work has exploited.
 
 ---
 
