@@ -193,7 +193,32 @@ def eval_model(labels: list[int], scores: list[float], name: str) -> dict[str, A
         "n": len(labels),
         "n_pos": sum(labels),
         "auroc": round(auc, 4),
+        "threshold_source": "oracle",
         **bf1,
+    }
+
+
+def eval_at_threshold(
+    labels: list[int], scores: list[float], name: str, threshold: float
+) -> dict[str, Any]:
+    """Evaluate at a fixed externally-supplied threshold (no leakage into evaluated split)."""
+    preds = [1 if s >= threshold else 0 for s in scores]
+    tp = sum(p == 1 and l == 1 for p, l in zip(preds, labels))
+    fp = sum(p == 1 and l == 0 for p, l in zip(preds, labels))
+    fn = sum(p == 0 and l == 1 for p, l in zip(preds, labels))
+    prec = tp / (tp + fp) if tp + fp > 0 else 0.0
+    rec = tp / (tp + fn) if tp + fn > 0 else 0.0
+    f1 = 2 * prec * rec / (prec + rec) if prec + rec > 0 else 0.0
+    return {
+        "model": name,
+        "n": len(labels),
+        "n_pos": sum(labels),
+        "auroc": round(auroc(labels, scores), 4),
+        "threshold": round(threshold, 6),
+        "threshold_source": "dev",
+        "f1": round(f1, 4),
+        "precision": round(prec, 4),
+        "recall": round(rec, 4),
     }
 
 
@@ -311,6 +336,7 @@ def main() -> None:
     ]
 
     def split_eval(split: str | None) -> list[dict[str, Any]]:
+        """Oracle evaluation: threshold tuned on the evaluated split itself."""
         if split:
             idx = [i for i, r in enumerate(rows) if r["split"] == split]
         else:
@@ -322,12 +348,35 @@ def main() -> None:
             results.append(eval_model(sub_labels, sub_scores, name))
         return results
 
+    def split_eval_at_dev_threshold(
+        split: str, dev_thresholds: dict[str, float]
+    ) -> list[dict[str, Any]]:
+        """Honest evaluation: threshold selected on dev, applied to the target split."""
+        idx = [i for i, r in enumerate(rows) if r["split"] == split]
+        sub_labels = [labels[i] for i in idx]
+        results = []
+        for name, scores in models.items():
+            sub_scores = [scores[i] for i in idx]
+            thr = dev_thresholds.get(name, 0.5)
+            results.append(eval_at_threshold(sub_labels, sub_scores, name, thr))
+        return results
+
+    # Step 1: oracle thresholds per split (for diagnostic/upper-bound comparison)
+    dev_results = split_eval("dev")
+    # Step 2: extract dev-optimal thresholds, then apply to test (no leakage)
+    dev_thresholds = {m["model"]: m["threshold"] for m in dev_results}
+
     report: dict[str, Any] = {
         "n_total": len(rows),
         "n_positive": sum(labels),
         "n_negative": len(rows) - sum(labels),
         "base_rate": round(base_rate, 4),
         "temporal_cutoff": TEMPORAL_CUTOFF,
+        "note_threshold_selection": (
+            "dev: oracle (threshold tuned on dev). "
+            "test_at_dev_threshold: honest (dev threshold applied to test). "
+            "test_oracle: upper-bound only — threshold tuned on test data, do not report as main result."
+        ),
         "article_feature_coverage": {
             "positive_with_case_articles": sum(
                 1 for r in rows if r["label"] == 1 and r["case_articles"]
@@ -346,8 +395,9 @@ def main() -> None:
             ),
         },
         "all": split_eval(None),
-        "dev": split_eval("dev"),
-        "test": split_eval("test"),
+        "dev": dev_results,
+        "test_at_dev_threshold": split_eval_at_dev_threshold("test", dev_thresholds),
+        "test_oracle": split_eval("test"),
     }
 
     OUTPUT_JSON.write_text(json.dumps(report, indent=2, ensure_ascii=False))
@@ -364,19 +414,26 @@ def main() -> None:
         writer.writerows(rows)
 
     print(f"\n=== TRIGGER: all {len(rows)} rows (base rate {base_rate:.3f}) ===")
-    print(f"{'model':<18} auroc   F1      prec    rec")
+    print(f"{'model':<18} auroc   F1      prec    rec     threshold")
     for m in report["all"]:
         print(f"  {m['model']:<16} {m['auroc']:.3f}   {m['f1']:.3f}   "
-              f"{m['precision']:.3f}   {m['recall']:.3f}")
+              f"{m['precision']:.3f}   {m['recall']:.3f}   {m['threshold']:.4f}")
 
-    print(f"\n=== TRIGGER: dev split ===")
+    print(f"\n=== TRIGGER: dev split (oracle threshold on dev) ===")
     for m in report["dev"]:
+        print(f"  {m['model']:<16} auroc={m['auroc']:.3f}  F1={m['f1']:.3f}  "
+              f"thr={m['threshold']:.4f}  (n={m['n']})")
+
+    print(f"\n=== TRIGGER: test split — dev-selected threshold (REPORT THIS) ===")
+    for m in report["test_at_dev_threshold"]:
+        print(f"  {m['model']:<16} auroc={m['auroc']:.3f}  F1={m['f1']:.3f}  "
+              f"prec={m['precision']:.3f}  rec={m['recall']:.3f}  thr={m['threshold']:.4f}  (n={m['n']})")
+
+    print(f"\n=== TRIGGER: test split — oracle threshold (UPPER BOUND ONLY, do not report as main result) ===")
+    for m in report["test_oracle"]:
         print(f"  {m['model']:<16} auroc={m['auroc']:.3f}  F1={m['f1']:.3f}  (n={m['n']})")
 
-    print(f"\n=== TRIGGER: test split ===")
-    for m in report["test"]:
-        print(f"  {m['model']:<16} auroc={m['auroc']:.3f}  F1={m['f1']:.3f}  (n={m['n']})")
-
+    print(f"\nDev-selected thresholds: { {m['model']: m['threshold'] for m in report['dev']} }")
     print(f"\nFull report: {OUTPUT_JSON}")
 
 

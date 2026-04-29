@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any
 
 TRIGGER_CSV = Path("outputs/trigger/trigger_predictions.csv")
+TRIGGER_EVAL_JSON = Path("outputs/trigger/trigger_eval.json")
 RETRIEVAL_CSV = Path("outputs/prototype/retrieval_predictions.csv")
 EDIT_TYPE_CSV = Path("outputs/prototype/edit_type_predictions.csv")
 OUTPUT_DIR = Path("outputs/pipeline")
@@ -36,9 +37,23 @@ PREDICTIONS_CSV = OUTPUT_DIR / "pipeline_predictions.csv"
 
 # Best trigger model (importance+art from trigger eval)
 TRIGGER_MODEL = "score_importance+art"
-TRIGGER_THRESHOLD = 0.5  # predict positive if score >= threshold
+TRIGGER_MODEL_NAME = "importance+art"  # bare name in trigger_eval.json
 
 TEMPORAL_CUTOFF = "2025-11-25"
+
+
+def load_dev_threshold(model_name: str, fallback: float = 0.5) -> float:
+    """Read dev-optimal threshold from trigger_eval.json; falls back to `fallback`."""
+    if not TRIGGER_EVAL_JSON.exists():
+        return fallback
+    try:
+        data = json.loads(TRIGGER_EVAL_JSON.read_text())
+        for m in data.get("dev", []):
+            if m.get("model") == model_name:
+                return float(m.get("threshold", fallback))
+    except Exception:
+        pass
+    return fallback
 
 
 def load_keyed(path: Path, key_fields: list[str]) -> dict[tuple, dict]:
@@ -51,6 +66,10 @@ def load_keyed(path: Path, key_fields: list[str]) -> dict[tuple, dict]:
 
 
 def main() -> None:
+    trigger_threshold = load_dev_threshold(TRIGGER_MODEL_NAME)
+    print(f"Trigger threshold (dev-optimal): {trigger_threshold:.4f}  "
+          f"(source: {TRIGGER_EVAL_JSON if TRIGGER_EVAL_JSON.exists() else 'fallback=0.5'})")
+
     # ── Load predictions from each step ───────────────────────────────────────
     trigger_rows = load_keyed(TRIGGER_CSV, ["guide_id", "case_key", "to_snapshot_date"])
     retrieval_rows = load_keyed(
@@ -71,7 +90,7 @@ def main() -> None:
 
         # Trigger prediction
         trig_score = float(trow.get(TRIGGER_MODEL, 0.0))
-        trig_pred = int(trig_score >= TRIGGER_THRESHOLD)
+        trig_pred = int(trig_score >= trigger_threshold)
 
         # Location prediction (from retrieval baseline, enriched model)
         rkey = (guide_id, case_key, to_date)
@@ -177,16 +196,22 @@ def main() -> None:
             "pipeline_hit_at_1": {
                 "n": len(joint),
                 "value": round(joint_pipe_hit1, 4),
-                "description": "fraction of positive rows where trigger=TP and location_hit@1",
+                "description": (
+                    "fraction of evaluable positive rows where trigger fires correctly "
+                    "AND section retrieval hits at rank 1. "
+                    "Edit-type correctness is NOT included in this metric."
+                ),
             },
             "edit_type_distribution_predicted_positive": dict(edit_dist),
         }
 
     report: dict[str, Any] = {
         "trigger_model": TRIGGER_MODEL,
-        "trigger_threshold": TRIGGER_THRESHOLD,
+        "trigger_threshold": trigger_threshold,
+        "trigger_threshold_source": "dev_optimal" if TRIGGER_EVAL_JSON.exists() else "fallback_0.5",
         "location_model": "bm25_enriched",
         "edit_model": "rule_based",
+        "pipeline_metric_scope": "trigger + section_retrieval (edit correctness not evaluated)",
         "all": metrics(records),
         "dev": metrics([r for r in records if r["split"] == "dev"]),
         "test": metrics([r for r in records if r["split"] == "test"]),

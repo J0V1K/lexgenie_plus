@@ -102,6 +102,37 @@ def load_case_text_tokens(
     return tokens
 
 
+def load_law_section_tokens(path: str, cache: dict[str, list[str]]) -> list[str]:
+    """Tokenize only THE LAW section; ablation shows this beats full-text enrichment."""
+    if not path:
+        return []
+    if path in cache:
+        return cache[path]
+    p = Path(path)
+    if not p.exists():
+        cache[path] = []
+        return []
+    text = p.read_text(errors="replace")
+    lines = text.splitlines()
+    law_start = op_start = None
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if law_start is None and re.match(r"^THE LAW$", s, re.I):
+            law_start = i
+        elif law_start is not None and op_start is None and re.match(
+            r"^FOR THESE REASONS|^OPERATIVE PROVISIONS", s, re.I
+        ):
+            op_start = i
+            break
+    if law_start is None:
+        cache[path] = []
+        return []
+    end = op_start if op_start else min(law_start + 250, len(lines))
+    tokens = tokenize("\n".join(lines[law_start:end]))
+    cache[path] = tokens
+    return tokens
+
+
 def rank_and_score(
     query: list[str], paths: list[str], bm25: BM25Okapi, gold_set: set[str]
 ) -> dict[str, Any]:
@@ -148,6 +179,7 @@ def evaluate_row(
     row: dict[str, str],
     diff_cache: dict[Path, tuple[list[str], Any]],
     case_text_cache: dict[str, list[str]],
+    law_cache: dict[str, list[str]],
     row_idx: int,
 ) -> dict[str, Any]:
     split = "test" if row.get("to_snapshot_date", "") >= TEMPORAL_CUTOFF else "dev"
@@ -164,6 +196,7 @@ def evaluate_row(
             "gold_sections": "",
             "gold_in_corpus": False,
             "case_text_available": False,
+            "law_text_available": False,
             "corpus_size": 0,
             "split": split,
             "link_status": row.get("link_status", ""),
@@ -175,7 +208,9 @@ def evaluate_row(
             "hit_at_10_base": 0, "reciprocal_rank_base": 0.0,
             "hit_at_1_enriched": 0, "hit_at_3_enriched": 0,
             "hit_at_10_enriched": 0, "reciprocal_rank_enriched": 0.0,
-            "top_1_base": "", "top_1_enriched": "",
+            "hit_at_1_law": 0, "hit_at_3_law": 0,
+            "hit_at_10_law": 0, "reciprocal_rank_law": 0.0,
+            "top_1_base": "", "top_1_enriched": "", "top_1_law": "",
         }
 
     diff_file = row.get("diff_file", "")
@@ -199,19 +234,25 @@ def evaluate_row(
 
     base_query = build_query(row)
     case_tokens = load_case_text_tokens(row, case_text_cache)
+    law_tokens = load_law_section_tokens(row.get("case_text_path", ""), law_cache)
     has_case_text = bool(case_tokens)
+    has_law_text = bool(law_tokens)
 
     if not paths or bm25 is None or not base_query:
         zeros: dict[str, Any] = {
             "hit_at_1": 0, "hit_at_3": 0, "hit_at_10": 0,
             "reciprocal_rank": 0.0, "ranked_paths": [],
         }
-        base_result = enriched_result = rand_result = zeros
+        base_result = enriched_result = law_result = rand_result = zeros
     else:
         base_result = rank_and_score(base_query, paths, bm25, gold_set)
         enriched_result = (
             rank_and_score(base_query + case_tokens, paths, bm25, gold_set)
             if has_case_text else base_result
+        )
+        law_result = (
+            rank_and_score(base_query + law_tokens, paths, bm25, gold_set)
+            if has_law_text else base_result
         )
         rand_result = random_score(paths, gold_set, seed=row_idx)
 
@@ -223,6 +264,7 @@ def evaluate_row(
         "gold_sections": "|".join(gold_sections),
         "gold_in_corpus": gold_in_corpus,
         "case_text_available": has_case_text,
+        "law_text_available": has_law_text,
         "corpus_size": len(paths),
         "split": split,
         "link_status": row.get("link_status", ""),
@@ -240,10 +282,16 @@ def evaluate_row(
         "hit_at_3_enriched": enriched_result["hit_at_3"],
         "hit_at_10_enriched": enriched_result["hit_at_10"],
         "reciprocal_rank_enriched": enriched_result["reciprocal_rank"],
+        "hit_at_1_law": law_result["hit_at_1"],
+        "hit_at_3_law": law_result["hit_at_3"],
+        "hit_at_10_law": law_result["hit_at_10"],
+        "reciprocal_rank_law": law_result["reciprocal_rank"],
         "top_1_base": (base_result["ranked_paths"][0]
                        if base_result.get("ranked_paths") else ""),
         "top_1_enriched": (enriched_result["ranked_paths"][0]
                            if enriched_result.get("ranked_paths") else ""),
+        "top_1_law": (law_result["ranked_paths"][0]
+                      if law_result.get("ranked_paths") else ""),
     }
 
 
@@ -276,7 +324,7 @@ def build_report(results: list[dict[str, Any]]) -> dict[str, Any]:
     n_unlinked = sum(1 for r in results if r["link_status"] != "linked_paragraphs")
     n_gold_in_corpus = sum(1 for r in evaluable if r["gold_in_corpus"])
 
-    models = ["random", "base", "enriched"]
+    models = ["random", "base", "enriched", "law"]
 
     def section(rows: list[dict[str, Any]], label: str) -> dict[str, Any]:
         return {m: summarize(rows, m, label) for m in models}
@@ -309,10 +357,11 @@ def main() -> None:
 
     diff_cache: dict[Path, Any] = {}
     case_text_cache: dict[str, list[str]] = {}
+    law_cache: dict[str, list[str]] = {}
     results: list[dict[str, Any]] = []
 
     for idx, row in enumerate(all_rows):
-        result = evaluate_row(row, diff_cache, case_text_cache, idx)
+        result = evaluate_row(row, diff_cache, case_text_cache, law_cache, idx)
         results.append(result)
 
     report = build_report(results)
@@ -330,14 +379,16 @@ def main() -> None:
         return f"hit@1={d['hit_at_1']:.3f} hit@3={d['hit_at_3']:.3f} mrr={d['mrr']:.3f} (n={d['n']})"
 
     print("\n=== UNCONDITIONAL (all 1,014 rows; unlinked score 0) ===")
-    for m in ["random", "base", "enriched"]:
+    for m in ["random", "base", "enriched", "law"]:
         print(f"  {m:12s}: {fmt(report['unconditional_all'][m])}")
 
     print("\n=== CONDITIONAL (linked+evaluable rows only) ===")
-    for m in ["random", "base", "enriched"]:
+    for m in ["random", "base", "enriched", "law"]:
         print(f"  {m:12s}: {fmt(report['conditional_linked'][m])}")
 
     print("\n=== TEMPORAL SPLIT (conditional) ===")
+    print(f"  dev  law     : {fmt(report['dev_conditional']['law'])}")
+    print(f"  test law     : {fmt(report['test_conditional']['law'])}")
     print(f"  dev  enriched: {fmt(report['dev_conditional']['enriched'])}")
     print(f"  test enriched: {fmt(report['test_conditional']['enriched'])}")
     print(f"  dev  base    : {fmt(report['dev_conditional']['base'])}")
