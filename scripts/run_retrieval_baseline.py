@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import random
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -16,6 +17,10 @@ OUTPUT_JSON = OUTPUT_DIR / "retrieval_eval.json"
 PREDICTIONS_CSV = OUTPUT_DIR / "retrieval_predictions.csv"
 
 TOP_K = 10
+# Hold out transitions whose to_snapshot_date >= this cutoff as test set.
+# Chosen as the 80th percentile of unique to_snapshot_dates.
+TEMPORAL_CUTOFF = "2025-11-25"
+
 TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
 
 
@@ -24,8 +29,6 @@ def tokenize(text: str) -> list[str]:
 
 
 def parse_section_path(linked_section: str) -> str:
-    # linked_section format: "II.B.1.b: Gender recognition (...)"
-    # section_path is everything before the first ": "
     idx = linked_section.find(": ")
     return linked_section[:idx] if idx >= 0 else linked_section
 
@@ -53,7 +56,6 @@ def load_diff_corpus(diff_path: Path) -> tuple[list[str], list[str]]:
         if text_a:
             sections[path].append(text_a)
 
-    # Include section events for section_a titles on removed/modified sections
     for ev in data.get("section_events", []):
         path = ev.get("path") or ""
         title_a = ev.get("title_a") or ""
@@ -123,64 +125,113 @@ def rank_and_score(
     }
 
 
+def random_score(paths: list[str], gold_set: set[str], seed: int) -> dict[str, Any]:
+    shuffled = paths[:]
+    random.Random(seed).shuffle(shuffled)
+    hit_at_1 = 1 if shuffled and shuffled[0] in gold_set else 0
+    hit_at_3 = 1 if any(p in gold_set for p in shuffled[:3]) else 0
+    hit_at_10 = 1 if any(p in gold_set for p in shuffled[:TOP_K]) else 0
+    rr = 0.0
+    for rank, path in enumerate(shuffled, start=1):
+        if path in gold_set:
+            rr = 1.0 / rank
+            break
+    return {
+        "hit_at_1": hit_at_1,
+        "hit_at_3": hit_at_3,
+        "hit_at_10": hit_at_10,
+        "reciprocal_rank": rr,
+    }
+
+
 def evaluate_row(
     row: dict[str, str],
-    diff_cache: dict[Path, tuple[list[str], BM25Okapi]],
+    diff_cache: dict[Path, tuple[list[str], Any]],
     case_text_cache: dict[str, list[str]],
-) -> dict[str, Any] | None:
+    row_idx: int,
+) -> dict[str, Any]:
+    split = "test" if row.get("to_snapshot_date", "") >= TEMPORAL_CUTOFF else "dev"
+    is_linked = row.get("link_status") == "linked_paragraphs"
     gold_sections = parse_linked_sections(row.get("linked_sections", ""))
-    if not gold_sections:
-        return None
+
+    # Rows with no paragraph link score 0 across all models — real misses, not skips.
+    if not is_linked or not gold_sections:
+        return {
+            "guide_id": row["guide_id"],
+            "case_key": row.get("case_key", ""),
+            "to_snapshot_date": row.get("to_snapshot_date", ""),
+            "citation_change": row.get("citation_change", ""),
+            "gold_sections": "",
+            "gold_in_corpus": False,
+            "case_text_available": False,
+            "corpus_size": 0,
+            "split": split,
+            "link_status": row.get("link_status", ""),
+            "strict_citation_field_match": row.get("strict_citation_field_match", "false"),
+            "evaluable": False,
+            "hit_at_1_random": 0, "hit_at_3_random": 0,
+            "hit_at_10_random": 0, "reciprocal_rank_random": 0.0,
+            "hit_at_1_base": 0, "hit_at_3_base": 0,
+            "hit_at_10_base": 0, "reciprocal_rank_base": 0.0,
+            "hit_at_1_enriched": 0, "hit_at_3_enriched": 0,
+            "hit_at_10_enriched": 0, "reciprocal_rank_enriched": 0.0,
+            "top_1_base": "", "top_1_enriched": "",
+        }
 
     diff_file = row.get("diff_file", "")
-    if not diff_file:
-        return None
-    diff_path = Path(diff_file)
-    if not diff_path.is_absolute():
+    diff_path = Path(diff_file) if diff_file else None
+    if diff_path and not diff_path.is_absolute():
         diff_path = DIFF_DIR.parent / diff_file
-    if not diff_path.exists():
-        return None
 
-    if diff_path not in diff_cache:
+    if diff_path and diff_path not in diff_cache:
         paths, docs = load_diff_corpus(diff_path)
-        if not paths:
-            diff_cache[diff_path] = ([], None)  # type: ignore
-        else:
+        if paths:
             tokenized = [tokenize(d) for d in docs]
             diff_cache[diff_path] = (paths, BM25Okapi(tokenized))
+        else:
+            diff_cache[diff_path] = ([], None)
 
-    paths, bm25 = diff_cache[diff_path]
-    if not paths or bm25 is None:
-        return None
-
-    base_query = build_query(row)
-    if not base_query:
-        return None
+    corpus_entry = diff_cache.get(diff_path) if diff_path else None
+    paths, bm25 = corpus_entry if corpus_entry else ([], None)
 
     gold_set = set(gold_sections)
-    gold_in_corpus = any(g in paths for g in gold_sections)
+    gold_in_corpus = any(g in paths for g in gold_sections) if paths else False
 
-    base_result = rank_and_score(base_query, paths, bm25, gold_set)
-
+    base_query = build_query(row)
     case_tokens = load_case_text_tokens(row, case_text_cache)
     has_case_text = bool(case_tokens)
-    if has_case_text:
-        enriched_result = rank_and_score(
-            base_query + case_tokens, paths, bm25, gold_set
-        )
+
+    if not paths or bm25 is None or not base_query:
+        zeros: dict[str, Any] = {
+            "hit_at_1": 0, "hit_at_3": 0, "hit_at_10": 0,
+            "reciprocal_rank": 0.0, "ranked_paths": [],
+        }
+        base_result = enriched_result = rand_result = zeros
     else:
-        enriched_result = base_result
+        base_result = rank_and_score(base_query, paths, bm25, gold_set)
+        enriched_result = (
+            rank_and_score(base_query + case_tokens, paths, bm25, gold_set)
+            if has_case_text else base_result
+        )
+        rand_result = random_score(paths, gold_set, seed=row_idx)
 
     return {
         "guide_id": row["guide_id"],
         "case_key": row.get("case_key", ""),
-        "citation_text": row.get("citation_text", ""),
+        "to_snapshot_date": row.get("to_snapshot_date", ""),
+        "citation_change": row.get("citation_change", ""),
         "gold_sections": "|".join(gold_sections),
         "gold_in_corpus": gold_in_corpus,
         "case_text_available": has_case_text,
         "corpus_size": len(paths),
-        "top_1_base": base_result["ranked_paths"][0] if base_result["ranked_paths"] else "",
-        "top_1_enriched": enriched_result["ranked_paths"][0] if enriched_result["ranked_paths"] else "",
+        "split": split,
+        "link_status": row.get("link_status", ""),
+        "strict_citation_field_match": row.get("strict_citation_field_match", "false"),
+        "evaluable": bool(paths and bm25 and base_query),
+        "hit_at_1_random": rand_result["hit_at_1"],
+        "hit_at_3_random": rand_result["hit_at_3"],
+        "hit_at_10_random": rand_result["hit_at_10"],
+        "reciprocal_rank_random": rand_result["reciprocal_rank"],
         "hit_at_1_base": base_result["hit_at_1"],
         "hit_at_3_base": base_result["hit_at_3"],
         "hit_at_10_base": base_result["hit_at_10"],
@@ -189,105 +240,110 @@ def evaluate_row(
         "hit_at_3_enriched": enriched_result["hit_at_3"],
         "hit_at_10_enriched": enriched_result["hit_at_10"],
         "reciprocal_rank_enriched": enriched_result["reciprocal_rank"],
-        "strict_citation_field_match": row.get("strict_citation_field_match", "false"),
+        "top_1_base": (base_result["ranked_paths"][0]
+                       if base_result.get("ranked_paths") else ""),
+        "top_1_enriched": (enriched_result["ranked_paths"][0]
+                           if enriched_result.get("ranked_paths") else ""),
     }
 
 
-def summarize(subset: list[dict[str, Any]], suffix: str) -> dict[str, float] | None:
-    if not subset:
-        return None
-    n = len(subset)
+def summarize(
+    rows: list[dict[str, Any]], suffix: str, label: str
+) -> dict[str, Any]:
+    if not rows:
+        return {"n": 0, "label": label}
+    n = len(rows)
     return {
+        "label": label,
         "n": n,
-        "hit_at_1": round(sum(r[f"hit_at_1_{suffix}"] for r in subset) / n, 4),
-        "hit_at_3": round(sum(r[f"hit_at_3_{suffix}"] for r in subset) / n, 4),
-        "hit_at_10": round(sum(r[f"hit_at_10_{suffix}"] for r in subset) / n, 4),
-        "mrr": round(sum(r[f"reciprocal_rank_{suffix}"] for r in subset) / n, 4),
+        "hit_at_1": round(sum(r[f"hit_at_1_{suffix}"] for r in rows) / n, 4),
+        "hit_at_3": round(sum(r[f"hit_at_3_{suffix}"] for r in rows) / n, 4),
+        "mrr": round(sum(r[f"reciprocal_rank_{suffix}"] for r in rows) / n, 4),
     }
 
 
-def aggregate(results: list[dict[str, Any]]) -> dict[str, Any]:
-    if not results:
-        return {"n": 0}
-    n = len(results)
-    n_gold_in_corpus = sum(1 for r in results if r["gold_in_corpus"])
-    with_text = [r for r in results if r["case_text_available"]]
-    without_text = [r for r in results if not r["case_text_available"]]
-    strict = [r for r in results if r["strict_citation_field_match"] == "true"]
+def build_report(results: list[dict[str, Any]]) -> dict[str, Any]:
+    all_rows = results
+    linked = [r for r in results if r["link_status"] == "linked_paragraphs"]
+    evaluable = [r for r in linked if r["evaluable"]]
+    with_text = [r for r in evaluable if r["case_text_available"]]
+    dev_eval = [r for r in evaluable if r["split"] == "dev"]
+    test_eval = [r for r in evaluable if r["split"] == "test"]
+    dev_all = [r for r in all_rows if r["split"] == "dev"]
+    test_all = [r for r in all_rows if r["split"] == "test"]
+    strict = [r for r in evaluable if r["strict_citation_field_match"] == "true"]
 
-    by_guide: dict[str, dict[str, Any]] = {}
-    buckets: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for r in results:
-        buckets[r["guide_id"]].append(r)
-    for gid, rows in buckets.items():
-        m = len(rows)
-        by_guide[gid] = {
-            "n": m,
-            "hit_at_1_base": round(sum(r["hit_at_1_base"] for r in rows) / m, 4),
-            "hit_at_1_enriched": round(
-                sum(r["hit_at_1_enriched"] for r in rows) / m, 4
-            ),
-            "mrr_base": round(sum(r["reciprocal_rank_base"] for r in rows) / m, 4),
-            "mrr_enriched": round(
-                sum(r["reciprocal_rank_enriched"] for r in rows) / m, 4
-            ),
-        }
+    n_unlinked = sum(1 for r in results if r["link_status"] != "linked_paragraphs")
+    n_gold_in_corpus = sum(1 for r in evaluable if r["gold_in_corpus"])
+
+    models = ["random", "base", "enriched"]
+
+    def section(rows: list[dict[str, Any]], label: str) -> dict[str, Any]:
+        return {m: summarize(rows, m, label) for m in models}
 
     return {
-        "n": n,
-        "gold_in_corpus_rate": round(n_gold_in_corpus / n, 4),
+        "temporal_cutoff": TEMPORAL_CUTOFF,
+        "n_total": len(all_rows),
+        "n_linked": len(linked),
+        "n_unlinked_scored_zero": n_unlinked,
+        "n_evaluable": len(evaluable),
         "n_with_case_text": len(with_text),
-        "n_without_case_text": len(without_text),
-        "base_all": summarize(results, "base"),
-        "enriched_all": summarize(results, "enriched"),
-        "base_with_case_text": summarize(with_text, "base"),
-        "enriched_with_case_text": summarize(with_text, "enriched"),
-        "base_without_case_text": summarize(without_text, "base"),
-        "base_strict": summarize(strict, "base"),
-        "enriched_strict": summarize(strict, "enriched"),
-        "by_guide": by_guide,
+        "gold_in_corpus_rate_evaluable": round(n_gold_in_corpus / len(evaluable), 4) if evaluable else 0,
+        # Primary comparison: unconditional (all 1014) vs conditional (linked only)
+        "unconditional_all": section(all_rows, "all_1014_rows"),
+        "conditional_linked": section(evaluable, "linked_evaluable"),
+        # With/without case text (conditional)
+        "conditional_with_text": section(with_text, "linked_with_text"),
+        "conditional_strict": section(strict, "linked_strict"),
+        # Temporal split (conditional)
+        "dev_conditional": section(dev_eval, "dev_linked"),
+        "test_conditional": section(test_eval, "test_linked"),
+        "dev_unconditional": section(dev_all, "dev_all"),
+        "test_unconditional": section(test_all, "test_all"),
     }
-
-
-def write_predictions(results: list[dict[str, Any]]) -> None:
-    if not results:
-        return
-    fieldnames = list(results[0].keys())
-    with PREDICTIONS_CSV.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        for r in results:
-            writer.writerow(r)
 
 
 def main() -> None:
     with INPUT_CSV.open() as handle:
-        rows = [
-            r for r in csv.DictReader(handle) if r.get("usable_for_location") == "true"
-        ]
+        all_rows = list(csv.DictReader(handle))
 
-    diff_cache: dict[Path, tuple[list[str], BM25Okapi]] = {}
+    diff_cache: dict[Path, Any] = {}
     case_text_cache: dict[str, list[str]] = {}
     results: list[dict[str, Any]] = []
-    skipped: Counter = Counter()
-    for row in rows:
-        evaluated = evaluate_row(row, diff_cache, case_text_cache)
-        if evaluated is None:
-            skipped["skipped"] += 1
-            continue
-        results.append(evaluated)
 
-    report = aggregate(results)
-    report["input_rows_usable_for_location"] = len(rows)
-    report["evaluated_rows"] = len(results)
-    report["skipped_rows"] = skipped["skipped"]
+    for idx, row in enumerate(all_rows):
+        result = evaluate_row(row, diff_cache, case_text_cache, idx)
+        results.append(result)
 
+    report = build_report(results)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT_JSON.write_text(json.dumps(report, indent=2, ensure_ascii=False))
-    write_predictions(results)
 
-    summary = {k: v for k, v in report.items() if k != "by_guide"}
-    print(json.dumps(summary, indent=2, ensure_ascii=False))
+    fieldnames = list(results[0].keys())
+    with PREDICTIONS_CSV.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(results)
+
+    # Print the headline numbers
+    def fmt(d: dict) -> str:
+        return f"hit@1={d['hit_at_1']:.3f} hit@3={d['hit_at_3']:.3f} mrr={d['mrr']:.3f} (n={d['n']})"
+
+    print("\n=== UNCONDITIONAL (all 1,014 rows; unlinked score 0) ===")
+    for m in ["random", "base", "enriched"]:
+        print(f"  {m:12s}: {fmt(report['unconditional_all'][m])}")
+
+    print("\n=== CONDITIONAL (linked+evaluable rows only) ===")
+    for m in ["random", "base", "enriched"]:
+        print(f"  {m:12s}: {fmt(report['conditional_linked'][m])}")
+
+    print("\n=== TEMPORAL SPLIT (conditional) ===")
+    print(f"  dev  enriched: {fmt(report['dev_conditional']['enriched'])}")
+    print(f"  test enriched: {fmt(report['test_conditional']['enriched'])}")
+    print(f"  dev  base    : {fmt(report['dev_conditional']['base'])}")
+    print(f"  test base    : {fmt(report['test_conditional']['base'])}")
+
+    print(f"\nFull report written to {OUTPUT_JSON}")
 
 
 if __name__ == "__main__":

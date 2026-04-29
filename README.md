@@ -26,7 +26,7 @@ ECHR-KS's editorial decisions are a ground-truth signal. When editors add a case
 
 ## Current State
 
-This repository contains a working prototype pipeline covering steps 1 and 2. The core dataset (`case_linked_guide_diffs.csv`) links 1,014 citation-change events across 38 guides to their HUDOC case records and paragraph-level locations. A BM25 retrieval baseline using full judgment text reaches **hit@1 35.8%** and **MRR 0.485** on the 660 cases with text available — up from 12% / 0.23 without case text.
+This repository contains a working prototype pipeline covering steps 1 and 2. The core dataset (`case_linked_guide_diffs.csv`) links 1,014 citation-change events across 38 guides to their HUDOC case records and paragraph-level locations. A BM25 retrieval baseline using full judgment text reaches **hit@1 31.4%** and **MRR 0.436** on the 805 evaluable rows — up from 11.9% / 0.226 without case text. The pipeline is additionally augmented with 3,090 negative examples (judgments published in each transition window but not added to any guide) for novelty-detection training.
 
 See `outputs/prototype/prototype_notes.md` for full results and `prototype_handoff.md` for the next-agent handoff document.
 
@@ -45,7 +45,9 @@ lexgenie/
 │   ├── build_prototype_dataset.py            # Step 6: filter to usable modeling rows
 │   ├── fetch_linked_case_texts.py            # Step 7: fetch full judgment text from HUDOC
 │   ├── sample_prototype_dev_set.py           # Step 8: stratified dev audit sample
-│   └── run_retrieval_baseline.py             # Step 9: BM25 retrieval evaluation
+│   ├── run_retrieval_baseline.py             # Step 9: BM25 retrieval evaluation
+│   ├── build_negative_examples.py            # Step 10: mine hard negatives from HUDOC
+│   └── run_retrieval_ablation.py             # Step 11: section ablation study
 │
 ├── outputs/
 │   ├── case_catalog/                 # Cases extracted from guides + HUDOC enrichment
@@ -60,11 +62,16 @@ lexgenie/
 │   │   ├── case_linked_guide_diff_paragraphs.csv # 1,489 paragraph-level matches
 │   │   └── case_linked_guide_diffs_report.json
 │   ├── prototype/                    # Modeling artifacts
-│   │   ├── filtered_case_linked_rows.csv   # 805 usable rows with flags
-│   │   ├── dev_audit_sample.csv            # 120-row stratified human-audit sample
-│   │   ├── retrieval_eval.json             # BM25 retrieval results
-│   │   ├── retrieval_predictions.csv       # Per-row retrieval predictions
-│   │   └── prototype_notes.md              # Results summary + next steps
+│   │   ├── filtered_case_linked_rows.csv        # 805 usable rows with flags
+│   │   ├── dev_audit_sample.csv                 # 120-row stratified human-audit sample
+│   │   ├── retrieval_eval.json                  # BM25 retrieval baseline results
+│   │   ├── retrieval_predictions.csv            # Per-row retrieval predictions
+│   │   ├── retrieval_ablation.json              # Section ablation results
+│   │   ├── retrieval_ablation_predictions.csv   # Per-row ablation predictions
+│   │   └── prototype_notes.md                   # Results summary + next steps
+│   ├── negatives/                    # Hard negative examples for novelty detection
+│   │   ├── negative_examples.csv            # 3,090 negatives across 103 transitions
+│   │   └── negative_examples_report.json    # Coverage stats
 │   └── case_texts/                   # Fetched HUDOC judgment texts (not tracked in git)
 │       ├── case_texts_index.csv      # Fetch status per case
 │       └── case_texts_report.json    # Coverage report
@@ -140,6 +147,12 @@ python3 scripts/sample_prototype_dev_set.py
 
 # Step 9: Evaluate retrieval baseline
 python3 scripts/run_retrieval_baseline.py        # ~5 min
+
+# Step 10: Mine hard negatives (HUDOC API calls, uses cache after first run)
+python3 scripts/build_negative_examples.py       # ~5 min first run
+
+# Step 11: Section ablation study
+python3 scripts/run_retrieval_ablation.py        # ~15 min (BM25 with full text queries)
 ```
 
 ---
@@ -156,7 +169,7 @@ Key fields:
 | `from_snapshot_date`, `to_snapshot_date` | Version transition window |
 | `case_key`, `case_name`, `application_numbers` | Case identity |
 | `citation_change` | `added` or `removed` |
-| `hudoc_importance_level` | 1 (Grand Chamber) → 4 (low importance) |
+| `hudoc_importance_level` | (key cases, 1, 2, 3) |
 | `link_status` | `linked_paragraphs` (usable) or `no_paragraph_link` |
 | `linked_sections` | Pipe-separated guide section paths |
 | `linked_change_types` | Pipe-separated paragraph change types |
@@ -175,13 +188,35 @@ Key fields:
 
 Task: given a new case, rank guide sections by likelihood of needing an update.
 
-| Condition | hit@1 | hit@3 | hit@10 | MRR |
-|---|---|---|---|---|
-| Base query (name + app# + citation text) | 11.9% | 22.6% | 46.3% | 0.226 |
-| + full judgment text (660 rows with text) | **35.8%** | **53.9%** | **75.6%** | **0.485** |
-| All 805 rows enriched where available | 31.4% | 47.7% | 69.8% | 0.436 |
+**Unconditional (all 1,014 rows; 209 unlinked rows score 0):**
 
-Full judgment text provides ~3× hit@1 improvement. The ceiling (gold section in corpus) is 99%.
+| Model | hit@1 | hit@3 | MRR |
+|---|---|---|---|
+| Random baseline | 2.5% | 7.2% | 0.089 |
+| Base query (name + app# + citation) | 9.5% | 17.9% | 0.179 |
+| **Enriched (+ full judgment text)** | **24.9%** | **37.9%** | **0.346** |
+
+**Conditional (805 linked+evaluable rows only):**
+
+| Model | hit@1 | hit@3 | MRR |
+|---|---|---|---|
+| Random | 3.1% | 9.1% | 0.113 |
+| Base | 11.9% | 22.6% | 0.226 |
+| **Enriched** | **31.4%** | **47.7%** | **0.436** |
+
+**Temporal split (conditional, enriched):** dev hit@1 = 31.2%, test hit@1 = 32.7%. Base query degrades severely on test (3.6% vs 13.2% dev) — new cases have no lexical overlap with pre-update guide text, making full judgment text load-bearing.
+
+**Section ablation (660 rows with case text):**
+
+| Query | hit@1 | hit@3 | MRR |
+|---|---|---|---|
+| base_only | 10.9% | 22.7% | 0.223 |
+| facts | 21.7% | 40.2% | 0.355 |
+| **law** | **32.0%** | **52.9%** | **0.464** |
+| operative | 12.4% | 30.6% | 0.270 |
+| full_text | 31.8% | 49.7% | 0.453 |
+
+The **law section alone beats full text** — THE LAW section's legal analysis aligns directly with doctrinal guide sections. Operative provisions add near-zero signal. Gold section in corpus rate: 99%.
 
 ---
 

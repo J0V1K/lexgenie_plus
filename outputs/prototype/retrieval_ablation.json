@@ -1,0 +1,69 @@
+{
+  "n_evaluable": 805,
+  "n_with_case_text": 660,
+  "n_without_case_text": 145,
+  "all_rows": {
+    "base_only": {
+      "n": 805,
+      "hit_at_1": 0.1093,
+      "hit_at_3": 0.2236,
+      "mrr": 0.2213
+    },
+    "facts": {
+      "n": 805,
+      "hit_at_1": 0.1975,
+      "hit_at_3": 0.3665,
+      "mrr": 0.33
+    },
+    "law": {
+      "n": 805,
+      "hit_at_1": 0.282,
+      "hit_at_3": 0.4708,
+      "mrr": 0.4188
+    },
+    "operative": {
+      "n": 805,
+      "hit_at_1": 0.1217,
+      "hit_at_3": 0.2882,
+      "mrr": 0.2601
+    },
+    "full_text": {
+      "n": 805,
+      "hit_at_1": 0.2807,
+      "hit_at_3": 0.4447,
+      "mrr": 0.4097
+    }
+  },
+  "with_case_text": {
+    "base_only": {
+      "n": 660,
+      "hit_at_1": 0.1091,
+      "hit_at_3": 0.2273,
+      "mrr": 0.2229
+    },
+    "facts": {
+      "n": 660,
+      "hit_at_1": 0.2167,
+      "hit_at_3": 0.4015,
+      "mrr": 0.3555
+    },
+    "law": {
+      "n": 660,
+      "hit_at_1": 0.3197,
+      "hit_at_3": 0.5288,
+      "mrr": 0.4638
+    },
+    "operative": {
+      "n": 660,
+      "hit_at_1": 0.1242,
+      "hit_at_3": 0.3061,
+      "mrr": 0.2703
+    },
+    "full_text": {
+      "n": 660,
+      "hit_at_1": 0.3182,
+      "hit_at_3": 0.497,
+      "mrr": 0.4528
+    }
+  }
+}

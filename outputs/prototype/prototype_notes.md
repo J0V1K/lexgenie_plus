@@ -46,39 +46,88 @@ Produced by `scripts/run_retrieval_baseline.py`. Evaluates section-level retriev
 
 Corpus: pre-update guide sections reconstructed from `text_a` paragraphs in the diff JSON.
 
+All 1,014 rows are scored; the 209 `no_paragraph_link` rows score 0 (real misses, not skips). Temporal split: `to_snapshot_date >= 2025-11-25` is test (n=110 evaluable), earlier is dev (n=695 evaluable).
+
 Query variants:
+- **Random**: per-row deterministic shuffle (seed=row index)
 - **Base**: case name + application numbers + citation text
 - **Enriched**: base + full judgment text (when available)
 
-Results:
+**Unconditional results (all 1,014 rows; unlinked rows score 0):**
 
-| Condition | n | hit@1 | hit@3 | hit@10 | MRR |
-|---|---|---|---|---|---|
-| Base (all 805) | 805 | 0.119 | 0.226 | 0.463 | 0.226 |
-| Enriched (all 805) | 805 | 0.314 | 0.477 | 0.698 | 0.436 |
-| Base (660 with text) | 660 | 0.120 | 0.233 | 0.470 | 0.229 |
-| Enriched (660 with text) | 660 | 0.358 | 0.539 | 0.756 | 0.485 |
-| Base (145 no text) | 145 | 0.117 | 0.193 | 0.435 | 0.212 |
-| Base strict (151) | 151 | 0.020 | 0.086 | 0.272 | 0.108 |
-| Enriched strict (151) | 151 | 0.252 | 0.371 | 0.629 | 0.359 |
+| Model | hit@1 | hit@3 | MRR | n |
+|---|---|---|---|---|
+| Random | 0.025 | 0.072 | 0.089 | 1014 |
+| Base | 0.095 | 0.179 | 0.179 | 1014 |
+| Enriched | 0.249 | 0.379 | 0.346 | 1014 |
 
-Gold-in-corpus rate: 99.0% (ceiling is ~99% — the gold section exists in the pre-update guide for almost all rows).
+**Conditional results (linked + evaluable rows only):**
 
-Key finding: case text provides ~3× hit@1 improvement. The base-only query has almost no topical signal because for `citation_added` rows (97% of the set) the case doesn't yet appear in the pre-update guide text.
+| Model | hit@1 | hit@3 | MRR | n |
+|---|---|---|---|---|
+| Random | 0.031 | 0.091 | 0.113 | 805 |
+| Base | 0.119 | 0.226 | 0.226 | 805 |
+| Enriched | 0.314 | 0.477 | 0.436 | 805 |
 
-Strict-match rows perform worse on the base query but recover with enrichment, suggesting they are valid rows where the link quality is high but the case is genuinely topically diverse within the guide.
+**Temporal split (conditional, enriched):**
+
+| Split | hit@1 | hit@3 | MRR | n |
+|---|---|---|---|---|
+| Dev enriched | 0.312 | 0.479 | 0.436 | 695 |
+| Test enriched | 0.327 | 0.464 | 0.439 | 110 |
+| Dev base | 0.132 | 0.243 | 0.240 | 695 |
+| Test base | 0.036 | 0.118 | 0.135 | 110 |
+
+Gold-in-corpus rate: 99.0%.
+
+Key findings:
+1. Case text provides ~3× hit@1 improvement over base query. The base-only query has almost no topical signal because for `citation_added` rows (97% of the set) the case doesn't yet appear in the pre-update guide text.
+2. **Critical: base query degrades severely on test set** (hit@1 drops from 0.132 dev → 0.036 test). Test cases are from the most recent transitions and are genuinely new — unseen in any pre-update text. The enriched query is stable across splits, confirming judgment text is load-bearing.
+3. hit@10 is not a meaningful metric: with median corpus size 64, top-10 ≈ 15.6% ≈ random chance. Use hit@1 and MRR.
+
+### Negative examples (`outputs/negatives/`)
+
+Produced by `scripts/build_negative_examples.py`. For each of 103 guide transition windows, queries HUDOC for judgments published in that window but not added to the guide. These are hard negatives for the novelty-detection task.
+
+- 103 transitions, 86 unique date windows queried
+- 3,090 total negatives (cap: 30 per transition)
+- Fields: guide_id, from/to_snapshot_date, case_key, case_name, application_numbers, hudoc_itemid, hudoc_importance_level, hudoc_doctype, hudoc_conclusion, convention_articles, judgment_year, label="negative"
+
+### Judgment text section ablation (`retrieval_ablation.json`)
+
+Produced by `scripts/run_retrieval_ablation.py`. Splits judgment text into sections (THE FACTS / THE LAW / FOR THESE REASONS) and ablates each section as the BM25 query.
+
+**Results on rows with case text available (n=660):**
+
+| Query | hit@1 | hit@3 | MRR |
+|---|---|---|---|
+| base_only | 0.109 | 0.227 | 0.223 |
+| facts | 0.217 | 0.402 | 0.355 |
+| **law** | **0.320** | **0.529** | **0.464** |
+| operative | 0.124 | 0.306 | 0.270 |
+| full_text | 0.318 | 0.497 | 0.453 |
+
+Key findings:
+- **Law section alone beats full text** (hit@1 0.320 vs 0.318). THE LAW section contains the legal analysis that directly aligns with doctrinal guide sections — the operative provisions and facts sections add noise.
+- **Operative provisions are nearly worthless** (0.124 hit@1 ≈ base_only 0.109). The dispositif is formulaic and contains no topical signal for section routing.
+- Facts section contributes moderate signal (0.217) — the factual narrative contains enough case-specific vocabulary to retrieve relevant sections.
+- The law section is the optimal BM25 query for section retrieval; full text adds marginal noise.
 
 ## Known Limitations
 
-1. **Link quality**: 209 rows are `no_paragraph_link` and unused. These are concentrated in Article 3, Article 10, Article 6 Criminal, Prisoners' rights, Article 34/35 guides. The prototype optimizes for precision, not coverage.
+1. **Link quality**: 209 rows are `no_paragraph_link` and scored 0 (real misses). These are concentrated in Article 3, Article 10, Article 6 Criminal, Prisoners' rights, Article 34/35 guides. The prototype optimizes for precision, not coverage.
 
 2. **Case text gaps**: 107 cases have no HUDOC DOCX available (consistent HTTP 500). These may benefit from `kpthesaurus` codes as a lightweight topical proxy.
 
-3. **Retrieval framing**: The retrieval task as currently framed assumes the editorial signal (citation added) aligns exactly with "case is relevant to this section." In practice, some cases are added to citation lists but discussed in different sections than where they were previously absent. The dev audit should check this.
+3. **Retrieval framing**: The retrieval task assumes editorial citation signal aligns exactly with "case is relevant to this section." In practice, some cases are added to citation lists but discussed in different sections. The dev audit should check this.
 
-4. **Missing annotation**: The dev audit sample has not been reviewed. No gold labels exist yet. All "evaluation" is against automatically-derived `linked_sections` labels, which inherit link-quality noise.
+4. **Missing annotation**: The dev audit sample has not been reviewed. No gold labels exist yet. All evaluation is against automatically-derived `linked_sections` labels, which inherit link-quality noise.
 
 5. **No learned model**: The pipeline is entirely rule-based and BM25-based. No fine-tuned retriever, no LLM rewriter.
+
+6. **Query length bottleneck**: BM25 with full judgment text queries (50k+ tokens) is slow (~15 min per run). Production use would need query truncation or a learned dense retriever.
+
+7. **Negative example contamination risk**: HUDOC negatives are defined as "published in window, not added to guide." Some may be false negatives (added later or in different guide versions). Not validated.
 
 ## Remaining Deliverables
 

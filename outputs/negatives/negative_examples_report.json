@@ -1,0 +1,833 @@
+{
+  "transitions_processed": 103,
+  "unique_windows_fetched": 86,
+  "fresh_fetches": 0,
+  "total_negatives": 3090,
+  "negatives_per_transition_cap": 30,
+  "window_stats": [
+    {
+      "guide_id": "154b01c3289a",
+      "from_date": "2023-06-27",
+      "to_date": "2023-10-27",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 23
+    },
+    {
+      "guide_id": "ed0ed05ac958",
+      "from_date": "2023-09-11",
+      "to_date": "2024-02-16",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "a94e3bc7e2bf",
+      "from_date": "2023-09-11",
+      "to_date": "2024-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "acdaf72cea98",
+      "from_date": "2023-09-11",
+      "to_date": "2024-02-23",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 52
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_date": "2023-09-11",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 36
+    },
+    {
+      "guide_id": "1900da194ee4",
+      "from_date": "2023-09-12",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 57
+    },
+    {
+      "guide_id": "7a059e452dbd",
+      "from_date": "2023-09-23",
+      "to_date": "2023-11-14",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "cfca8cb0bbc6",
+      "from_date": "2023-09-23",
+      "to_date": "2023-11-27",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 7
+    },
+    {
+      "guide_id": "1e58f64bfb7a",
+      "from_date": "2023-09-23",
+      "to_date": "2023-12-06",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "54e38e09f96e",
+      "from_date": "2023-09-23",
+      "to_date": "2023-12-06",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "b8a991ab1181",
+      "from_date": "2023-09-23",
+      "to_date": "2023-12-06",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "f1175c0d1e5c",
+      "from_date": "2023-09-23",
+      "to_date": "2023-12-06",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "415c8994e0ed",
+      "from_date": "2023-09-23",
+      "to_date": "2023-12-18",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 6
+    },
+    {
+      "guide_id": "0faa41c7c031",
+      "from_date": "2023-09-23",
+      "to_date": "2024-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "1b1f8de345be",
+      "from_date": "2023-09-23",
+      "to_date": "2024-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 12
+    },
+    {
+      "guide_id": "99cd2ce32cf8",
+      "from_date": "2023-09-23",
+      "to_date": "2024-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 24
+    },
+    {
+      "guide_id": "dbfbd08a4477",
+      "from_date": "2023-09-23",
+      "to_date": "2024-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "2fbc08fc30bd",
+      "from_date": "2023-09-23",
+      "to_date": "2024-03-29",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "41c295afbaa0",
+      "from_date": "2023-09-23",
+      "to_date": "2024-03-29",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 5
+    },
+    {
+      "guide_id": "6d86f7b0f9c7",
+      "from_date": "2023-09-23",
+      "to_date": "2024-03-29",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "e12c697e461c",
+      "from_date": "2023-09-23",
+      "to_date": "2024-03-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 10
+    },
+    {
+      "guide_id": "d5256ad78e38",
+      "from_date": "2023-09-23",
+      "to_date": "2024-03-31",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 9
+    },
+    {
+      "guide_id": "e19a063de5b3",
+      "from_date": "2023-09-23",
+      "to_date": "2024-03-31",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 16
+    },
+    {
+      "guide_id": "0a61f8f7ceb0",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-05",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 10
+    },
+    {
+      "guide_id": "684d373b17e9",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-05",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "7ff3d5fc46dd",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-05",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 13
+    },
+    {
+      "guide_id": "22935893a6e6",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 5
+    },
+    {
+      "guide_id": "726c25db1ffb",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "7b2999efc3b7",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "e751e8063f8b",
+      "from_date": "2023-09-23",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 6
+    },
+    {
+      "guide_id": "0bd62693ae9f",
+      "from_date": "2023-09-23",
+      "to_date": "2024-08-07",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "762f0abff297",
+      "from_date": "2023-09-23",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "e8704f851a2b",
+      "from_date": "2023-09-23",
+      "to_date": "2025-07-08",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "1d874b186d3e",
+      "from_date": "2023-09-23",
+      "to_date": "2025-10-25",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "154b01c3289a",
+      "from_date": "2023-10-27",
+      "to_date": "2023-12-12",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 17
+    },
+    {
+      "guide_id": "7a059e452dbd",
+      "from_date": "2023-11-14",
+      "to_date": "2024-12-19",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 28
+    },
+    {
+      "guide_id": "cfca8cb0bbc6",
+      "from_date": "2023-11-27",
+      "to_date": "2025-11-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 14
+    },
+    {
+      "guide_id": "54e38e09f96e",
+      "from_date": "2023-12-06",
+      "to_date": "2024-03-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "b8a991ab1181",
+      "from_date": "2023-12-06",
+      "to_date": "2025-08-13",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 9
+    },
+    {
+      "guide_id": "1e58f64bfb7a",
+      "from_date": "2023-12-06",
+      "to_date": "2025-09-06",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "154b01c3289a",
+      "from_date": "2023-12-12",
+      "to_date": "2025-01-26",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 25
+    },
+    {
+      "guide_id": "415c8994e0ed",
+      "from_date": "2023-12-18",
+      "to_date": "2025-01-22",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 16
+    },
+    {
+      "guide_id": "ed0ed05ac958",
+      "from_date": "2024-02-16",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 9
+    },
+    {
+      "guide_id": "0faa41c7c031",
+      "from_date": "2024-02-17",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "a94e3bc7e2bf",
+      "from_date": "2024-02-17",
+      "to_date": "2024-04-09",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "99cd2ce32cf8",
+      "from_date": "2024-02-17",
+      "to_date": "2024-06-18",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 40
+    },
+    {
+      "guide_id": "1b1f8de345be",
+      "from_date": "2024-02-17",
+      "to_date": "2024-08-28",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 16
+    },
+    {
+      "guide_id": "dbfbd08a4477",
+      "from_date": "2024-02-17",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "96d370a07ab1",
+      "from_date": "2024-02-18",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 19
+    },
+    {
+      "guide_id": "acdaf72cea98",
+      "from_date": "2024-02-23",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 13
+    },
+    {
+      "guide_id": "2fbc08fc30bd",
+      "from_date": "2024-03-29",
+      "to_date": "2024-09-13",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 5
+    },
+    {
+      "guide_id": "41c295afbaa0",
+      "from_date": "2024-03-29",
+      "to_date": "2025-06-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 8
+    },
+    {
+      "guide_id": "e12c697e461c",
+      "from_date": "2024-03-30",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 10
+    },
+    {
+      "guide_id": "54e38e09f96e",
+      "from_date": "2024-03-30",
+      "to_date": "2025-04-24",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "d5256ad78e38",
+      "from_date": "2024-03-31",
+      "to_date": "2024-06-13",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 11
+    },
+    {
+      "guide_id": "e19a063de5b3",
+      "from_date": "2024-03-31",
+      "to_date": "2024-09-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 16
+    },
+    {
+      "guide_id": "0a61f8f7ceb0",
+      "from_date": "2024-04-05",
+      "to_date": "2024-06-13",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "7ff3d5fc46dd",
+      "from_date": "2024-04-05",
+      "to_date": "2024-09-28",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 11
+    },
+    {
+      "guide_id": "684d373b17e9",
+      "from_date": "2024-04-05",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 11
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_date": "2024-04-09",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 13
+    },
+    {
+      "guide_id": "7b2999efc3b7",
+      "from_date": "2024-04-09",
+      "to_date": "2024-09-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "0faa41c7c031",
+      "from_date": "2024-04-09",
+      "to_date": "2025-04-03",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "e751e8063f8b",
+      "from_date": "2024-04-09",
+      "to_date": "2025-06-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 17
+    },
+    {
+      "guide_id": "a94e3bc7e2bf",
+      "from_date": "2024-04-09",
+      "to_date": "2025-06-19",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "ee9a61e98635",
+      "from_date": "2024-04-09",
+      "to_date": "2025-11-26",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "22935893a6e6",
+      "from_date": "2024-04-09",
+      "to_date": "2025-11-28",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 20
+    },
+    {
+      "guide_id": "0a61f8f7ceb0",
+      "from_date": "2024-06-13",
+      "to_date": "2025-06-12",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 12
+    },
+    {
+      "guide_id": "d5256ad78e38",
+      "from_date": "2024-06-13",
+      "to_date": "2025-07-05",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 10
+    },
+    {
+      "guide_id": "d24a9ac722de",
+      "from_date": "2024-06-18",
+      "to_date": "2024-11-11",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "99cd2ce32cf8",
+      "from_date": "2024-06-18",
+      "to_date": "2025-05-23",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 26
+    },
+    {
+      "guide_id": "0bd62693ae9f",
+      "from_date": "2024-08-07",
+      "to_date": "2024-10-30",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 4
+    },
+    {
+      "guide_id": "1b1f8de345be",
+      "from_date": "2024-08-28",
+      "to_date": "2025-06-12",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 24
+    },
+    {
+      "guide_id": "e19a063de5b3",
+      "from_date": "2024-09-04",
+      "to_date": "2025-06-02",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 32
+    },
+    {
+      "guide_id": "2fbc08fc30bd",
+      "from_date": "2024-09-13",
+      "to_date": "2025-05-06",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "1900da194ee4",
+      "from_date": "2024-09-30",
+      "to_date": "2025-01-15",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 30
+    },
+    {
+      "guide_id": "e12c697e461c",
+      "from_date": "2024-09-30",
+      "to_date": "2025-05-23",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 14
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_date": "2024-09-30",
+      "to_date": "2025-06-12",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 15
+    },
+    {
+      "guide_id": "acdaf72cea98",
+      "from_date": "2024-09-30",
+      "to_date": "2025-06-22",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "96d370a07ab1",
+      "from_date": "2024-09-30",
+      "to_date": "2025-06-26",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 34
+    },
+    {
+      "guide_id": "7b2999efc3b7",
+      "from_date": "2024-09-30",
+      "to_date": "2025-09-18",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "ed0ed05ac958",
+      "from_date": "2024-09-30",
+      "to_date": "2025-09-18",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 12
+    },
+    {
+      "guide_id": "684d373b17e9",
+      "from_date": "2024-09-30",
+      "to_date": "2025-12-10",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 16
+    },
+    {
+      "guide_id": "0bd62693ae9f",
+      "from_date": "2024-10-30",
+      "to_date": "2025-12-20",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 7
+    },
+    {
+      "guide_id": "8ad6b528df3f",
+      "from_date": "2024-12-05",
+      "to_date": "2025-06-01",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "7a059e452dbd",
+      "from_date": "2024-12-19",
+      "to_date": "2025-06-26",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 7
+    },
+    {
+      "guide_id": "1900da194ee4",
+      "from_date": "2025-01-15",
+      "to_date": "2025-09-18",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 15
+    },
+    {
+      "guide_id": "415c8994e0ed",
+      "from_date": "2025-01-22",
+      "to_date": "2025-06-19",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 8
+    },
+    {
+      "guide_id": "154b01c3289a",
+      "from_date": "2025-01-26",
+      "to_date": "2025-04-13",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "154b01c3289a",
+      "from_date": "2025-04-13",
+      "to_date": "2025-06-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 12
+    },
+    {
+      "guide_id": "2fbc08fc30bd",
+      "from_date": "2025-05-06",
+      "to_date": "2025-05-31",
+      "candidates_in_window": 171,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "99cd2ce32cf8",
+      "from_date": "2025-05-23",
+      "to_date": "2025-12-19",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 21
+    },
+    {
+      "guide_id": "2fbc08fc30bd",
+      "from_date": "2025-05-31",
+      "to_date": "2025-11-22",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 2
+    },
+    {
+      "guide_id": "e19a063de5b3",
+      "from_date": "2025-06-02",
+      "to_date": "2025-11-22",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 11
+    },
+    {
+      "guide_id": "154b01c3289a",
+      "from_date": "2025-06-04",
+      "to_date": "2025-12-02",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 26
+    },
+    {
+      "guide_id": "e751e8063f8b",
+      "from_date": "2025-06-04",
+      "to_date": "2025-12-12",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 6
+    },
+    {
+      "guide_id": "1b1f8de345be",
+      "from_date": "2025-06-12",
+      "to_date": "2026-01-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 8
+    },
+    {
+      "guide_id": "4026b1621d4a",
+      "from_date": "2025-06-12",
+      "to_date": "2026-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 15
+    },
+    {
+      "guide_id": "415c8994e0ed",
+      "from_date": "2025-06-19",
+      "to_date": "2025-12-15",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 5
+    },
+    {
+      "guide_id": "acdaf72cea98",
+      "from_date": "2025-06-22",
+      "to_date": "2025-12-24",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 5
+    },
+    {
+      "guide_id": "96d370a07ab1",
+      "from_date": "2025-06-26",
+      "to_date": "2026-02-17",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 14
+    },
+    {
+      "guide_id": "d5256ad78e38",
+      "from_date": "2025-07-05",
+      "to_date": "2026-01-01",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 3
+    },
+    {
+      "guide_id": "e8704f851a2b",
+      "from_date": "2025-07-08",
+      "to_date": "2025-11-25",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 1
+    },
+    {
+      "guide_id": "b8a991ab1181",
+      "from_date": "2025-08-13",
+      "to_date": "2025-11-04",
+      "candidates_in_window": 200,
+      "negatives_added": 30,
+      "positives_in_window": 6
+    }
+  ]
+}

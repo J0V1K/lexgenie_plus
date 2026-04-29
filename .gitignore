@@ -27,3 +27,6 @@ outputs/prototype/dev_audit_sample.json
 # Full judgment texts fetched from HUDOC — regenerate with fetch_linked_case_texts.py
 outputs/case_texts/docx/
 outputs/case_texts/text/
+
+# HUDOC API response cache — regenerate with build_negative_examples.py
+outputs/negatives/hudoc_negatives_cache.json
