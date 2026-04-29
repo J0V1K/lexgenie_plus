@@ -129,28 +129,79 @@ Key findings:
 
 7. **Negative example contamination risk**: HUDOC negatives are defined as "published in window, not added to guide." Some may be false negatives (added later or in different guide versions). Not validated.
 
-## Remaining Deliverables
+### Trigger detection (`outputs/trigger/`)
 
-From the handoff doc:
+Produced by `scripts/run_trigger_baseline.py`. Binary classification: should this case cause any guide update? 805 positives + 3,090 hard negatives = 3,895 total rows.
+
+| Model | AUROC | F1 | Precision | Recall |
+|---|---|---|---|---|
+| Random | 0.501 | 0.343 | 0.207 | 1.000 |
+| Importance | 0.961 | 0.705 | 0.603 | 0.848 |
+| Article overlap | 0.978 | 0.714 | 0.702 | 0.726 |
+| **Importance + Article overlap** | **0.956** | **0.738** | **0.837** | **0.661** |
+
+Test set (n=530): `importance+art` reaches F1=**0.854** (prec=0.917, rec=0.800). Two free metadata signals nearly solve the trigger problem.
+
+### Edit type classification (`outputs/prototype/edit_type_eval.json`)
+
+Produced by `scripts/run_edit_type_baseline.py`. Rule-based classifier using paragraph-level diffs with similarity scores.
+
+| Edit type | n | % | Median len ratio |
+|---|---|---|---|
+| add_citation | 572 | 71.1% | 1.37× |
+| revise_text | 203 | 25.2% | 1.19× |
+| remove_citation | 30 | 3.7% | 1.00× |
+
+Subtypes: `new_paragraph` (377), `citation_insert` (189), `doctrinal_rewrite` (88), `paragraph_rewrite` (72), `citation_refresh` (43). Legacy agreement: 617/805 (76.6%).
+
+### Paragraph-level location (`outputs/prototype/location_eval.json`)
+
+Produced by `scripts/run_location_baseline.py`. Ranks individual diff paragraphs (not sections). Corpus size ~159 paragraphs per diff on average.
+
+| Model | hit@1 | hit@3 | MRR | n |
+|---|---|---|---|---|
+| global_base | 0.068 | 0.107 | 0.109 | 805 |
+| global_enriched | 0.108 | 0.149 | 0.152 | 805 |
+| mention_boosted | 0.123 | 0.168 | 0.168 | 805 |
+| section_boosted | 0.099 | 0.143 | 0.144 | 805 |
+| **oracle_section** | **0.242** | **0.411** | **0.358** | 805 |
+
+Oracle section ceiling (27.3% test hit@1) is lower than section-level hit@1 (32.7%), because paragraph indexing requires matching exact `(section, para_num_a, para_num_b)` triples. The ~48% `new_paragraph` rows have no pre-text, making BM25 paragraph matching structurally difficult.
+
+### End-to-end pipeline (`outputs/pipeline/`)
+
+Produced by `scripts/run_pipeline_eval.py`. Chains trigger → section location → edit type.
+
+| Split | Trigger F1 | Location hit@1 | Pipeline hit@1 |
+|---|---|---|---|
+| Dev | 0.719 | 0.282 | 0.184 |
+| **Test** | **0.854** | **0.327** | **0.255** |
+
+Pipeline hit@1 = fraction of positive rows where trigger fires correctly AND location hit@1. Random baseline ≈ 0.3%.
+
+## Remaining Deliverables
 
 | Artifact | Status |
 |---|---|
 | `filtered_case_linked_rows.csv` | Done |
 | `dev_audit_sample.csv` (structure) | Done — needs annotation |
-| `retrieval_eval.json` (BM25 baseline) | Done |
-| `location_eval.json` | Not started |
-| `edit_type_eval.json` | Not started |
-| `run_location_baseline.py` | Not started |
-| `run_edit_type_baseline.py` | Not started |
+| `retrieval_eval.json` (section BM25 baseline) | Done |
+| `retrieval_ablation.json` (law section ablation) | Done |
+| `trigger_eval.json` | Done |
+| `edit_type_eval.json` | Done |
+| `location_eval.json` (paragraph-level) | Done |
+| `pipeline_eval.json` | Done |
+| `generation_pilot.csv` | Needs `ANTHROPIC_API_KEY` |
+| dev_audit_sample.csv gold columns | Not started |
 
 ## Immediate Next Steps
 
-1. **Human annotation**: Fill `gold_*` columns in `dev_audit_sample.csv`. Focus first on `gold_link_correct` and `gold_section` — these validate the dataset before further modeling.
+1. **Generation pilot** (blocking): `ANTHROPIC_API_KEY=sk-... python3 scripts/run_generation_pilot.py`. Most novel contribution — LLM-generated ECHR guide paragraph updates vs. editor-written gold. Metrics: citation_hit, ROUGE-L, len_ratio by edit_subtype.
 
-2. **Location baseline** (`run_location_baseline.py`): given gold section, rank paragraphs within it using BM25 + case text. Uses `case_linked_guide_diff_paragraphs.csv`. Evaluate paragraph hit@k against `para_num_b`.
+2. **Human annotation**: Fill `gold_*` columns in `dev_audit_sample.csv`. Validates dataset labels before claiming evaluation validity.
 
-3. **Edit-type baseline** (`run_edit_type_baseline.py`): apply the mapping from `citation_change` + `linked_change_types` to `{add, remove, revise}`. Report class distribution and confusion on any labeled subset.
+3. **Neural retrieval for section location**: Replace BM25 with bi-encoder (e.g., `BAAI/bge-base-en`). BM25 ceiling at 32% hit@1; neural retrieval should push meaningfully higher.
 
-4. **Neural retrieval**: Replace BM25 with a bi-encoder (e.g., `BAAI/bge-base-en-v1.5`). The BM25 ceiling on the with-text subset is ~75% hit@10; neural retrieval should push this significantly.
+4. **Trigger model with case text**: BM25 trigger AUROC=0.547 is weak. Law section text available for 660/805 positives would help; contrastive BM25 or fine-tuned classifier.
 
-5. **Generation pilot**: For rows with `usable_for_generation == true` where the post paragraph explicitly names the case, prompt an LLM with `pre_text + case_metadata → predicted post_text`. Evaluate citation inclusion rate as primary signal.
+5. **Paragraph-level generation routing**: Oracle section ceiling is 24.2% hit@1 — suggests paragraph ranking within section deserves its own dedicated model rather than BM25 on pre-update text.
