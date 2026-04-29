@@ -1,0 +1,63 @@
+{
+  "n_evaluable": 805,
+  "edit_type_counts": {
+    "revise_text": 203,
+    "add_citation": 572,
+    "remove_citation": 30
+  },
+  "edit_type_pct": {
+    "revise_text": 0.2522,
+    "add_citation": 0.7106,
+    "remove_citation": 0.0373
+  },
+  "edit_subtype_counts": {
+    "doctrinal_rewrite": 88,
+    "new_paragraph": 377,
+    "citation_insert": 189,
+    "paragraph_rewrite": 72,
+    "citation_remove": 30,
+    "legacy_fallback": 6,
+    "citation_refresh": 43
+  },
+  "confidence_counts": {
+    "high": 579,
+    "medium": 220,
+    "low": 6
+  },
+  "usable_for_generation_counts": {
+    "revise_text": 203,
+    "add_citation": 572,
+    "remove_citation": 9
+  },
+  "usable_for_generation_subtypes": {
+    "doctrinal_rewrite": 88,
+    "new_paragraph": 377,
+    "citation_insert": 189,
+    "paragraph_rewrite": 72,
+    "legacy_fallback": 6,
+    "citation_refresh": 43,
+    "citation_remove": 9
+  },
+  "legacy_agreement": {
+    "n_matching": 617,
+    "n_total": 805,
+    "pct_matching": 0.7665
+  },
+  "length_stats_by_type": {
+    "revise_text": {
+      "n": 203,
+      "median_len_ratio": 1.185,
+      "mean_len_ratio": 1.482
+    },
+    "add_citation": {
+      "n": 324,
+      "median_len_ratio": 1.366,
+      "mean_len_ratio": 1.772
+    },
+    "remove_citation": {
+      "n": 30,
+      "median_len_ratio": 1.0,
+      "mean_len_ratio": 0.778
+    }
+  }
+}

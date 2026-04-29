@@ -26,9 +26,18 @@ ECHR-KS's editorial decisions are a ground-truth signal. When editors add a case
 
 ## Current State
 
-This repository contains a working prototype pipeline covering steps 1 and 2. The core dataset (`case_linked_guide_diffs.csv`) links 1,014 citation-change events across 38 guides to their HUDOC case records and paragraph-level locations. A BM25 retrieval baseline using full judgment text reaches **hit@1 31.4%** and **MRR 0.436** on the 805 evaluable rows — up from 11.9% / 0.226 without case text. The pipeline is additionally augmented with 3,090 negative examples (judgments published in each transition window but not added to any guide) for novelty-detection training.
+This repository contains a working end-to-end prototype covering all three pipeline stages. The core dataset links 1,014 citation-change events across 38 guides to their HUDOC case records, paragraph-level guide sections, and full judgment texts. The pipeline is also augmented with 3,090 hard negatives (judgments published in each transition window but not added to any guide).
 
-See `outputs/prototype/prototype_notes.md` for full results and `prototype_handoff.md` for the next-agent handoff document.
+| Stage | Model | Metric | All | Test |
+|---|---|---|---|---|
+| **Trigger** | Importance + Article overlap | F1 | 0.738 | **0.854** |
+| **Location** | BM25 + law section | hit@1 / MRR | 0.282 / 0.419 | 0.327 / 0.439 |
+| **Pipeline** | Trigger → Location chain | hit@1 | 0.194 | **0.255** |
+| Edit type | Rule-based (paragraph-level) | distribution | — | — |
+
+Generation evaluation (edit step) requires `ANTHROPIC_API_KEY` — see `scripts/run_generation_pilot.py`.
+
+See `outputs/prototype/prototype_notes.md` for full results.
 
 ---
 
@@ -45,9 +54,13 @@ lexgenie/
 │   ├── build_prototype_dataset.py            # Step 6: filter to usable modeling rows
 │   ├── fetch_linked_case_texts.py            # Step 7: fetch full judgment text from HUDOC
 │   ├── sample_prototype_dev_set.py           # Step 8: stratified dev audit sample
-│   ├── run_retrieval_baseline.py             # Step 9: BM25 retrieval evaluation
+│   ├── run_retrieval_baseline.py             # Step 9: BM25 section retrieval (location)
 │   ├── build_negative_examples.py            # Step 10: mine hard negatives from HUDOC
-│   └── run_retrieval_ablation.py             # Step 11: section ablation study
+│   ├── run_retrieval_ablation.py             # Step 11: section ablation study
+│   ├── run_trigger_baseline.py               # Step 12: trigger detection evaluation
+│   ├── run_edit_type_baseline.py             # Step 13: edit type classification
+│   ├── run_pipeline_eval.py                  # Step 14: end-to-end pipeline accuracy
+│   └── run_generation_pilot.py               # Step 15: LLM paragraph generation (needs API key)
 │
 ├── outputs/
 │   ├── case_catalog/                 # Cases extracted from guides + HUDOC enrichment
@@ -64,11 +77,22 @@ lexgenie/
 │   ├── prototype/                    # Modeling artifacts
 │   │   ├── filtered_case_linked_rows.csv        # 805 usable rows with flags
 │   │   ├── dev_audit_sample.csv                 # 120-row stratified human-audit sample
-│   │   ├── retrieval_eval.json                  # BM25 retrieval baseline results
-│   │   ├── retrieval_predictions.csv            # Per-row retrieval predictions
+│   │   ├── retrieval_eval.json                  # BM25 location baseline results
+│   │   ├── retrieval_predictions.csv            # Per-row location predictions
 │   │   ├── retrieval_ablation.json              # Section ablation results
 │   │   ├── retrieval_ablation_predictions.csv   # Per-row ablation predictions
+│   │   ├── edit_type_eval.json                  # Edit type classification results
+│   │   ├── edit_type_predictions.csv            # Per-row edit type labels
 │   │   └── prototype_notes.md                   # Results summary + next steps
+│   ├── trigger/                      # Trigger detection outputs
+│   │   ├── trigger_eval.json                # AUROC, F1 by model
+│   │   └── trigger_predictions.csv          # Per-row trigger scores
+│   ├── pipeline/                     # End-to-end pipeline outputs
+│   │   ├── pipeline_eval.json               # Chained accuracy results
+│   │   └── pipeline_predictions.csv         # Per-row pipeline outcomes
+│   ├── generation/                   # Generation pilot outputs (after running with API key)
+│   │   ├── generation_pilot.csv             # Per-row generated texts + metrics
+│   │   └── generation_pilot_report.json     # Aggregate metrics by subtype
 │   ├── negatives/                    # Hard negative examples for novelty detection
 │   │   ├── negative_examples.csv            # 3,090 negatives across 103 transitions
 │   │   └── negative_examples_report.json    # Coverage stats
@@ -153,6 +177,18 @@ python3 scripts/build_negative_examples.py       # ~5 min first run
 
 # Step 11: Section ablation study
 python3 scripts/run_retrieval_ablation.py        # ~15 min (BM25 with full text queries)
+
+# Step 12: Trigger detection
+python3 scripts/run_trigger_baseline.py          # ~60 sec
+
+# Step 13: Edit type classification
+python3 scripts/run_edit_type_baseline.py        # <5 sec
+
+# Step 14: End-to-end pipeline
+python3 scripts/run_pipeline_eval.py             # <5 sec
+
+# Step 15: Generation pilot (requires ANTHROPIC_API_KEY)
+ANTHROPIC_API_KEY=sk-... python3 scripts/run_generation_pilot.py
 ```
 
 ---
@@ -184,7 +220,22 @@ Key fields:
 
 ---
 
-## Prototype Results: BM25 Retrieval Baseline
+## Prototype Results
+
+### Trigger: Should this case cause a guide update?
+
+Binary classification over 3,895 rows (805 positives + 3,090 hard negatives).
+
+| Model | AUROC | F1 | Precision | Recall |
+|---|---|---|---|---|
+| Random | 0.501 | 0.343 | 0.207 | 1.000 |
+| Importance level | 0.961 | 0.705 | 0.603 | 0.848 |
+| Article overlap | 0.978 | 0.714 | 0.702 | 0.726 |
+| **Importance + Article overlap** | **0.956** | **0.738** | **0.837** | **0.661** |
+
+On the test set (n=530), `importance+art` reaches F1=**0.854** (prec=0.917, rec=0.800). Two free metadata signals — whether the case is important (Grand Chamber or key case) and whether it involves the guide's Convention article — nearly solve the trigger problem.
+
+### Location: BM25 Retrieval Baseline
 
 Task: given a new case, rank guide sections by likelihood of needing an update.
 
@@ -218,25 +269,57 @@ Task: given a new case, rank guide sections by likelihood of needing an update.
 
 The **law section alone beats full text** — THE LAW section's legal analysis aligns directly with doctrinal guide sections. Operative provisions add near-zero signal. Gold section in corpus rate: 99%.
 
+### Edit Type: What Kind of Update Is Needed?
+
+Rule-based classifier over 805 linked rows using paragraph-level diff analysis.
+
+| Edit type | n | % | Median len ratio |
+|---|---|---|---|
+| add_citation | 572 | 71.1% | 1.37× |
+| revise_text | 203 | 25.2% | 1.19× |
+| remove_citation | 30 | 3.7% | 1.00× |
+
+Subtypes: `new_paragraph` (377), `citation_insert` (189), `doctrinal_rewrite` (88), `paragraph_rewrite` (72), `citation_refresh` (43). The dominant action (47% of all rows) is writing an entirely new paragraph to introduce a case; 23% are surgical citation inserts into existing lists.
+
+### End-to-End Pipeline
+
+Chaining `importance+art` trigger → BM25+law-section location → rule-based edit type.
+
+| Split | Trigger F1 | Location hit@1 | Pipeline hit@1 |
+|---|---|---|---|
+| Dev | 0.719 | 0.282 | 0.184 |
+| **Test** | **0.854** | **0.327** | **0.255** |
+
+Pipeline hit@1 = fraction of positive test cases where the system correctly fires the trigger AND ranks the correct section first. A random baseline would achieve ~0.3%.
+
+### Generation: What Update Is Needed? (Pending)
+
+`scripts/run_generation_pilot.py` samples 120 rows across 5 edit subtypes and calls Claude to generate the updated paragraph. Requires `ANTHROPIC_API_KEY`.
+
+```bash
+ANTHROPIC_API_KEY=sk-... python3 scripts/run_generation_pilot.py
+```
+
 ---
 
 ## What's Next
 
-The pipeline has three major gaps before the first paper submission:
+The BM25/rule-based baselines are complete for all three stages. Key remaining work:
 
-### 1. Human audit of `dev_audit_sample.csv`
-Fill in the `gold_*` annotation columns in `outputs/prototype/dev_audit_sample.csv`. 120 rows, stratified across 38 guides. This is the first blocking dependency.
+### 1. Generation evaluation (blocking)
+Run `scripts/run_generation_pilot.py` with an API key. This is the most novel contribution — no prior work evaluates LLM-generated ECHR guide paragraph updates against editor-written gold.
 
-### 2. Location and edit-type baselines
-- **Location baseline** (`run_location_baseline.py`): given a section, rank paragraphs by similarity. Uses `case_linked_guide_diff_paragraphs.csv`.
-- **Edit-type baseline** (`run_edit_type_baseline.py`): classify each event as `add`, `remove`, or `revise` from `citation_change` + `linked_change_types`.
+### 2. Human audit of `dev_audit_sample.csv`
+Fill the `gold_*` columns in `outputs/prototype/dev_audit_sample.csv` (120 rows). Needed to validate the dataset labels before claiming evaluation validity.
 
-### 3. Neural retrieval and update generation
-- Replace BM25 with a bi-encoder (e.g., `BAAI/bge-base-en`) for section retrieval
-- Implement an LLM-based paragraph rewriter conditioned on: case metadata + pre_text + section context → post_text
-- Evaluate generation with citation inclusion rate, case-name inclusion, and human review
+### 3. Neural retrieval for location
+Replace BM25 with a bi-encoder (e.g., `BAAI/bge-base-en`). The BM25 ceiling is 32% hit@1; neural retrieval should push this meaningfully higher and would make the pipeline hit@1 follow.
 
-See `prototype_handoff.md` for detailed task specifications.
+### 4. Paragraph-level location (sub-section retrieval)
+Given the correct guide section, rank paragraphs within it. Uses `case_linked_guide_diff_paragraphs.csv` (1,489 paragraph-level matches). This is the missing granularity between section retrieval and generation.
+
+### 5. Trigger model with case text
+The BM25 trigger baseline is weak (AUROC=0.547) because new cases have no textual overlap with pre-update guide text. With case text available for 660/805 positives and ~0 negatives, a contrastive BM25 approach or a fine-tuned classifier would close this gap.
 
 ---
 
@@ -248,17 +331,4 @@ See `prototype_handoff.md` for detailed task specifications.
 | WINELL (arXiv 2508.03728) | Closest analogue in Wikipedia domain |
 | ChronosLex / LexTempus | Temporal legal NLP, no guide update generation |
 
----
-
-## Diff Viewer
-
-To browse citation changes interactively:
-
-```bash
-streamlit run app.py
-```
-
-Requires HuggingFace access to `lexgenie/echr-guide-citation-diffs` (private dataset).
-
----
 

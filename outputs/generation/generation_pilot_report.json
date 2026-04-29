@@ -1,0 +1,28 @@
+{
+  "model": "claude-haiku-4-5-20251001",
+  "pilot_n": 120,
+  "n_with_output": 0,
+  "dry_run": true,
+  "overall": {
+    "citation_hit": 0.0,
+    "name_hit": 0.0,
+    "appno_hit": 0.0,
+    "rouge_l": 0.0,
+    "avg_len_ratio": 0.0
+  },
+  "by_split": {
+    "dev": {
+      "n": 0,
+      "citation_hit": 0.0,
+      "rouge_l": 0.0
+    },
+    "test": {
+      "n": 0,
+      "citation_hit": 0.0,
+      "rouge_l": 0.0
+    }
+  },
+  "by_subtype": {},
+  "total_input_tokens": 0,
+  "total_output_tokens": 0
+}

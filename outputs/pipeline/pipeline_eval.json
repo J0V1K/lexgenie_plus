@@ -1,0 +1,96 @@
+{
+  "trigger_model": "score_importance+art",
+  "trigger_threshold": 0.5,
+  "location_model": "bm25_enriched",
+  "edit_model": "rule_based",
+  "all": {
+    "n": 3895,
+    "trigger": {
+      "accuracy": 0.9032,
+      "precision": 0.8365,
+      "recall": 0.6609,
+      "f1": 0.7384,
+      "n_predicted_positive": 636
+    },
+    "location_conditional_on_correct_trigger": {
+      "n": 532,
+      "hit_at_1": 0.2932,
+      "hit_at_3": 0.4511,
+      "mrr": 0.414
+    },
+    "location_unconditional_gold_trigger": {
+      "n": 805,
+      "hit_at_1": 0.3143
+    },
+    "pipeline_hit_at_1": {
+      "n": 805,
+      "value": 0.1938,
+      "description": "fraction of positive rows where trigger=TP and location_hit@1"
+    },
+    "edit_type_distribution_predicted_positive": {
+      "revise_text": 126,
+      "add_citation": 390,
+      "remove_citation": 16
+    }
+  },
+  "dev": {
+    "n": 3365,
+    "trigger": {
+      "accuracy": 0.8969,
+      "precision": 0.8222,
+      "recall": 0.6388,
+      "f1": 0.719,
+      "n_predicted_positive": 540
+    },
+    "location_conditional_on_correct_trigger": {
+      "n": 444,
+      "hit_at_1": 0.2883,
+      "hit_at_3": 0.4459,
+      "mrr": 0.4092
+    },
+    "location_unconditional_gold_trigger": {
+      "n": 695,
+      "hit_at_1": 0.3122
+    },
+    "pipeline_hit_at_1": {
+      "n": 695,
+      "value": 0.1842,
+      "description": "fraction of positive rows where trigger=TP and location_hit@1"
+    },
+    "edit_type_distribution_predicted_positive": {
+      "revise_text": 107,
+      "add_citation": 322,
+      "remove_citation": 15
+    }
+  },
+  "test": {
+    "n": 530,
+    "trigger": {
+      "accuracy": 0.9434,
+      "precision": 0.9167,
+      "recall": 0.8,
+      "f1": 0.8544,
+      "n_predicted_positive": 96
+    },
+    "location_conditional_on_correct_trigger": {
+      "n": 88,
+      "hit_at_1": 0.3182,
+      "hit_at_3": 0.4773,
+      "mrr": 0.4381
+    },
+    "location_unconditional_gold_trigger": {
+      "n": 110,
+      "hit_at_1": 0.3273
+    },
+    "pipeline_hit_at_1": {
+      "n": 110,
+      "value": 0.2545,
+      "description": "fraction of positive rows where trigger=TP and location_hit@1"
+    },
+    "edit_type_distribution_predicted_positive": {
+      "add_citation": 68,
+      "revise_text": 19,
+      "remove_citation": 1
+    }
+  }
+}

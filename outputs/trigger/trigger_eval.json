@@ -1,0 +1,200 @@
+{
+  "n_total": 3895,
+  "n_positive": 805,
+  "n_negative": 3090,
+  "base_rate": 0.2067,
+  "temporal_cutoff": "2025-11-25",
+  "article_feature_coverage": {
+    "positive_with_case_articles": 794,
+    "negative_with_case_articles": 3079,
+    "rows_with_guide_article_targets": 3004,
+    "positive_article_overlap": 584,
+    "negative_article_overlap": 248
+  },
+  "all": [
+    {
+      "model": "random",
+      "n": 3895,
+      "n_pos": 805,
+      "auroc": 0.5007,
+      "f1": 0.3426,
+      "threshold": 0.0004059396972875273,
+      "precision": 0.2067,
+      "recall": 1.0
+    },
+    {
+      "model": "importance",
+      "n": 3895,
+      "n_pos": 805,
+      "auroc": 0.9614,
+      "f1": 0.7052,
+      "threshold": 0.2,
+      "precision": 0.6034,
+      "recall": 0.8484
+    },
+    {
+      "model": "article_overlap",
+      "n": 3895,
+      "n_pos": 805,
+      "auroc": 0.978,
+      "f1": 0.7135,
+      "threshold": 1.0,
+      "precision": 0.7019,
+      "recall": 0.7255
+    },
+    {
+      "model": "bm25",
+      "n": 3895,
+      "n_pos": 805,
+      "auroc": 0.5473,
+      "f1": 0.3846,
+      "threshold": 4.976843292731029,
+      "precision": 0.2477,
+      "recall": 0.8596
+    },
+    {
+      "model": "importance+art",
+      "n": 3895,
+      "n_pos": 805,
+      "auroc": 0.9555,
+      "f1": 0.7384,
+      "threshold": 0.52,
+      "precision": 0.8365,
+      "recall": 0.6609
+    },
+    {
+      "model": "importance+bm25",
+      "n": 3895,
+      "n_pos": 805,
+      "auroc": 0.8674,
+      "f1": 0.7073,
+      "threshold": 0.15079482594925897,
+      "precision": 0.6436,
+      "recall": 0.7851
+    }
+  ],
+  "dev": [
+    {
+      "model": "random",
+      "n": 3365,
+      "n_pos": 695,
+      "auroc": 0.5004,
+      "f1": 0.3424,
+      "threshold": 0.0004059396972875273,
+      "precision": 0.2065,
+      "recall": 1.0
+    },
+    {
+      "model": "importance",
+      "n": 3365,
+      "n_pos": 695,
+      "auroc": 0.9585,
+      "f1": 0.6967,
+      "threshold": 0.2,
+      "precision": 0.5921,
+      "recall": 0.846
+    },
+    {
+      "model": "article_overlap",
+      "n": 3365,
+      "n_pos": 695,
+      "auroc": 0.9783,
+      "f1": 0.7066,
+      "threshold": 1.0,
+      "precision": 0.717,
+      "recall": 0.6964
+    },
+    {
+      "model": "bm25",
+      "n": 3365,
+      "n_pos": 695,
+      "auroc": 0.5441,
+      "f1": 0.3814,
+      "threshold": 4.976843292731029,
+      "precision": 0.2454,
+      "recall": 0.8561
+    },
+    {
+      "model": "importance+art",
+      "n": 3365,
+      "n_pos": 695,
+      "auroc": 0.9534,
+      "f1": 0.719,
+      "threshold": 0.52,
+      "precision": 0.8222,
+      "recall": 0.6388
+    },
+    {
+      "model": "importance+bm25",
+      "n": 3365,
+      "n_pos": 695,
+      "auroc": 0.8604,
+      "f1": 0.6992,
+      "threshold": 0.15079482594925897,
+      "precision": 0.6308,
+      "recall": 0.7842
+    }
+  ],
+  "test": [
+    {
+      "model": "random",
+      "n": 530,
+      "n_pos": 110,
+      "auroc": 0.5025,
+      "f1": 0.3481,
+      "threshold": 0.011481021942819636,
+      "precision": 0.2107,
+      "recall": 1.0
+    },
+    {
+      "model": "importance",
+      "n": 530,
+      "n_pos": 110,
+      "auroc": 0.9794,
+      "f1": 0.7631,
+      "threshold": 0.2,
+      "precision": 0.6835,
+      "recall": 0.8636
+    },
+    {
+      "model": "article_overlap",
+      "n": 530,
+      "n_pos": 110,
+      "auroc": 0.9877,
+      "f1": 0.7491,
+      "threshold": 1.0,
+      "precision": 0.6369,
+      "recall": 0.9091
+    },
+    {
+      "model": "bm25",
+      "n": 530,
+      "n_pos": 110,
+      "auroc": 0.5633,
+      "f1": 0.4133,
+      "threshold": 5.442130148071545,
+      "precision": 0.2735,
+      "recall": 0.8455
+    },
+    {
+      "model": "importance+art",
+      "n": 530,
+      "n_pos": 110,
+      "auroc": 0.9788,
+      "f1": 0.8544,
+      "threshold": 0.5449999999999999,
+      "precision": 0.9167,
+      "recall": 0.8
+    },
+    {
+      "model": "importance+bm25",
+      "n": 530,
+      "n_pos": 110,
+      "auroc": 0.9108,
+      "f1": 0.7699,
+      "threshold": 0.150542048198047,
+      "precision": 0.7132,
+      "recall": 0.8364
+    }
+  ]
+}
