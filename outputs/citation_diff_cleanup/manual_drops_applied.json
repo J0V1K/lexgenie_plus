@@ -1,0 +1,10 @@
+[
+  {
+    "guide_id": "1b1f8de345be",
+    "from_version": "31 August 2023",
+    "to_version": "29 February 2024",
+    "change": "added",
+    "citation": "National & Provincial Building Society, Leeds Permanent Building Society and Yorkshire Building",
+    "notes": "Confirmed false positive from wrapped-line truncation; case is present in both snapshots."
+  }
+]

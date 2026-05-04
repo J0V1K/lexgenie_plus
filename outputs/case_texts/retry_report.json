@@ -1,0 +1,654 @@
+{
+  "attempted": 107,
+  "recovered": 2,
+  "still_missing": 105,
+  "fail_status_counts": {
+    "html_204": 105
+  },
+  "recovered_cases": [
+    {
+      "itemid": "001-75086",
+      "strategy": "html_body",
+      "chars": 1560,
+      "year": "1974"
+    },
+    {
+      "itemid": "001-84327",
+      "strategy": "html_body",
+      "chars": 4032,
+      "year": "1991"
+    }
+  ],
+  "still_missing_cases": [
+    {
+      "itemid": "001-224238",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "1"
+    },
+    {
+      "itemid": "001-224194",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "1"
+    },
+    {
+      "itemid": "001-238109",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-235795",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225966",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-223873",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225464",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-233093",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-203493",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-242408",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-244311",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-244346",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-230441",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-172476",
+      "status": "html_204",
+      "year": "2017",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-179871",
+      "status": "html_204",
+      "year": "2018",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-231332",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225597",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-226091",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-224737",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-212847",
+      "status": "html_204",
+      "year": "2021",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-224817",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-233834",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-234930",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-240296",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-229430",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-231233",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228129",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-229589",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-237781",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-238581",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-238604",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225293",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-233542",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "1"
+    },
+    {
+      "itemid": "001-244489",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-234381",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-231650",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-226021",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-224045",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225070",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228105",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-223678",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225515",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228334",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-234362",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-236053",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-238582",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-242212",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-238052",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-243775",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-243645",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-243938",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225308",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-230390",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-229253",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-233404",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-235187",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-238578",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-242245",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-242647",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-242710",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228346",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-235177",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-233510",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-238085",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225618",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225306",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-231128",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-241548",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-229120",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-173599",
+      "status": "html_204",
+      "year": "2017",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-239007",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "1"
+    },
+    {
+      "itemid": "001-234272",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228974",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228739",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228331",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228733",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-216702",
+      "status": "html_204",
+      "year": "2022",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-238306",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-243246",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225384",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-226488",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-224797",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228103",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-226595",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-227660",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-228345",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-230957",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-231232",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-226548",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-233319",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-234091",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-241706",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-243031",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "1"
+    },
+    {
+      "itemid": "001-224805",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-237934",
+      "status": "html_204",
+      "year": "2024",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-224048",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-225557",
+      "status": "html_204",
+      "year": "2023",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-107897",
+      "status": "html_204",
+      "year": "2011",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-196919",
+      "status": "html_204",
+      "year": "2019",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-110731",
+      "status": "html_204",
+      "year": "2012",
+      "importance": "4"
+    },
+    {
+      "itemid": "001-241500",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "2"
+    },
+    {
+      "itemid": "001-114834",
+      "status": "html_204",
+      "year": "2012",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-160331",
+      "status": "html_204",
+      "year": "2016",
+      "importance": "2"
+    },
+    {
+      "itemid": "001-242409",
+      "status": "html_204",
+      "year": "2025",
+      "importance": "3"
+    },
+    {
+      "itemid": "001-242652",
+      "status": "html_204",
+      "year": "",
+      "importance": "3"
+    }
+  ]
+}

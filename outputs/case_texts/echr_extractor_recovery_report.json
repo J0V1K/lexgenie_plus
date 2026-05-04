@@ -1,0 +1,18 @@
+{
+  "linked_positive_rows": 804,
+  "metadata_targets": 2,
+  "metadata_recovered": 2,
+  "metadata_unresolved": 0,
+  "case_catalog_rows_updated": 1,
+  "case_catalog_rows_still_unmatched": 7845,
+  "text_targets": 5,
+  "text_recovered_full_text": 4,
+  "text_recovered_proxy": 1,
+  "text_unresolved": 0,
+  "new_case_text_rows": 5,
+  "current_case_text_rows_from_echr_extractor": 114,
+  "current_missing_text_rows": 0,
+  "current_missing_text_unique_cases": 0,
+  "current_missing_metadata_rows": 0,
+  "current_missing_metadata_unique_cases": 0
+}

@@ -32,8 +32,8 @@ This repository contains a working end-to-end prototype covering all three pipel
 |---|---|---|---|---|
 | **Trigger** | Importance + Article overlap | F1 | 0.738 | **0.854** |
 | **Location** | BM25 + law section | hit@1 / MRR | 0.282 / 0.419 | 0.327 / 0.439 |
-| **Pipeline** | Trigger → Location chain | hit@1 | 0.194 | **0.255** |
 | Edit type | Rule-based (paragraph-level) | distribution | — | — |
+| **Pipeline** | Trigger → Location chain | hit@1 | 0.194 | **0.255** |
 
 Generation evaluation (edit step) requires `ANTHROPIC_API_KEY` — see `scripts/run_generation_pilot.py`.
 

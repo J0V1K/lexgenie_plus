@@ -1,0 +1,3 @@
+case_key,case_name,application_numbers,judgment_year,status,query_method,query,candidate_count,selected_itemid,selected_docname,selected_doctype,selected_importance,selected_score
+apps:14179/21,Victoria Cassar (dec.),14179/21,2024,recovered,"appno_year+appno_exact,year_match,decision_doctype,doctype_priority:0,english",,1,001-235206,CASSAR v. MALTA,HEDEC,4,
+apps:4558/20,"BCR Banca pentru locuințe S.A. v. Romania, (dec.)",4558/20,2024,recovered,"appno_only+appno_exact,name_exact,decision_doctype,doctype_priority:0,english",,2,001-230366,BCR BANCA PENTRU LOCUINȚE S.A. v. ROMANIA,HEDEC,4,

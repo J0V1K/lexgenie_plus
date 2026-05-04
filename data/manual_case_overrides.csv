@@ -1,0 +1,6 @@
+action,case_key,guide_id,from_version,to_version,change,citation,hudoc_itemid,hudoc_docname,hudoc_doctype,hudoc_importance_level,hudoc_languageisocode,hudoc_appno,hudoc_kpdate,notes
+drop_citation_diff,,1b1f8de345be,31 August 2023,29 February 2024,added,"National & Provincial Building Society, Leeds Permanent Building Society and Yorkshire Building",,,,,,,,Confirmed false positive from wrapped-line truncation; case is present in both snapshots.
+manual_match,apps:56928/19,,,,,,001-226485,VALIULLINA AND OTHERS v. LATVIA,HEJUD,3,ENG,56928/19;7306/20;11937/20,2023-09-14,Manual HUDOC override from user-supplied canonical document.
+manual_match,apps:55789/19,,,,,,001-238771,ALMAZ AND OTHERS v. TURKEY,HFDEC,3,FRE,55789/19;57898/19;61713/19;61722/19,2024-11-19,Manual HUDOC override from user-supplied canonical document.
+manual_match,apps:44394/15,,,,,,001-220954,G.M. AND OTHERS v. THE REPUBLIC OF MOLDOVA,HEJUD,3,ENG,44394/15,2023-02-22,Manual HUDOC override from user-supplied canonical document.
+manual_match,apps:38703/06,,,,,,001-89925,BOUMEDIIENE AND OTHERS v. BOSNIA AND HERZEGOVINA,HEDEC,3,ENG,38703/06;38704/06;38706/06;38712/06;38730/06;38804/06,2008-11-18,Manual HUDOC override from user-supplied canonical document.
