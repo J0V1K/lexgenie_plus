@@ -12,6 +12,7 @@ from build_case_catalog_from_guides import (
     extract_date_fields,
     make_case_key,
 )
+from pipeline_support import guide_version_to_iso
 from rebuild_citation_diffs_clean import normalize_case_name, normalize_display_text
 
 
@@ -261,6 +262,8 @@ def main() -> None:
             "to_snapshot_date": to_date,
             "from_version": row["from_version"],
             "to_version": row["to_version"],
+            "from_guide_version_date": guide_version_to_iso(row["from_version"]),
+            "to_guide_version_date": guide_version_to_iso(row["to_version"]),
             "diff_file": str(diff_path) if diff_path is not None else "",
             "case_key": citation_case["case_key"],
             "case_name": citation_case["case_name"],
@@ -296,6 +299,10 @@ def main() -> None:
                     "to_snapshot": row["to_snapshot"],
                     "from_snapshot_date": from_date,
                     "to_snapshot_date": to_date,
+                    "from_version": row["from_version"],
+                    "to_version": row["to_version"],
+                    "from_guide_version_date": guide_version_to_iso(row["from_version"]),
+                    "to_guide_version_date": guide_version_to_iso(row["to_version"]),
                     "diff_file": str(diff_path) if diff_path is not None else "",
                     "case_key": citation_case["case_key"],
                     "case_name": citation_case["case_name"],
@@ -321,8 +328,8 @@ def main() -> None:
     case_level_rows.sort(
         key=lambda row: (
             row["guide_id"],
-            row["from_snapshot_date"],
-            row["to_snapshot_date"],
+            row["from_guide_version_date"],
+            row["to_guide_version_date"],
             row["citation_change"],
             normalize_case_name(row["case_name"]),
         )
@@ -330,8 +337,8 @@ def main() -> None:
     paragraph_level_rows.sort(
         key=lambda row: (
             row["guide_id"],
-            row["from_snapshot_date"],
-            row["to_snapshot_date"],
+            row["from_guide_version_date"],
+            row["to_guide_version_date"],
             normalize_case_name(row["case_name"]),
             int(row["paragraph_rank"]),
         )

@@ -7,6 +7,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from pipeline_support import semantic_to_date, temporal_split
 from rank_bm25 import BM25Okapi
 
 INPUT_CSV = Path("outputs/prototype/filtered_case_linked_rows.csv")
@@ -17,7 +18,7 @@ PREDICTIONS_CSV = OUTPUT_DIR / "location_predictions.csv"
 
 TOP_K = 10
 SECTION_TOP_K = 5
-TEMPORAL_CUTOFF = "2025-11-25"
+TEMPORAL_CUTOFF = "2025-08-31"
 TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
 
 
@@ -200,11 +201,12 @@ def evaluate_row(
     diff_cache: dict[Path, dict[str, Any]],
     case_text_cache: dict[str, list[str]],
 ) -> dict[str, Any]:
-    split = "test" if row.get("to_snapshot_date", "") >= TEMPORAL_CUTOFF else "dev"
+    split = temporal_split(row, TEMPORAL_CUTOFF)
     if row.get("link_status") != "linked_paragraphs":
         return {
             "guide_id": row["guide_id"],
             "case_key": row["case_key"],
+            "to_guide_version_date": semantic_to_date(row),
             "to_snapshot_date": row["to_snapshot_date"],
             "split": split,
             "gold_paragraph_refs": "",
@@ -362,6 +364,7 @@ def evaluate_row(
     return {
         "guide_id": row["guide_id"],
         "case_key": row["case_key"],
+        "to_guide_version_date": semantic_to_date(row),
         "to_snapshot_date": row["to_snapshot_date"],
         "split": split,
         "gold_paragraph_refs": "|".join(sorted(gold_refs)),

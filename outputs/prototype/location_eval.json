@@ -1,138 +1,138 @@
 {
-  "temporal_cutoff": "2025-11-25",
-  "n_total": 1014,
-  "n_evaluable": 805,
-  "n_with_case_text": 660,
+  "temporal_cutoff": "2025-08-31",
+  "n_total": 1013,
+  "n_evaluable": 804,
+  "n_with_case_text": 804,
   "all": {
     "global_base": {
       "label": "all_evaluable",
-      "n": 805,
-      "hit_at_1": 0.0683,
-      "hit_at_3": 0.1068,
-      "mrr": 0.1092
+      "n": 804,
+      "hit_at_1": 0.0672,
+      "hit_at_3": 0.1057,
+      "mrr": 0.1081
     },
     "global_enriched": {
       "label": "all_evaluable",
-      "n": 805,
-      "hit_at_1": 0.1081,
-      "hit_at_3": 0.1491,
-      "mrr": 0.1519
+      "n": 804,
+      "hit_at_1": 0.1144,
+      "hit_at_3": 0.1617,
+      "mrr": 0.161
     },
     "mention_boosted": {
       "label": "all_evaluable",
-      "n": 805,
-      "hit_at_1": 0.123,
-      "hit_at_3": 0.1677,
-      "mrr": 0.1676
+      "n": 804,
+      "hit_at_1": 0.1256,
+      "hit_at_3": 0.1754,
+      "mrr": 0.1731
     },
     "section_boosted": {
       "label": "all_evaluable",
-      "n": 805,
-      "hit_at_1": 0.0994,
-      "hit_at_3": 0.1429,
-      "mrr": 0.1444
+      "n": 804,
+      "hit_at_1": 0.1032,
+      "hit_at_3": 0.1505,
+      "mrr": 0.1517
     },
     "two_stage_enriched": {
       "label": "all_evaluable",
-      "n": 805,
-      "hit_at_1": 0.1031,
-      "hit_at_3": 0.1416,
-      "mrr": 0.1438
+      "n": 804,
+      "hit_at_1": 0.1095,
+      "hit_at_3": 0.158,
+      "mrr": 0.1554
     },
     "oracle_section": {
       "label": "all_evaluable",
-      "n": 805,
-      "hit_at_1": 0.2422,
-      "hit_at_3": 0.4112,
-      "mrr": 0.3578
+      "n": 804,
+      "hit_at_1": 0.2587,
+      "hit_at_3": 0.4154,
+      "mrr": 0.3672
     }
   },
   "dev": {
     "global_base": {
       "label": "dev_evaluable",
-      "n": 695,
-      "hit_at_1": 0.0763,
-      "hit_at_3": 0.1194,
-      "mrr": 0.1188
+      "n": 673,
+      "hit_at_1": 0.0758,
+      "hit_at_3": 0.1189,
+      "mrr": 0.1186
     },
     "global_enriched": {
       "label": "dev_evaluable",
-      "n": 695,
-      "hit_at_1": 0.1165,
-      "hit_at_3": 0.1612,
-      "mrr": 0.1611
+      "n": 673,
+      "hit_at_1": 0.1248,
+      "hit_at_3": 0.1709,
+      "mrr": 0.1697
     },
     "mention_boosted": {
       "label": "dev_evaluable",
-      "n": 695,
-      "hit_at_1": 0.1309,
-      "hit_at_3": 0.1813,
-      "mrr": 0.1772
+      "n": 673,
+      "hit_at_1": 0.1352,
+      "hit_at_3": 0.1872,
+      "mrr": 0.1825
     },
     "section_boosted": {
       "label": "dev_evaluable",
-      "n": 695,
-      "hit_at_1": 0.0993,
-      "hit_at_3": 0.1439,
-      "mrr": 0.1455
+      "n": 673,
+      "hit_at_1": 0.101,
+      "hit_at_3": 0.1441,
+      "mrr": 0.1492
     },
     "two_stage_enriched": {
       "label": "dev_evaluable",
-      "n": 695,
-      "hit_at_1": 0.1122,
-      "hit_at_3": 0.1496,
-      "mrr": 0.1515
+      "n": 673,
+      "hit_at_1": 0.1189,
+      "hit_at_3": 0.1634,
+      "mrr": 0.1618
     },
     "oracle_section": {
       "label": "dev_evaluable",
-      "n": 695,
-      "hit_at_1": 0.2374,
-      "hit_at_3": 0.4058,
-      "mrr": 0.3517
+      "n": 673,
+      "hit_at_1": 0.2481,
+      "hit_at_3": 0.4012,
+      "mrr": 0.3554
     }
   },
   "test": {
     "global_base": {
       "label": "test_evaluable",
-      "n": 110,
-      "hit_at_1": 0.0182,
-      "hit_at_3": 0.0273,
-      "mrr": 0.0487
+      "n": 131,
+      "hit_at_1": 0.0229,
+      "hit_at_3": 0.0382,
+      "mrr": 0.0543
     },
     "global_enriched": {
       "label": "test_evaluable",
-      "n": 110,
-      "hit_at_1": 0.0545,
-      "hit_at_3": 0.0727,
-      "mrr": 0.0938
+      "n": 131,
+      "hit_at_1": 0.0611,
+      "hit_at_3": 0.1145,
+      "mrr": 0.1161
     },
     "mention_boosted": {
       "label": "test_evaluable",
-      "n": 110,
-      "hit_at_1": 0.0727,
-      "hit_at_3": 0.0818,
-      "mrr": 0.1072
+      "n": 131,
+      "hit_at_1": 0.0763,
+      "hit_at_3": 0.1145,
+      "mrr": 0.1248
     },
     "section_boosted": {
       "label": "test_evaluable",
-      "n": 110,
-      "hit_at_1": 0.1,
-      "hit_at_3": 0.1364,
-      "mrr": 0.138
+      "n": 131,
+      "hit_at_1": 0.1145,
+      "hit_at_3": 0.1832,
+      "mrr": 0.1642
     },
     "two_stage_enriched": {
       "label": "test_evaluable",
-      "n": 110,
-      "hit_at_1": 0.0455,
-      "hit_at_3": 0.0909,
-      "mrr": 0.0952
+      "n": 131,
+      "hit_at_1": 0.0611,
+      "hit_at_3": 0.1298,
+      "mrr": 0.1229
     },
     "oracle_section": {
       "label": "test_evaluable",
-      "n": 110,
-      "hit_at_1": 0.2727,
-      "hit_at_3": 0.4455,
-      "mrr": 0.3962
+      "n": 131,
+      "hit_at_1": 0.313,
+      "hit_at_3": 0.4885,
+      "mrr": 0.428
     }
   }
 }

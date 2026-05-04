@@ -11,6 +11,8 @@ from pathlib import Path
 
 import fitz
 
+from pipeline_support import manual_drop_overrides, matches_manual_drop
+
 
 WAYBACK = Path("wayback")
 OUTPUT_DIR = Path("outputs/citation_diff_cleanup")
@@ -46,6 +48,12 @@ HANGING_DASH_RE = re.compile(r"[—\-–]\s*$")
 MONTH_PATTERN = (
     r"January|February|March|April|May|June|July|August|September|October|November|December"
 )
+MANUAL_VERSION_DATES = {
+    "20230923180420__guide_terrorism_eng.pdf": "31 August 2023",
+    "20251025084811__guide_terrorism_eng.pdf": "28 February 2025",
+    "20230923150809__guide_art_2_protocol_4_eng.pdf": "28 February 2023",
+    "20240217131620__guide_art_2_protocol_4_eng.pdf": "31 August 2023",
+}
 
 
 @dataclass(frozen=True)
@@ -100,6 +108,9 @@ def normalize_case_name(case_name: str) -> str:
 
 
 def extract_version_date(pdf_path: Path) -> str:
+    manual = MANUAL_VERSION_DATES.get(pdf_path.name)
+    if manual:
+        return manual
     try:
         doc = fitz.open(pdf_path)
     except Exception:
@@ -425,11 +436,44 @@ def build_hf_url(guide_id: str, pdf_name: str) -> str:
 
 def write_outputs(grouped_diffs: list[dict], extracted_citations: dict[str, list[str]]) -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    GROUPED_OUTPUT.write_text(json.dumps(grouped_diffs, indent=2, ensure_ascii=False))
+    drop_overrides = manual_drop_overrides()
+    filtered_grouped_diffs: list[dict] = []
+    dropped_rows: list[dict[str, str]] = []
+    for diff in grouped_diffs:
+        kept = dict(diff)
+        for change in ("added", "removed"):
+            kept_citations: list[str] = []
+            for citation in diff[change]:
+                row = {
+                    "guide_id": diff["guide_id"],
+                    "from_version": diff["from_version"],
+                    "to_version": diff["to_version"],
+                    "change": change,
+                    "citation": citation,
+                }
+                matched_override = matches_manual_drop(row, drop_overrides)
+                if matched_override is not None:
+                    dropped_rows.append(
+                        {
+                            "guide_id": diff["guide_id"],
+                            "from_version": diff["from_version"],
+                            "to_version": diff["to_version"],
+                            "change": change,
+                            "citation": citation,
+                            "notes": matched_override.notes,
+                        }
+                    )
+                    continue
+                kept_citations.append(citation)
+            kept[change] = kept_citations
+        if kept["added"] or kept["removed"]:
+            filtered_grouped_diffs.append(kept)
+
+    GROUPED_OUTPUT.write_text(json.dumps(filtered_grouped_diffs, indent=2, ensure_ascii=False))
     EXTRACTED_OUTPUT.write_text(json.dumps(extracted_citations, indent=2, ensure_ascii=False))
 
     rows = []
-    for diff in grouped_diffs:
+    for diff in filtered_grouped_diffs:
         for change in ("added", "removed"):
             for citation in diff[change]:
                 rows.append(
@@ -469,6 +513,10 @@ def write_outputs(grouped_diffs: list[dict], extracted_citations: dict[str, list
         )
         writer.writeheader()
         writer.writerows(rows)
+
+    if dropped_rows:
+        dropped_report = OUTPUT_DIR / "manual_drops_applied.json"
+        dropped_report.write_text(json.dumps(dropped_rows, indent=2, ensure_ascii=False))
 
 
 def main() -> None:

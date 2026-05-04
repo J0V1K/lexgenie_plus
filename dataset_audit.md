@@ -138,6 +138,20 @@ This is a malformed citation row caused by wrapping.
 
 Affected rows in this cluster: `1`
 
+#### 6. Article 1 Protocol 1: National & Provincial false positive
+
+For `31 August 2023 -> 29 February 2024`, the dataset had recorded:
+
+- added: `National & Provincial Building Society, Leeds Permanent Building Society and Yorkshire Building`
+
+Manual PDF inspection confirmed that the full case citation
+`National & Provincial Building Society, Leeds Permanent Building Society and Yorkshire Building Society v. the United Kingdom`
+is already present in both source and target snapshots in the same doctrinal role.
+
+This row is a false positive caused by wrapped-line truncation and has been dropped via the manual override table in `data/manual_case_overrides.csv`.
+
+Affected rows in this cluster: `1`
+
 #### 5. Additional malformed formatting
 
 At least one row contains an internal spacing artifact:
@@ -163,6 +177,12 @@ the dataset contains at least `21` suspicious rows.
 This should be treated as a lower bound, not a complete error count.
 
 ## Recommendation
+
+Note on dates:
+
+- `from_snapshot_date` / `to_snapshot_date` are archive crawl dates and should be treated as provenance only.
+- `from_version` / `to_version` are the guide's own internal "Updated on ..." labels.
+- downstream datasets now carry explicit ISO-normalized `from_guide_version_date` / `to_guide_version_date` fields for temporal logic and evaluation splits.
 
 The dataset is good enough to keep as the core artifact, but not good enough to use raw.
 

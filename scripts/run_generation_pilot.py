@@ -38,6 +38,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from pipeline_support import semantic_to_date, temporal_split
+
 INPUT_CSV = Path("outputs/prototype/filtered_case_linked_rows.csv")
 EDIT_TYPE_CSV = Path("outputs/prototype/edit_type_predictions.csv")
 OUTPUT_DIR = Path("outputs/generation")
@@ -49,7 +51,7 @@ RANDOM_SEED = 42
 MODEL = "claude-haiku-4-5-20251001"
 MAX_TOKENS = 2048
 INTER_REQUEST_SLEEP = 0.3
-TEMPORAL_CUTOFF = "2025-11-25"
+TEMPORAL_CUTOFF = "2025-08-31"
 
 SYSTEM_PROMPT = """You are a legal editor maintaining a doctrinal guide for the European Court of Human Rights (ECHR). \
 Your task is to update a guide section paragraph to incorporate a newly decided case. \
@@ -186,7 +188,7 @@ def build_sample(all_rows: list[dict], edit_map: dict, n: int, seed: int) -> lis
                                 r["from_snapshot_date"], r["to_snapshot_date"]), "unknown")
         r = dict(r)
         r["_edit_subtype"] = subtype
-        r["_split"] = "test" if r["to_snapshot_date"] >= TEMPORAL_CUTOFF else "dev"
+        r["_split"] = temporal_split(r, TEMPORAL_CUTOFF)
         by_subtype[subtype].append(r)
 
     total = sum(len(v) for v in by_subtype.values())
@@ -278,10 +280,11 @@ def main() -> None:
         rl = rouge_l(generated, gold)
 
         results.append({
-            "guide_id": row["guide_id"],
-            "case_key": row["case_key"],
-            "to_snapshot_date": row["to_snapshot_date"],
-            "split": row["_split"],
+                "guide_id": row["guide_id"],
+                "case_key": row["case_key"],
+                "to_guide_version_date": semantic_to_date(row),
+                "to_snapshot_date": row["to_snapshot_date"],
+                "split": row["_split"],
             "edit_subtype": subtype,
             "case_name": row.get("case_name", ""),
             "hudoc_importance_level": row.get("hudoc_importance_level", ""),

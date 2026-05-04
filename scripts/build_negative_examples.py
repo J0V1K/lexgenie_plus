@@ -17,6 +17,8 @@ from typing import Any
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
+from pipeline_support import semantic_from_date, semantic_to_date
+
 INPUT_CSV = Path("outputs/prototype/filtered_case_linked_rows.csv")
 OUTPUT_DIR = Path("outputs/negatives")
 OUTPUT_CSV = OUTPUT_DIR / "negative_examples.csv"
@@ -48,6 +50,8 @@ OUTPUT_FIELDS = [
     "guide_title",
     "from_snapshot_date",
     "to_snapshot_date",
+    "from_guide_version_date",
+    "to_guide_version_date",
     "case_key",
     "case_name",
     "application_numbers",
@@ -69,10 +73,12 @@ def load_transitions(
     transitions: dict[tuple[str, str, str], dict[str, Any]] = {}
     with csv_path.open() as f:
         for row in csv.DictReader(f):
+            from_semantic = semantic_from_date(row)
+            to_semantic = semantic_to_date(row)
             key = (
                 row["guide_id"],
-                row["from_snapshot_date"],
-                row["to_snapshot_date"],
+                from_semantic,
+                to_semantic,
             )
             if key not in transitions:
                 transitions[key] = {
@@ -80,6 +86,8 @@ def load_transitions(
                     "guide_title": row["guide_title"],
                     "from_snapshot_date": row["from_snapshot_date"],
                     "to_snapshot_date": row["to_snapshot_date"],
+                    "from_guide_version_date": from_semantic,
+                    "to_guide_version_date": to_semantic,
                     "positive_appnos": set(),
                 }
             for appno in row.get("application_numbers", "").split("|"):
@@ -223,8 +231,10 @@ def main() -> None:
                 row = {
                     "guide_id": guide_id,
                     "guide_title": meta["guide_title"],
-                    "from_snapshot_date": from_date,
-                    "to_snapshot_date": to_date,
+                    "from_snapshot_date": meta["from_snapshot_date"],
+                    "to_snapshot_date": meta["to_snapshot_date"],
+                    "from_guide_version_date": meta["from_guide_version_date"],
+                    "to_guide_version_date": meta["to_guide_version_date"],
                     "case_key": f"apps:{p['application_numbers'].split('|')[0]}",
                     "case_name": p["case_name"],
                     "application_numbers": p["application_numbers"],

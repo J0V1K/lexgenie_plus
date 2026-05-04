@@ -8,6 +8,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from pipeline_support import semantic_to_date, temporal_split
 from rank_bm25 import BM25Okapi
 
 INPUT_CSV = Path("outputs/prototype/filtered_case_linked_rows.csv")
@@ -17,9 +18,9 @@ OUTPUT_JSON = OUTPUT_DIR / "retrieval_eval.json"
 PREDICTIONS_CSV = OUTPUT_DIR / "retrieval_predictions.csv"
 
 TOP_K = 10
-# Hold out transitions whose to_snapshot_date >= this cutoff as test set.
-# Chosen as the 80th percentile of unique to_snapshot_dates.
-TEMPORAL_CUTOFF = "2025-11-25"
+# Hold out transitions whose semantic guide version date >= this cutoff as test set.
+# Chosen from the empirical version-date distribution and kept fixed for reproducibility.
+TEMPORAL_CUTOFF = "2025-08-31"
 
 TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
 
@@ -182,7 +183,7 @@ def evaluate_row(
     law_cache: dict[str, list[str]],
     row_idx: int,
 ) -> dict[str, Any]:
-    split = "test" if row.get("to_snapshot_date", "") >= TEMPORAL_CUTOFF else "dev"
+    split = temporal_split(row, TEMPORAL_CUTOFF)
     is_linked = row.get("link_status") == "linked_paragraphs"
     gold_sections = parse_linked_sections(row.get("linked_sections", ""))
 
@@ -191,6 +192,7 @@ def evaluate_row(
         return {
             "guide_id": row["guide_id"],
             "case_key": row.get("case_key", ""),
+            "to_guide_version_date": semantic_to_date(row),
             "to_snapshot_date": row.get("to_snapshot_date", ""),
             "citation_change": row.get("citation_change", ""),
             "gold_sections": "",
@@ -259,6 +261,7 @@ def evaluate_row(
     return {
         "guide_id": row["guide_id"],
         "case_key": row.get("case_key", ""),
+        "to_guide_version_date": semantic_to_date(row),
         "to_snapshot_date": row.get("to_snapshot_date", ""),
         "citation_change": row.get("citation_change", ""),
         "gold_sections": "|".join(gold_sections),
@@ -376,9 +379,11 @@ def main() -> None:
 
     # Print the headline numbers
     def fmt(d: dict) -> str:
+        if "hit_at_1" not in d:
+            return f"n={d.get('n', 0)}"
         return f"hit@1={d['hit_at_1']:.3f} hit@3={d['hit_at_3']:.3f} mrr={d['mrr']:.3f} (n={d['n']})"
 
-    print("\n=== UNCONDITIONAL (all 1,014 rows; unlinked score 0) ===")
+    print(f"\n=== UNCONDITIONAL (all {len(results)} rows; unlinked score 0) ===")
     for m in ["random", "base", "enriched", "law"]:
         print(f"  {m:12s}: {fmt(report['unconditional_all'][m])}")
 

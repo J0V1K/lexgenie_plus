@@ -3,8 +3,8 @@ from __future__ import annotations
 """
 Trigger step evaluation: given a new case, should it cause any guide update at all?
 
-Positives: 805 linked rows from filtered_case_linked_rows.csv (label=1)
-Negatives: 3,090 hard negatives from negative_examples.csv (label=0)
+Positives: linked rows from filtered_case_linked_rows.csv (label=1)
+Negatives: hard negatives from negative_examples.csv (label=0)
 
 Baselines evaluated:
   random           — predict positive at base rate
@@ -14,7 +14,7 @@ Baselines evaluated:
   bm25             — max BM25 score of base query against guide sections; threshold sweep
 
 Evaluation: AUROC, F1 at best threshold, precision/recall
-Temporal split: to_snapshot_date >= TEMPORAL_CUTOFF as test set
+Temporal split: to_guide_version_date >= TEMPORAL_CUTOFF as test set
 """
 
 import csv
@@ -27,6 +27,7 @@ from typing import Any
 
 CASE_CATALOG = Path("outputs/case_catalog/cases_catalog.csv")
 
+from pipeline_support import semantic_to_date, temporal_split
 from rank_bm25 import BM25Okapi
 
 POSITIVE_CSV = Path("outputs/prototype/filtered_case_linked_rows.csv")
@@ -36,7 +37,7 @@ OUTPUT_DIR = Path("outputs/trigger")
 OUTPUT_JSON = OUTPUT_DIR / "trigger_eval.json"
 PREDICTIONS_CSV = OUTPUT_DIR / "trigger_predictions.csv"
 
-TEMPORAL_CUTOFF = "2025-11-25"
+TEMPORAL_CUTOFF = "2025-08-31"
 TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
 RANDOM_SEED = 42
 
@@ -263,6 +264,8 @@ def main() -> None:
                 "guide_id": r["guide_id"],
                 "guide_title": r.get("guide_title", ""),
                 "case_key": r["case_key"],
+                "from_guide_version_date": r.get("from_guide_version_date", ""),
+                "to_guide_version_date": semantic_to_date(r),
                 "to_snapshot_date": r["to_snapshot_date"],
                 "label": 1,
                 "importance_level": r.get("hudoc_importance_level", ""),
@@ -270,7 +273,7 @@ def main() -> None:
                 "guide_article_targets": "|".join(sorted(guide_targets)),
                 "article_overlap": int(bool(case_articles & guide_targets)),
                 "bm25_max_score": bm25_max_score(q, bm25),
-                "split": "test" if r["to_snapshot_date"] >= TEMPORAL_CUTOFF else "dev",
+                "split": temporal_split(r, TEMPORAL_CUTOFF),
             })
 
     # Negatives
@@ -284,6 +287,8 @@ def main() -> None:
                 "guide_id": r["guide_id"],
                 "guide_title": r.get("guide_title", ""),
                 "case_key": r.get("case_key", ""),
+                "from_guide_version_date": r.get("from_guide_version_date", ""),
+                "to_guide_version_date": semantic_to_date(r),
                 "to_snapshot_date": r["to_snapshot_date"],
                 "label": 0,
                 "importance_level": r.get("hudoc_importance_level", ""),
@@ -291,7 +296,7 @@ def main() -> None:
                 "guide_article_targets": "|".join(sorted(guide_targets)),
                 "article_overlap": int(bool(case_articles & guide_targets)),
                 "bm25_max_score": bm25_max_score(q, bm25),
-                "split": "test" if r["to_snapshot_date"] >= TEMPORAL_CUTOFF else "dev",
+                "split": temporal_split(r, TEMPORAL_CUTOFF),
             })
 
     rng = random.Random(RANDOM_SEED)

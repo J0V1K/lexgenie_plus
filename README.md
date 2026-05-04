@@ -45,22 +45,29 @@ See `outputs/prototype/prototype_notes.md` for full results.
 
 ```
 lexgenie/
-├── scripts/                          # All pipeline scripts (run in order below)
+├── scripts/                          # Main pipeline scripts (run in order below)
 │   ├── build_case_catalog_from_guides.py     # Step 1: extract cases from guide PDFs
 │   ├── enrich_case_catalog_from_hudoc.py     # Step 2: enrich with HUDOC metadata
 │   ├── rebuild_citation_diffs_clean.py       # Step 3: clean citation diff records
-│   ├── fill_missing_guide_transitions.py     # Step 4: fill gaps in diff JSON files
-│   ├── build_case_linked_guide_diffs.py      # Step 5: link diffs to cases + paragraphs
-│   ├── build_prototype_dataset.py            # Step 6: filter to usable modeling rows
-│   ├── fetch_linked_case_texts.py            # Step 7: fetch full judgment text from HUDOC
-│   ├── sample_prototype_dev_set.py           # Step 8: stratified dev audit sample
-│   ├── run_retrieval_baseline.py             # Step 9: BM25 section retrieval (location)
+│   ├── build_case_linked_guide_diffs.py      # Step 4: link diffs to cases + paragraphs
+│   ├── build_prototype_dataset.py            # Step 5: filter to usable modeling rows
+│   ├── fetch_linked_case_texts.py            # Step 6: fetch full judgment text from HUDOC
+│   ├── sample_prototype_dev_set.py           # Step 7: stratified dev audit sample
+│   ├── run_retrieval_baseline.py             # Step 8: BM25 section retrieval (location)
+│   ├── run_location_baseline.py              # Step 9: BM25 paragraph-level location
 │   ├── build_negative_examples.py            # Step 10: mine hard negatives from HUDOC
 │   ├── run_retrieval_ablation.py             # Step 11: section ablation study
 │   ├── run_trigger_baseline.py               # Step 12: trigger detection evaluation
 │   ├── run_edit_type_baseline.py             # Step 13: edit type classification
 │   ├── run_pipeline_eval.py                  # Step 14: end-to-end pipeline accuracy
-│   └── run_generation_pilot.py               # Step 15: LLM paragraph generation (needs API key)
+│   ├── run_generation_pilot.py               # Step 15: LLM paragraph generation (needs API key)
+│   ├── pipeline_support.py                   # Shared utilities (manual overrides, date helpers)
+│   └── utils/                               # One-off and maintenance scripts
+│       ├── fill_missing_guide_transitions.py  # Rebuild anas-diff-dataset entries from PDFs
+│       ├── retry_missing_case_texts.py        # Retry failed HUDOC text downloads
+│       ├── build_unresolved_case_review_report.py  # Manual review for unlinked rows
+│       ├── stage_hf_dataset_subset.py         # HuggingFace dataset staging
+│       └── stage_hf_split_repos.py            # HuggingFace split repo staging
 │
 ├── outputs/
 │   ├── case_catalog/                 # Cases extracted from guides + HUDOC enrichment
@@ -104,9 +111,8 @@ lexgenie/
 │   └── diff_categorization_schema.md # Four-stage annotation schema
 │
 ├── app.py                            # Streamlit diff viewer
-├── project_context.md                # Full research framing document
-├── prototype_handoff.md              # Handoff doc for the next agent / collaborator
 ├── dataset_audit.md                  # Data quality audit notes
+├── CLAUDE.md                         # Agent context (research framing, guardrails, field docs)
 └── requirements.txt
 ```
 
@@ -158,19 +164,24 @@ pip install -r requirements.txt
 python3 scripts/build_case_catalog_from_guides.py
 python3 scripts/enrich_case_catalog_from_hudoc.py
 
-# Step 3–5: Build the core linked diff dataset
+# Step 3–4: Build the core linked diff dataset
+# Note: anas-diff-dataset/ must be present (download from HuggingFace above).
+# If you add new guide snapshots and need to regenerate missing transitions, run:
+#   python3 scripts/utils/fill_missing_guide_transitions.py
 python3 scripts/rebuild_citation_diffs_clean.py
-python3 scripts/fill_missing_guide_transitions.py
 python3 scripts/build_case_linked_guide_diffs.py
 
-# Step 6–8: Build the prototype modeling dataset
+# Step 5–7: Build the prototype modeling dataset
 python3 scripts/build_prototype_dataset.py
 python3 scripts/fetch_linked_case_texts.py      # ~10 min, 602 HUDOC requests
 python3 scripts/build_prototype_dataset.py       # re-run after fetch to populate case_text fields
 python3 scripts/sample_prototype_dev_set.py
 
-# Step 9: Evaluate retrieval baseline
+# Step 8: Section retrieval baseline
 python3 scripts/run_retrieval_baseline.py        # ~5 min
+
+# Step 9: Paragraph-level location baseline
+python3 scripts/run_location_baseline.py         # ~5 min
 
 # Step 10: Mine hard negatives (HUDOC API calls, uses cache after first run)
 python3 scripts/build_negative_examples.py       # ~5 min first run

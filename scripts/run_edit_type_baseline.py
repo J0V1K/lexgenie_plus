@@ -20,6 +20,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from pipeline_support import semantic_from_date, semantic_to_date
+
 INPUT_CSV = Path("outputs/prototype/filtered_case_linked_rows.csv")
 PARAGRAPH_CSV = Path("outputs/case_linked_guide_diffs/case_linked_guide_diff_paragraphs.csv")
 OUTPUT_DIR = Path("outputs/prototype")
@@ -199,6 +201,8 @@ def main() -> None:
         result = {
             "guide_id": row["guide_id"],
             "case_key": row["case_key"],
+            "from_guide_version_date": semantic_from_date(row),
+            "to_guide_version_date": semantic_to_date(row),
             "from_snapshot_date": row["from_snapshot_date"],
             "to_snapshot_date": row["to_snapshot_date"],
             "citation_change": row["citation_change"],

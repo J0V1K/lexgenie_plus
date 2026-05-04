@@ -27,6 +27,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from pipeline_support import semantic_to_date
+
 TRIGGER_CSV = Path("outputs/trigger/trigger_predictions.csv")
 TRIGGER_EVAL_JSON = Path("outputs/trigger/trigger_eval.json")
 RETRIEVAL_CSV = Path("outputs/prototype/retrieval_predictions.csv")
@@ -39,7 +41,7 @@ PREDICTIONS_CSV = OUTPUT_DIR / "pipeline_predictions.csv"
 TRIGGER_MODEL = "score_importance+art"
 TRIGGER_MODEL_NAME = "importance+art"  # bare name in trigger_eval.json
 
-TEMPORAL_CUTOFF = "2025-11-25"
+TEMPORAL_CUTOFF = "2025-08-31"
 
 
 def load_dev_threshold(model_name: str, fallback: float = 0.5) -> float:
@@ -85,7 +87,7 @@ def main() -> None:
 
     for tkey, trow in trigger_rows.items():
         guide_id, case_key, to_date = tkey
-        split = "test" if to_date >= TEMPORAL_CUTOFF else "dev"
+        split = "test" if semantic_to_date(trow) >= TEMPORAL_CUTOFF else "dev"
         gold_label = int(trow.get("label", 0))
 
         # Trigger prediction
@@ -119,6 +121,7 @@ def main() -> None:
         records.append({
             "guide_id": guide_id,
             "case_key": case_key,
+            "to_guide_version_date": semantic_to_date(trow),
             "to_snapshot_date": to_date,
             "split": split,
             "gold_trigger": gold_label,

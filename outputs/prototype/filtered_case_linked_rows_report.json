@@ -1,12 +1,12 @@
 {
-  "input_rows": 1014,
+  "input_rows": 1013,
   "flag_counts": {
-    "usable_for_relevance": 805,
-    "usable_for_location": 805,
-    "usable_for_edit_type": 805,
-    "usable_for_generation": 784,
+    "usable_for_relevance": 804,
+    "usable_for_location": 804,
+    "usable_for_edit_type": 804,
+    "usable_for_generation": 783,
     "strict_citation_field_match": 151,
-    "case_text_available": 706
+    "case_text_available": 856
   },
   "usable_for_location_by_guide": {
     "99cd2ce32cf8": 93,
@@ -15,7 +15,7 @@
     "e19a063de5b3": 70,
     "4026b1621d4a": 56,
     "96d370a07ab1": 54,
-    "1b1f8de345be": 42,
+    "1b1f8de345be": 41,
     "7a059e452dbd": 32,
     "415c8994e0ed": 30,
     "e12c697e461c": 29,
@@ -49,14 +49,14 @@
     "ee9a61e98635": 1
   },
   "usable_for_relevance_by_citation_change": {
-    "added": 784,
+    "added": 783,
     "removed": 21
   },
   "usable_for_relevance_by_importance": {
     "1": 112,
-    "3": 556,
-    "4": 122,
+    "3": 561,
+    "4": 123,
     "2": 7,
-    "": 8
+    "": 1
   }
 }

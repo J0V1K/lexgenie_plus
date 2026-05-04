@@ -11,6 +11,11 @@ from typing import Any
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
+from pipeline_support import (
+    is_official_case_document as shared_is_official_case_document,
+    manual_match_overrides_by_case_key,
+    official_doctype_priority as shared_official_doctype_priority,
+)
 from rebuild_citation_diffs_clean import normalize_case_name, normalize_display_text
 
 
@@ -248,21 +253,7 @@ def row_is_obviously_merged(row: dict[str, str]) -> bool:
 
 
 def official_doctype_priority(doctype: str, language: str) -> tuple[int, int, str]:
-    if len(doctype) == 5 and doctype.startswith("HE") and language == "ENG":
-        return (0, 0, doctype)
-    if len(doctype) == 5 and doctype.startswith("HF") and language == "FRE":
-        return (1, 0, doctype)
-    if len(doctype) == 5 and doctype.startswith("H"):
-        return (2, 0, doctype)
-    if doctype == "ADVPRO16OPENG":
-        return (3, 0, doctype)
-    if doctype == "CLIN" and language == "ENG":
-        return (4, 0, doctype)
-    if doctype == "CLINF" and language == "FRE":
-        return (5, 0, doctype)
-    if doctype.startswith("ADVPRO16OP"):
-        return (6, 0, doctype)
-    return (9, 0, doctype)
+    return shared_official_doctype_priority(doctype, language)
 
 
 def result_cluster_key(result: dict[str, Any]) -> tuple[str, str, str]:
@@ -398,10 +389,39 @@ def choose_from_candidates_for_name_row(
 
 def is_official_case_document(result: dict[str, Any]) -> bool:
     columns = result["columns"]
-    return official_doctype_priority(
+    return shared_is_official_case_document(
         columns.get("doctype", "") or "",
         columns.get("languageisocode", "") or "",
-    )[0] < 3
+    )
+
+
+def enrich_row_from_manual_override(
+    row: dict[str, str], override: Any
+) -> dict[str, Any]:
+    return enrich_row(
+        row,
+        {
+            "columns": {
+                "itemid": override.hudoc_itemid,
+                "importance": override.hudoc_importance_level,
+                "docname": override.hudoc_docname,
+                "appno": override.hudoc_appno,
+                "doctype": override.hudoc_doctype,
+                "languageisocode": override.hudoc_languageisocode,
+                "kpdate": override.hudoc_kpdate,
+                "kpdateastext": override.hudoc_kpdate,
+                "article": "",
+                "respondent": "",
+                "originatingbody": "",
+                "ecli": "",
+                "conclusion": "",
+            }
+        },
+        match_status="matched",
+        match_method="manual_override",
+        query_value="manual_override",
+        query_result_count=1,
+    )
 
 
 def promote_name_match_to_official(
@@ -563,10 +583,16 @@ def main() -> None:
 
     cache = load_cache()
     existing_enriched_rows = load_existing_enriched_rows()
+    manual_overrides = manual_match_overrides_by_case_key()
 
     reused_rows: list[dict[str, Any]] = []
+    override_rows: list[dict[str, Any]] = []
     rows_to_query: list[dict[str, str]] = []
     for row in rows:
+        manual_override = manual_overrides.get(row["case_key"])
+        if manual_override is not None:
+            override_rows.append(enrich_row_from_manual_override(row, manual_override))
+            continue
         existing = existing_enriched_rows.get(row["case_key"])
         if existing is None:
             rows_to_query.append(row)
@@ -600,6 +626,7 @@ def main() -> None:
     report = {
         "input_rows": len(rows),
         "reused_matched_rows": len(reused_rows),
+        "manual_override_rows": len(override_rows),
         "queried_rows": len(rows_to_query),
         "rows_with_application_number": len(rows_with_app),
         "rows_without_application_number": len(rows_without_app),
@@ -615,6 +642,12 @@ def main() -> None:
     unmatched_reason_counter: Counter[str] = Counter()
     doctype_counter: Counter[str] = Counter()
     importance_counter: Counter[str] = Counter()
+
+    for row in override_rows:
+        match_method_counter[row["hudoc_match_method"]] += 1
+        doctype_counter[row["hudoc_doctype"]] += 1
+        importance_counter[row["hudoc_importance_level"]] += 1
+        enriched_rows.append(row)
 
     for row in reused_rows:
         match_method_counter[row["hudoc_match_method"]] += 1

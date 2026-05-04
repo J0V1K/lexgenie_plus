@@ -1,38 +1,42 @@
 {
   "input_rows": 7846,
   "reused_matched_rows": 7754,
-  "queried_rows": 92,
-  "rows_with_application_number": 82,
+  "manual_override_rows": 4,
+  "queried_rows": 88,
+  "rows_with_application_number": 78,
   "rows_without_application_number": 10,
-  "matched_rows": 7759,
-  "unmatched_rows": 87,
+  "matched_rows": 7763,
+  "unmatched_rows": 83,
   "match_method_counts": {
     "exact_application_set": 6816,
     "exact_name_and_year": 498,
     "application_subset_name_year": 222,
     "legacy_identifier_exact_name_and_year": 218,
-    "request_identifier_exact_name_and_year": 5
+    "request_identifier_exact_name_and_year": 5,
+    "manual_override": 4
   },
   "unmatched_reason_counts": {
-    "ambiguous_application_match": 51,
+    "ambiguous_application_match": 46,
     "no_candidate_after_year_filter": 31,
-    "no_exact_name_match": 3,
-    "no_official_case_document": 2
+    "no_official_case_document": 3,
+    "no_exact_name_match": 3
   },
   "doctype_counts": {
-    "HEJUD": 5630,
-    "HEDEC": 1386,
-    "HFDEC": 455,
+    "HEJUD": 5632,
+    "HEDEC": 1387,
+    "HFDEC": 456,
     "CLIN": 195,
     "HFJUD": 44,
     "HECOM": 18,
     "HEREP": 15,
     "HFREP": 7,
-    "ADVPRO16OPENG": 5,
-    "HFCOM": 4
+    "HFCOM": 4,
+    "ADVPRO16OPARM": 3,
+    "ADVPRO16OPCZE": 1,
+    "ADVPRO16OPENG": 1
   },
   "importance_counts": {
-    "3": 3714,
+    "3": 3718,
     "4": 2045,
     "1": 1165,
     "2": 835

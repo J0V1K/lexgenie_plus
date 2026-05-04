@@ -1,31 +1,33 @@
 {
   "trigger_model": "score_importance+art",
-  "trigger_threshold": 0.5,
+  "trigger_threshold": 0.52,
+  "trigger_threshold_source": "dev_optimal",
   "location_model": "bm25_enriched",
   "edit_model": "rule_based",
+  "pipeline_metric_scope": "trigger + section_retrieval (edit correctness not evaluated)",
   "all": {
-    "n": 3895,
+    "n": 3864,
     "trigger": {
-      "accuracy": 0.9032,
-      "precision": 0.8365,
-      "recall": 0.6609,
-      "f1": 0.7384,
-      "n_predicted_positive": 636
+      "accuracy": 0.9022,
+      "precision": 0.8339,
+      "recall": 0.6617,
+      "f1": 0.7379,
+      "n_predicted_positive": 638
     },
     "location_conditional_on_correct_trigger": {
       "n": 532,
-      "hit_at_1": 0.2932,
-      "hit_at_3": 0.4511,
-      "mrr": 0.414
+      "hit_at_1": 0.3214,
+      "hit_at_3": 0.5038,
+      "mrr": 0.457
     },
     "location_unconditional_gold_trigger": {
-      "n": 805,
-      "hit_at_1": 0.3143
+      "n": 804,
+      "hit_at_1": 0.3358
     },
     "pipeline_hit_at_1": {
-      "n": 805,
-      "value": 0.1938,
-      "description": "fraction of positive rows where trigger=TP and location_hit@1"
+      "n": 804,
+      "value": 0.2127,
+      "description": "fraction of evaluable positive rows where trigger fires correctly AND section retrieval hits at rank 1. Edit-type correctness is NOT included in this metric."
     },
     "edit_type_distribution_predicted_positive": {
       "revise_text": 126,
@@ -34,62 +36,62 @@
     }
   },
   "dev": {
-    "n": 3365,
+    "n": 3226,
     "trigger": {
-      "accuracy": 0.8969,
-      "precision": 0.8222,
-      "recall": 0.6388,
-      "f1": 0.719,
-      "n_predicted_positive": 540
+      "accuracy": 0.902,
+      "precision": 0.8448,
+      "recall": 0.6524,
+      "f1": 0.7362,
+      "n_predicted_positive": 522
     },
     "location_conditional_on_correct_trigger": {
-      "n": 444,
-      "hit_at_1": 0.2883,
-      "hit_at_3": 0.4459,
-      "mrr": 0.4092
+      "n": 441,
+      "hit_at_1": 0.322,
+      "hit_at_3": 0.5011,
+      "mrr": 0.4563
     },
     "location_unconditional_gold_trigger": {
-      "n": 695,
-      "hit_at_1": 0.3122
+      "n": 676,
+      "hit_at_1": 0.3358
     },
     "pipeline_hit_at_1": {
-      "n": 695,
-      "value": 0.1842,
-      "description": "fraction of positive rows where trigger=TP and location_hit@1"
+      "n": 676,
+      "value": 0.2101,
+      "description": "fraction of evaluable positive rows where trigger fires correctly AND section retrieval hits at rank 1. Edit-type correctness is NOT included in this metric."
     },
     "edit_type_distribution_predicted_positive": {
-      "revise_text": 107,
-      "add_citation": 322,
+      "revise_text": 106,
+      "add_citation": 320,
       "remove_citation": 15
     }
   },
   "test": {
-    "n": 530,
+    "n": 638,
     "trigger": {
-      "accuracy": 0.9434,
-      "precision": 0.9167,
-      "recall": 0.8,
-      "f1": 0.8544,
-      "n_predicted_positive": 96
+      "accuracy": 0.9028,
+      "precision": 0.7845,
+      "recall": 0.7109,
+      "f1": 0.7459,
+      "n_predicted_positive": 116
     },
     "location_conditional_on_correct_trigger": {
-      "n": 88,
-      "hit_at_1": 0.3182,
-      "hit_at_3": 0.4773,
-      "mrr": 0.4381
+      "n": 91,
+      "hit_at_1": 0.3187,
+      "hit_at_3": 0.5165,
+      "mrr": 0.4605
     },
     "location_unconditional_gold_trigger": {
-      "n": 110,
-      "hit_at_1": 0.3273
+      "n": 128,
+      "hit_at_1": 0.3359
     },
     "pipeline_hit_at_1": {
-      "n": 110,
-      "value": 0.2545,
-      "description": "fraction of positive rows where trigger=TP and location_hit@1"
+      "n": 128,
+      "value": 0.2266,
+      "description": "fraction of evaluable positive rows where trigger fires correctly AND section retrieval hits at rank 1. Edit-type correctness is NOT included in this metric."
     },
     "edit_type_distribution_predicted_positive": {
-      "add_citation": 68,
-      "revise_text": 19,
+      "add_citation": 70,
+      "revise_text": 20,
       "remove_citation": 1
     }
   }
