@@ -463,7 +463,7 @@
     "removed": [
       "Leander v. Sweden, 26 March 1987, Series A no. 116",
       "Loersch and Nouvelle Association du Courrier v. Switzerland, nos. 23868/94 and 23869/94, Commission decision of 24 February 1995, Decisions and Reports 80",
-      "Loiseau v. France (dec.), no. 46809/99, ECHR 2003 XII (extracts)",
+      "Loiseau v. France (dec.), no. 46809/99, ECHR 2003-XII (extracts)",
       "Marinova and Others v. Bulgaria, nos. 33502/07, 30599/10 and 2 Others, 12 July 2016",
       "Nurminen and Others v. Finland, no. 27881/95, Commission decision of 26 February 1997",
       "Roche v. the United Kingdom [GC], no. 32555/96, ECHR 2005-X",
@@ -870,7 +870,7 @@
       "Rytikov v. Ukraine, no. 52855/19, 23 May 2024",
       "Saakashvili v. Georgia, nos. 6232/20 and 22394/20, 23 May 2024",
       "Sacharuk v. Lithuania, no. 39300/18, 23 April 2024",
-      "Tsulukidze and Rusulashvili v. G eorgia,* nos. 44681/21 and 17256/22, 29 August 2024"
+      "Tsulukidze and Rusulashvili v. Georgia,* nos. 44681/21 and 17256/22, 29 August 2024"
     ],
     "removed": []
   },
@@ -1632,17 +1632,15 @@
       "Pengezov v. Bulgaria, no. 66292/14, 10 October 2023",
       "Podchasov v. Russia, no. 33696/19, 13 February 2024",
       "Tena Arregui v. Spain, no. 42541/18, 11 January 2024",
-      "Tığ v. Turkey (dec.), no. 8165/03, 24 May 2005 Ţîmpău v. Romania, no. 70267/17, 5 December 2023",
       "Uzbyakov v. Russia, no. 71160/13, 5 May 2020",
       "Vagdalt v. Hungary, no. 9525/19, 7 March 2024",
       "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], no. 53600/20, 9 April 2024",
       "Vinškovský v. the Czech Republic (dec.), no. 59252/19, 5 September 2023",
       "Wa Baile v. Switzerland, nos. 43868/18 and 25883/21, 20 February 2024",
-      "Wałęsa v. Poland, no. 50849/21, 23 November 2023"
+      "Wałęsa v. Poland, no. 50849/21, 23 November 2023",
+      "Ţîmpău v. Romania, no. 70267/17, 5 December 2023"
     ],
-    "removed": [
-      "Tığ v. Turkey (dec.), no. 8165/03, 24 May 2005"
-    ]
+    "removed": []
   },
   {
     "guide_id": "99cd2ce32cf8",
@@ -2067,15 +2065,12 @@
       "Gauvin-Fournis and Silliau v. France, nos. 21424/16 and 45728/17, 7 September 2023",
       "Kaczmarek v. Poland, no. 16974/14, 22 February 2024",
       "L.F. v. France (dec.), nos. 3866/20 and 9292/20, 13 February 2024",
-      "N. Š. v. Croatia, no. 36908/13, 10 September 2020",
       "N.F. and Others v. Russia, no. 3537/15 and 8 others, 12 September 2023",
       "Podchasov v. Russia, no. 33696/19, 13 February 2024",
       "Ramadan v. France (dec.), no. 23443/23, 9 January 2024",
       "Tena Arregui v. Spain, no. 42541/18, 11 January 2024"
     ],
-    "removed": [
-      "N. Š. v. Croatia, 10 September 2020"
-    ]
+    "removed": []
   },
   {
     "guide_id": "d5256ad78e38",
@@ -2532,16 +2527,9 @@
       "J.B. and Others v. Malta, no. 1766/23, 22 October 2024",
       "Petrović and Others v. Croatia*, nos. 32514/22 and 2 others, 14 January 2025",
       "Ryaska v. Ukraine, no. 3339/23, 10 October 2024",
-      "Ukraine v. Russia (Re Crimea) [GC], nos. 20958/14 and 38334/18, 25 June 2024",
-      "V.I. v. Moldova, no. 38963/18, 26 March 2024",
-      "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], no. 53600/20, 9 April 2024",
       "Zorica Jovanović v. Serbia, no. 21794/08, 26 March 2013"
     ],
-    "removed": [
-      "Ukraine v. Russia (Re Crimea) [GC], 25 June 2024",
-      "V.I. v. Moldova, 26 March 2024",
-      "Verein KlimaSeniorinnen Schweiz and Others v. Switzerland [GC], 9 April 2024"
-    ]
+    "removed": []
   },
   {
     "guide_id": "ee9a61e98635",

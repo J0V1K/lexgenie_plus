@@ -246,6 +246,8 @@ Binary classification over 3,895 rows (805 positives + 3,090 hard negatives).
 
 On the test set (n=530), `importance+art` reaches F1=**0.854** (prec=0.917, rec=0.800). Two free metadata signals — whether the case is important (Grand Chamber or key case) and whether it involves the guide's Convention article — nearly solve the trigger problem.
 
+Note that we may want a model to predict importance and article overlap ourselves, since that metadata is only available after human annotation. If we want to truly predict doctrinal novelty, we should not simply perform metadata routing.
+
 ### Location: BM25 Retrieval Baseline
 
 Task: given a new case, rank guide sections by likelihood of needing an update.

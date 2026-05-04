@@ -41,10 +41,12 @@ NOISE_SUBSTRINGS = (
     "Article 44 § 2",
     "Grand Chamber",
 )
-CAPITAL_START_RE = re.compile(
-    r"^[A-Z0-9ÁÀÂÄÆÇČĆĎĐÉÈÊËĚĞÍÎÏİŁĽÑŇÓÔÖØŘŚŠŞȚŤÚÛÜÝŽ]"
-)
+def _starts_with_capital(text: str) -> bool:
+    """True if text starts with an uppercase Unicode letter or ASCII digit."""
+    return bool(text) and (text[0].isupper() or text[0].isdigit())
 HANGING_DASH_RE = re.compile(r"[—\-–]\s*$")
+_OCR_SPLIT_RE = re.compile(r"([A-Z]) ([a-z]{3,})")
+_OCR_COMMON_WORDS = frozenset({"and", "or", "the", "of", "in", "no", "nos", "dec", "others", "another", "against"})
 MONTH_PATTERN = (
     r"January|February|March|April|May|June|July|August|September|October|November|December"
 )
@@ -85,7 +87,15 @@ def normalize_display_text(text: str) -> str:
     text = re.sub(r"\b((?:request no|nos?|no)\.?)\s+", r"\1 ", text, flags=re.IGNORECASE)
     text = re.sub(r"(?<=\d)-\s+(?=\d)", "-", text)
     text = re.sub(r"\s+/\s+", "/", text)
+    # Normalize "1996 I" \u2192 "1996-I" so year-volume references are canonical
+    text = re.sub(r"\b((?:19|20)\d{2})\s+([IVX]{1,5})\b", r"\1-\2", text)
     text = re.sub(r"\s+", " ", text)
+    # Fix OCR mid-word spaces (e.g. "G eorgia" \u2192 "Georgia"), skipping common English words
+    text = _OCR_SPLIT_RE.sub(
+        lambda m: m.group(1) + m.group(2) if m.group(2) not in _OCR_COMMON_WORDS else m.group(0),
+        text,
+    )
+    text = HANGING_DASH_RE.sub("", text)
     return text.strip(" *")
 
 
@@ -94,11 +104,13 @@ def normalize_for_matching(text: str) -> str:
     text = "".join(
         ch for ch in unicodedata.normalize("NFKD", text) if not unicodedata.combining(ch)
     )
-    text = text.replace("’", "'").replace("`", "'")
+    text = text.replace("’", "’").replace("`", "’")
     text = re.sub(r"\bet\b", "and", text)
-    text = re.sub(r"[\"'“”‘’()\[\]{}*]", "", text)
+    text = re.sub(r"[\"’""’’()\[\]{}*]", "", text)
     text = re.sub(r"[^a-z0-9/., -]+", " ", text)
     text = re.sub(r"[.,;:]+", " ", text)
+    # Strip year-volume suffixes so "1996-i" and "1996 i" both reduce to "1996"
+    text = re.sub(r"\b((?:19|20)\d{2})-([ivx]{1,5})\b", r"\1", text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
@@ -202,17 +214,17 @@ def looks_like_new_citation(raw_line: str, current_entry: str | None) -> bool:
     if stripped.startswith("Advisory opinion") or stripped.startswith("Case "):
         return True
 
-    if CAPITAL_START_RE.match(stripped) and " v. " in stripped:
+    if _starts_with_capital(stripped) and " v. " in stripped:
         return True
 
-    if CAPITAL_START_RE.match(stripped) and " c. " in stripped:
+    if _starts_with_capital(stripped) and " c. " in stripped:
         return True
 
     # Some citations wrap before "v.", leaving a left-aligned case name line.
     if (
         current_entry
         and entry_looks_complete(current_entry)
-        and CAPITAL_START_RE.match(stripped)
+        and _starts_with_capital(stripped)
         and "," in stripped
         and not stripped.startswith(("The ", "Guide ", "European "))
     ):
@@ -225,7 +237,7 @@ def looks_like_case_name_fragment(raw_line: str, current_entry: str | None, next
     stripped = raw_line.strip()
     if not stripped or not current_entry or not entry_looks_complete(current_entry):
         return False
-    if not CAPITAL_START_RE.match(stripped):
+    if not _starts_with_capital(stripped):
         return False
     if stripped.startswith(("The ", "Guide ", "European ")):
         return False
@@ -300,7 +312,17 @@ def extract_cited_cases(pdf_path: Path) -> list[str] | None:
     if current:
         citations.append(normalize_display_text(current))
 
-    return citations
+    # Post-process: any citation that starts with "v. " or "c. " is a wrapped line fragment
+    # that failed to join during extraction (e.g., a case name spanning 3+ PDF lines). Merge
+    # it back onto the preceding citation.
+    merged: list[str] = []
+    for citation in citations:
+        if (citation.startswith("v. ") or citation.startswith("c. ")) and merged:
+            merged[-1] = normalize_display_text(f"{merged[-1]} {citation}")
+        else:
+            merged.append(citation)
+
+    return merged
 
 
 def load_snapshots() -> list[Snapshot]:
@@ -400,13 +422,16 @@ def diff_snapshot_pair(base_cases: list[str], current_cases: list[str]) -> tuple
         else:
             current_noapp.append(citation)
 
-    added = [current_by_app[key] for key in sorted(set(current_by_app) - set(base_by_app))]
-    removed = [base_by_app[key] for key in sorted(set(base_by_app) - set(current_by_app))]
+    # Primary app-key diff
+    app_added = [current_by_app[key] for key in sorted(set(current_by_app) - set(base_by_app))]
+    app_removed = [base_by_app[key] for key in sorted(set(base_by_app) - set(current_by_app))]
 
+    # Noapp pool — these will be modified as cross-bucket matches are found
     unmatched_base = base_noapp[:]
     unmatched_current = current_noapp[:]
     matched_current_indexes = set()
 
+    # Noapp ↔ noapp matching
     for base_index, base_citation in enumerate(base_noapp):
         match_index = None
         for current_index, current_citation in enumerate(current_noapp):
@@ -421,8 +446,40 @@ def diff_snapshot_pair(base_cases: list[str], current_cases: list[str]) -> tuple
         unmatched_base[base_index] = None
         unmatched_current[match_index] = None
 
-    removed.extend(citation for citation in unmatched_base if citation is not None)
-    added.extend(citation for citation in unmatched_current if citation is not None)
+    # Cross-bucket: a case with an app key in base may lack one in current (e.g., language
+    # variant citations where one version omits the application number). Try to fuzzy-match
+    # such "orphaned" app-key removals against the remaining noapp pool in current.
+    final_removed_app: list[str] = []
+    for citation in app_removed:
+        matched_index = None
+        for ci, current_citation in enumerate(unmatched_current):
+            if current_citation is None:
+                continue
+            if fuzzy_noapp_match(citation, current_citation):
+                matched_index = ci
+                break
+        if matched_index is not None:
+            unmatched_current[matched_index] = None
+        else:
+            final_removed_app.append(citation)
+
+    # Symmetric: a case new in current_by_app may be a re-styled version of a noapp base entry
+    final_added_app: list[str] = []
+    for citation in app_added:
+        matched_index = None
+        for bi, base_citation in enumerate(unmatched_base):
+            if base_citation is None:
+                continue
+            if fuzzy_noapp_match(base_citation, citation):
+                matched_index = bi
+                break
+        if matched_index is not None:
+            unmatched_base[matched_index] = None
+        else:
+            final_added_app.append(citation)
+
+    added = final_added_app + [c for c in unmatched_current if c is not None]
+    removed = final_removed_app + [c for c in unmatched_base if c is not None]
 
     return sorted(added), sorted(removed)
 
