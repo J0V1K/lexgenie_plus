@@ -112,6 +112,9 @@ def normalize_for_matching(text: str) -> str:
     # Strip year-volume suffixes so "1996-i" and "1996 i" both reduce to "1996"
     text = re.sub(r"\b((?:19|20)\d{2})-([ivx]{1,5})\b", r"\1", text)
     text = re.sub(r"\s+", " ", text)
+    # Strip "the" article after the "v" connector so "v. the United Kingdom" and
+    # "v. United Kingdom" both normalize to "v united kingdom"
+    text = re.sub(r"\bv the\b", "v", text)
     return text.strip()
 
 

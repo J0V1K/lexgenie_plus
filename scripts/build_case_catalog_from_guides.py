@@ -34,6 +34,11 @@ TRAILING_CASE_ID_RE = re.compile(
     re.IGNORECASE,
 )
 TRAILING_SINGLE_CASE_ID_RE = re.compile(r"\s+no\.?\s+\d+/\d+$", re.IGNORECASE)
+# Bare app number with no "no." prefix, e.g. ", 5855/23" or ", 47269/18 and 3 others"
+BARE_APP_NO_RE = re.compile(
+    r",\s*\*?\s*\d+/\d+(?:\s+and\s+(?:\d+\s+others?|two others))?$",
+    re.IGNORECASE,
+)
 
 
 def load_guide_titles() -> dict[str, str]:
@@ -59,12 +64,25 @@ def find_earliest_marker(citation: str, markers: list[str]) -> int | None:
     return min(valid_positions) if valid_positions else None
 
 
+def _strip_trailing_app_numbers(name: str) -> str:
+    name = TRAILING_CASE_ID_RE.sub("", name)
+    name = TRAILING_SINGLE_CASE_ID_RE.sub("", name)
+    name = BARE_APP_NO_RE.sub("", name)
+    return normalize_whitespace(name).rstrip(" ,")
+
+
 def extract_case_name(citation: str) -> str:
     citation = normalize_display_text(citation)
+    # Strip ,* markers used for newly-decided cases in ECHR guides (e.g. "X v. Y,* no. 123")
+    citation = re.sub(r",\s*\*\s*", ", ", citation)
+    # Ensure space after no/nos when immediately followed by a digit (e.g. "nos.27849" → "nos. 27849")
+    citation = re.sub(r"\b(nos?\.?)(\d)", r"\1 \2", citation)
 
     leading_markers = [
         ", no. ",
+        ", no ",   # "no" without period (e.g. French-style "no 36057/18")
         ", nos. ",
+        ", nos ",
         ", request no. ",
         ", commission decision",
         ", commission report",
@@ -79,7 +97,8 @@ def extract_case_name(citation: str) -> str:
     if date_match:
         prefix = citation[: date_match.start()].rstrip(" ,")
         if prefix:
-            return normalize_whitespace(prefix)
+            # Strip any bare app numbers left before the date (e.g. "(dec.), 5855/23, 17 June 2025")
+            return _strip_trailing_app_numbers(prefix)
 
     trailing_markers = [
         ", ECHR ",

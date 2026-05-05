@@ -10,7 +10,10 @@ venv/
 .DS_Store
 
 # Large source data — obtain from HuggingFace or Wayback Machine (see README)
-wayback/
+# Track only snapshot_metadata.jsonl; ignore PDFs, snapshots/, cdx.json, errors.jsonl
+wayback/*/snapshots/
+wayback/*/cdx.json
+wayback/*/errors.jsonl
 anas-diff-dataset/
 papers/
 

@@ -1,17 +1,17 @@
 {
-  "citation_diff_rows": 1013,
-  "with_diff_pair": 1013,
+  "citation_diff_rows": 1004,
+  "with_diff_pair": 1004,
   "missing_diff_pair": 0,
-  "linked_rows": 804,
-  "unlinked_rows_existing_pair": 209,
-  "paragraph_rows": 1486,
+  "linked_rows": 843,
+  "unlinked_rows_existing_pair": 161,
+  "paragraph_rows": 1537,
   "link_status_counts": {
-    "linked_paragraphs": 804,
-    "no_paragraph_link": 209
+    "linked_paragraphs": 843,
+    "no_paragraph_link": 161
   },
   "match_strategy_counts": {
-    "citation_field_name_match": 412,
-    "paragraph_text_name_match": 791,
+    "citation_field_name_match": 417,
+    "paragraph_text_name_match": 838,
     "citation_field_case_key": 151,
     "paragraph_text_app_match": 2
   }

@@ -49,7 +49,7 @@ Main files:
 ## Dataset Statistics
 
 - grouped guide transitions: `103`
-- flat citation-change rows: `1014`
+- flat citation-change rows: `1004`
 
 ## Intended Use
 
@@ -119,8 +119,8 @@ Main files:
 ## Dataset Statistics
 
 - catalog rows: `7846`
-- matched rows: `7759`
-- unmatched rows: `87`
+- matched rows: `7763`
+- unmatched rows: `83`
 - guide-link rows in `case_guides.csv`: `12310`
 - appearance rows in `case_appearances.csv`: `61646`
 
@@ -201,10 +201,10 @@ Main files:
 
 ## Dataset Statistics
 
-- case-level rows: `1014`
-- paragraph-level rows: `1489`
-- linked case rows: `805`
-- unlinked rows with existing transition pairs: `209`
+- case-level rows: `1004`
+- paragraph-level rows: `1537`
+- linked case rows: `843`
+- unlinked rows with existing transition pairs: `161`
 - missing transition pairs: `0`
 
 ## Intended Use
@@ -244,7 +244,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    repo_root = Path(__file__).resolve().parent.parent
+    repo_root = Path(__file__).resolve().parent.parent.parent
     out_dir = Path(args.out).resolve()
 
     if out_dir.exists():

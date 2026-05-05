@@ -248,6 +248,8 @@ On the test set (n=530), `importance+art` reaches F1=**0.854** (prec=0.917, rec=
 
 Note that we may want a model to predict importance and article overlap ourselves, since that metadata is only available after human annotation. If we want to truly predict doctrinal novelty, we should not simply perform metadata routing.
 
+Likely, we want a solution that also engages with the guide itself to determine trigger.
+
 ### Location: BM25 Retrieval Baseline
 
 Task: given a new case, rank guide sections by likelihood of needing an update.
