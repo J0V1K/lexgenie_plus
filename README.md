@@ -2,7 +2,7 @@
 
 Research pipeline for automatically detecting when new European Court of Human Rights (ECHR) judgments require updates to existing doctrinal guides, and generating those updates.
 
-**Target venues**: NLLP @ EMNLP 2026, JURIX 2026, ICAIL 2027
+**Target venues**: NLLP @ EMNLP 2026, AI4Law @ ICML 2026, JURIX 2026, ICAIL 2027
 
 ---
 
@@ -282,7 +282,7 @@ Task: given a new case, rank guide sections by likelihood of needing an update.
 | operative | 12.4% | 30.6% | 0.270 |
 | full_text | 31.8% | 49.7% | 0.453 |
 
-The **law section alone beats full text** — THE LAW section's legal analysis aligns directly with doctrinal guide sections. Operative provisions add near-zero signal. Gold section in corpus rate: 99%.
+The **law section alone beats full text**. The LAW metadata includes the heading structure of the text, which is often labeled with the direct article that is relevant. Operative provisions add near-zero signal. Gold section in corpus rate: 99%.
 
 ### Edit Type: What Kind of Update Is Needed?
 
