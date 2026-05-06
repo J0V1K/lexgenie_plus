@@ -1,0 +1,7 @@
+{
+  "total_hard_candidates": 784,
+  "clean": 303,
+  "delayed_positives": 58,
+  "pre_existing": 1,
+  "right_censored": 447
+}

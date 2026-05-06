@@ -1,0 +1,77 @@
+{
+  "total": 2841,
+  "by_split": {
+    "train": {
+      "total": 1987,
+      "positive": 645,
+      "negative": 1342,
+      "ratio_neg_per_pos": 2.08,
+      "importance_breakdown": {
+        "1": {
+          "positive": 83,
+          "negative": 33
+        },
+        "2-3": {
+          "positive": 455,
+          "negative": 407
+        },
+        "4": {
+          "positive": 99,
+          "negative": 902
+        },
+        "other": {
+          "positive": 8,
+          "negative": 0
+        }
+      }
+    },
+    "dev": {
+      "total": 436,
+      "positive": 142,
+      "negative": 294,
+      "ratio_neg_per_pos": 2.07,
+      "importance_breakdown": {
+        "1": {
+          "positive": 20,
+          "negative": 9
+        },
+        "2-3": {
+          "positive": 99,
+          "negative": 89
+        },
+        "4": {
+          "positive": 22,
+          "negative": 196
+        },
+        "other": {
+          "positive": 1,
+          "negative": 0
+        }
+      }
+    },
+    "test": {
+      "total": 418,
+      "positive": 132,
+      "negative": 286,
+      "ratio_neg_per_pos": 2.17,
+      "importance_breakdown": {
+        "1": {
+          "positive": 15,
+          "negative": 10
+        },
+        "2-3": {
+          "positive": 95,
+          "negative": 88
+        },
+        "4": {
+          "positive": 21,
+          "negative": 188
+        },
+        "other": {
+          "positive": 1,
+          "negative": 0
+        }
+      }
+    }
+  }
+}

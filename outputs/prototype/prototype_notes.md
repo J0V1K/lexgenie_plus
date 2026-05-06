@@ -127,7 +127,7 @@ Key findings:
 
 6. **Query length bottleneck**: BM25 with full judgment text queries (50k+ tokens) is slow (~15 min per run). Production use would need query truncation or a learned dense retriever.
 
-7. **Negative example contamination risk**: HUDOC negatives are defined as "published in window, not added to guide." Some may be false negatives (added later or in different guide versions). Not validated.
+7. **Negative example contamination risk**: HUDOC negatives are defined as "published in window, not added to guide." Some may be false negatives (added later or in different guide versions). See negative set audit below.
 
 ### Trigger detection (`outputs/trigger/`)
 
@@ -219,6 +219,30 @@ These issues were identified in external review and have been fixed in the codeb
 **Context**: The ablation showed THE LAW section alone (hit@1=0.320) beats full-text enrichment (0.318). This model was not exposed in the main retrieval script.
 
 **Fix**: Added `law` model to `run_retrieval_baseline.py` — uses `base_query + law_section_tokens` instead of full case text. Now appears in `retrieval_eval.json` and `retrieval_predictions.csv` alongside random/base/enriched.
+
+## Negative Set Audit (2026-05-05)
+
+Script: `scripts/audit_negative_examples.py`
+Outputs: `outputs/negatives/negative_examples_audited.csv`, `outputs/negatives/negative_audit_report.json`
+
+| Flag | Count |
+|---|---|
+| Clean (recommended for use) | 1,619 |
+| Right-censored (to_snapshot_date ≥ 2025-01-01) | 1,440 |
+| Pre-existing (case already in guide before window) | 1 |
+| Delayed positives (case added to same guide in later window) | 0 |
+
+**Recommended negative set**: 1,619 clean rows only. Right-censored rows cannot be
+confidently called negatives — our archive closes shortly after those windows, making
+"not yet added" indistinguishable from "not observed." Exclude them.
+
+**Paper note — zero delayed positives**: The complete absence of delayed positives is a
+finding worth reporting in the paper. It means ECHR editorial decisions are temporally
+decisive: if a case is relevant to a guide, it is added in the next available snapshot
+and not deferred to a later update cycle. This strengthens the proxy argument — the
+editorial signal is not only a correlate of doctrinal relevance but a prompt one. It also
+confirms that the transition window is the correct unit of observation, and that searching
+for negatives across multiple future windows would not recover additional true positives.
 
 ## Remaining Deliverables
 
