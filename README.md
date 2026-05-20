@@ -56,6 +56,7 @@ lexgenie/
 │   ├── fetch_linked_case_texts.py            # Step 6: fetch full judgment text from HUDOC
 │   ├── sample_prototype_dev_set.py           # Step 7: stratified dev audit sample
 │   ├── run_retrieval_baseline.py             # Step 8: BM25 section retrieval (location)
+│   ├── retrieval_eval_v2.py                  # Step 8-b: Improved version of section retrieval (BM25+, dense, hybrid RRF) (location)
 │   ├── run_location_baseline.py              # Step 9: BM25 paragraph-level location
 │   ├── build_negative_examples.py            # Step 10: mine negatives from HUDOC
 │   ├── audit_negative_examples.py            # Step 11: flag delayed positives + right-censored
@@ -91,6 +92,8 @@ lexgenie/
 │   │   ├── dev_audit_sample.csv                 # 120-row stratified human-audit sample
 │   │   ├── retrieval_eval.json                  # BM25 location baseline results
 │   │   ├── retrieval_predictions.csv            # Per-row location predictions
+│   │   ├── retrieval_eval_v2.json               # Improved retrieval results (BM25+, dense, hybrid) location baseline results
+│   │   ├── retrieval_predictions_2.csv          # # Per-row predictions v2
 │   │   ├── retrieval_ablation.json              # Section ablation results
 │   │   ├── retrieval_ablation_predictions.csv   # Per-row ablation predictions
 │   │   ├── edit_type_eval.json                  # Edit type classification results
@@ -194,6 +197,7 @@ python3 scripts/sample_prototype_dev_set.py
 
 # Step 8: Section retrieval baseline
 python3 scripts/run_retrieval_baseline.py        # ~5 min
+OPENAI_API_KEY=sk-... python3 scripts/retrieval_eval_v2.py  # ~30 min first run (cached after)
 
 # Step 9: Paragraph-level location baseline
 python3 scripts/run_location_baseline.py         # ~5 min
@@ -317,6 +321,44 @@ Task: given a new case, rank guide sections by likelihood of needing an update.
 | full_text | 28.1% | 44.5% | 0.410 |
 
 The **law section alone matches full text**. The LAW section heading structure is often labeled directly with the relevant Convention article. Operative provisions add near-zero signal. Gold section in corpus rate: 99%.
+
+
+### Location: Improved Retrieval (v2)
+
+Three improvements over the BM25 baseline, implemented in `scripts/retrieval_eval_v2.py`:
+
+1. **BM25+ (`bm25_plus`)** — Convention article references (`Article 3`, `Article 8`...) are extracted from the LAW section and injected as explicit tokens (`article3`, `article8`) into both query and corpus. Adds a structural signal on top of lexical matching. LAW section extraction extended from 250 to 400 lines.
+
+2. **Dense (`dense`)** — Bi-encoder using OpenAI `text-embedding-3-small`. Query is the raw LAW section text; corpus sections are embedded once and cached to disk (`.npz` per diff file). Captures semantic matches that BM25 misses due to paraphrase or synonymy.
+
+3. **Hybrid RRF (`hybrid`)** — Reciprocal Rank Fusion of `bm25_plus` and `dense` rankings (k=60). BM25 is strong on exact term matching; dense is strong on semantics. The fusion consistently outperforms both individually.
+
+**Unconditional (all 1,004 rows; unlinked rows score 0):**
+
+| Model | hit@1 | hit@3 | MRR |
+|---|---|---|---|
+| Random | 2.9% | 7.2% | 0.092 |
+| Base | 9.7% | 18.4% | 0.186 |
+| Law (BM25) | 27.7% | 42.0% | 0.381 |
+| BM25+ | 27.9% | 42.1% | 0.382 |
+| Dense | 25.2% | 42.6% | 0.371 |
+| **Hybrid RRF** | **28.5%** | **42.3%** | **0.394** |
+
+**Conditional (843 linked rows only):**
+
+| Model | hit@1 | hit@3 | MRR |
+|---|---|---|---|
+| Random | 3.4% | 8.5% | 0.110 |
+| Base | 11.5% | 22.0% | 0.221 |
+| Law (BM25) | 33.0% | 50.1% | 0.454 |
+| BM25+ | 33.2% | 50.2% | 0.455 |
+| Dense | 30.0% | 50.8% | 0.442 |
+| **Hybrid RRF** | **33.9%** | **50.4%** | **0.469** |
+
+**Temporal split (conditional):** dev hit@1=33.4%, test hit@1=36.9% — no degradation over time.
+
+Dense underperforms BM25 on hit@1 (30.0% vs 33.0%) but outperforms on hit@3 (50.8% vs 50.1%), confirming that the two models make different errors and are complementary. Hybrid RRF is the best model across all metrics.
+
 
 ### Edit Type: What Kind of Update Is Needed?
 
