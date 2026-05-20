@@ -33,3 +33,4 @@ outputs/case_texts/text/
 
 # HUDOC API response cache — regenerate with build_negative_examples.py
 outputs/negatives/hudoc_negatives_cache.json
+outputs/prototype/embed_cache/
